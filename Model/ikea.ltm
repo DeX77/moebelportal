@@ -36,7 +36,7 @@
    {id30, id50, [[000000003]]} / id20 id56
 [id33 : id23 = "Step"
     @"http://www.uni-leipzig.de/tmp/ikea/types/step"]
-   {id33, id27, [[a step in the consturction manual]]}
+   {id33, id27, [[a step in the construction manual]]}
    {id33, id50, [[000000001]]} / id19
    {id33, id50, [[000000002]]} / id26 id53
    {id33, id50, [[000000003]]} / id26 id56
