@@ -2,201 +2,213 @@
 #VERSION "1.3"
 /*
    Generator: Ontopia Knowledge Suite (OKS)
-   Date:      2008-12-14 14:49
+   Date:      2008-12-18 21:02
 */
 
 /* ----------------- TOPIC MAP ----------------- */
 
-#TOPICMAP~ id10
-[id10 = "ikeatm"]
-   {id10, id15, [[1.0]]}
-   {id10, id24, [[1.4]]}
-   {id10, id3, [[a ikea tm]]}
-   {id10, id59, [[Sven Krosse]]}
+#TOPICMAP~ id70
+[id70 = "ikeatm"]
+   {id70, id32, [[a ikea tm]]}
+   {id70, id45, [[1.0]]}
+   {id70, id67, [[1.4]]}
+   {id70, id69, [[Sven Krosse]]}
 
 /* ----------------- ONTOLOGY ------------------ */
 
 /* ----------------- Topic Types --------------- */
 
 
-/* -- TT: id12 -- */
-[id16 : id12 = "Field Type"
-    @"http://psi.ontopia.net/ontology/field-type"]
-[id19 : id12 id36 = "Ontology Topic type"
-    @"http://psi.ontopia.net/ontology/ontology-topic-type"]
-[id33 : id12 id16 id19 = "Name type"
-    @"http://psi.ontopia.net/ontology/name-type"]
-[id36 : id12 id19 = "Topic type"
-    @"http://psi.ontopia.net/ontology/topic-type"]
-[id42 : id12 id16 id19 = "Occurrence type"
-    @"http://psi.ontopia.net/ontology/occurrence-type"]
-[id46 : id12 = "Datatype"
-    @"http://psi.ontopia.net/ontology/datatype"]
-[id47 : id12 = "Superordinate Role Type"
-    @"http://www.techquila.com/psi/hierarchy/#superordinate-role-type"]
-[id5 : id12 id16 id19 = "Association role type"
+/* -- TT: id40 -- */
+[id11 : id40 id55 id68 = "Association role type"
     @"http://psi.ontopia.net/ontology/role-type"]
-[id61 : id12 = "Cardinality"
-    @"http://psi.ontopia.net/ontology/cardinality"]
-[id62 : id12 = "Subordinate Role Type"
-    @"http://www.techquila.com/psi/hierarchy/#subordinate-role-type"]
-[id65 : id12 = "Interface control"
-    @"http://psi.ontopia.net/ontology/interface-control"]
-[id69 : id12 id16 id19 = "Association type"
+[id43 : id40 id55 = "Topic type"
+    @"http://psi.ontopia.net/ontology/topic-type"]
+[id51 : id40 id55 id68 = "Name type"
+    @"http://psi.ontopia.net/ontology/name-type"]
+[id64 : id40 id55 id68 = "Association type"
     @"http://psi.ontopia.net/ontology/association-type"]
-[id81 : id12 id16 = "Identity field"
-    @"http://psi.ontopia.net/ontology/identity-field"]
-[id83 : id12 = "Hierarchical Relation Type"
-    @"http://www.techquila.com/psi/hierarchy/#hierarchical-relation-type"]
+[id79 : id40 id55 id68 = "Occurrence type"
+    @"http://psi.ontopia.net/ontology/occurrence-type"]
 
-/* -- TT: id36 -- */
-[id17 : id36 = "screw mother"
-    @"http://www.uni-leipzig.de/tmp/ikea/types/screw_mother"]
-   {id17, id3, [[a screw mother]]}
-   {id17, id74, [[000000001]]} / id75
-   {id17, id74, [[000000002]]} / id39 id72
-   {id17, id74, [[000000003]]} / id4 id72
-   {id17, id74, [[000000004]]} / id72 id82
-[id28 : id36 = "step"
-    @"http://www.uni-leipzig.de/tmp/ikea/types/step"]
-   {id28, id3, [[a step in the consturction manual]]}
-   {id28, id74, [[000000001]]} / id75
-   {id28, id74, [[000000002]]} / id40 id72
-   {id28, id74, [[000000003]]} / id21 id40
-   {id28, id74, [[000000004]]} / id21 id4
-   {id28, id74, [[000000005]]} / id21 id64
-   {id28, id74, [[000000006]]} / id18 id21
-   {id28, id74, [[000000007]]} / id18 id72
-   {id28, id74, [[000000008]]} / id31 id72
-   {id28, id74, [[000000009]]} / id21 id82
-[id43 : id36 = "tool"
-    @"http://www.uni-leipzig.de/tmp/ikea/types/tool"]
-   {id43, id3, [[a tool which is needed at a step]]}
-   {id43, id74, [[000000001]]} / id75
-   {id43, id74, [[000000002]]} / id64 id72
-[id63 : id36 = "matrial"
-    @"http://www.uni-leipzig.de/tmp/ikea/types/material"]
-   {id63, id3, [[a material is needed at step]]}
-   {id63, id74, [[000000001]]} / id75
-   {id63, id74, [[000000002]]} / id4 id72
-   {id63, id74, [[000000003]]} / id72 id82
-[id67 : id36 = "screw"
-    @"http://www.uni-leipzig.de/tmp/ikea/types/screw"]
-   {id67, id3, [[a screw]]}
-   {id67, id74, [[000000001]]} / id75
-   {id67, id74, [[000000002]]} / id21 id39
-   {id67, id74, [[000000003]]} / id4 id72
-   {id67, id74, [[000000004]]} / id72 id82
-[id71 : id36 = "lamp"
-    @"http://www.uni-leipzig.de/tmp/ikea/types/lamp"]
-   {id71, id3, [[a product of type lamp]]}
-   {id71, id74, [[000000001]]} / id44 id72
-[id89 : id36 = "manual"
+/* -- TT: id43 -- */
+[id18 : id43 = "manual"
     @"http://www.uni-leipzig.de/tmp/ikea/types/manual"]
-   {id89, id74, [[000000001]]} / id75
-   {id89, id74, [[000000002]]} / id21 id31
-   {id89, id74, [[000000003]]} / id21 id44
-   {id89, id74, [[000000004]]} / id59
-   {id89, id74, [[000000005]]} / id15
+   {id18, id25, [[000000001]]} / id16
+   {id18, id25, [[000000002]]} / id10 id12
+   {id18, id25, [[000000003]]} / id12 id89
+   {id18, id25, [[000000004]]} / id69
+   {id18, id25, [[000000005]]} / id45
+[id40 : id43 id55 = "Ontology Topic type"
+    @"http://psi.ontopia.net/ontology/ontology-topic-type"]
+[id47 : id43 = "screw mother"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/screw_mother"]
+   {id47, id25, [[000000001]]} / id16
+   {id47, id25, [[000000002]]} / id26 id37
+   {id47, id25, [[000000003]]} / id26 id31
+   {id47, id25, [[000000004]]} / id26 id63
+   {id47, id25, [[000000005]]} / id42
+   {id47, id32, [[a screw mother]]}
+[id49 : id43 = "screw"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/screw"]
+   {id49, id25, [[000000001]]} / id16
+   {id49, id25, [[000000002]]} / id12 id37
+   {id49, id25, [[000000003]]} / id26 id31
+   {id49, id25, [[000000004]]} / id26 id63
+   {id49, id25, [[000000005]]} / id42
+   {id49, id32, [[a screw]]}
+[id58 : id43 = "step"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/step"]
+   {id58, id25, [[000000001]]} / id16
+   {id58, id25, [[000000002]]} / id26 id4
+   {id58, id25, [[000000003]]} / id12 id4
+   {id58, id25, [[000000004]]} / id12 id31
+   {id58, id25, [[000000005]]} / id12 id62
+   {id58, id25, [[000000006]]} / id12 id28
+   {id58, id25, [[000000007]]} / id26 id28
+   {id58, id25, [[000000008]]} / id10 id26
+   {id58, id25, [[000000009]]} / id12 id63
+   {id58, id32, [[a step in the consturction manual]]}
+[id60 : id43 = "lamp"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/lamp"]
+   {id60, id25, [[000000001]]} / id26 id89
+   {id60, id25, [[000000002]]} / id42
+   {id60, id25, [[000000003]]} / id16
+   {id60, id32, [[a product of type lamp]]}
+[id73 : id43 = "tool"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/tool"]
+   {id73, id25, [[000000001]]} / id16
+   {id73, id25, [[000000002]]} / id26 id62
+   {id73, id25, [[000000003]]} / id42
+   {id73, id32, [[a tool which is needed at a step]]}
+[id77 : id43 = "matrial"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/material"]
+   {id77, id25, [[000000001]]} / id16
+   {id77, id25, [[000000002]]} / id26 id31
+   {id77, id25, [[000000003]]} / id26 id63
+   {id77, id25, [[000000004]]} / id42
+   {id77, id32, [[a material is needed at step]]}
+
+/* -- TT: id55 -- */
+[id1 : id55 id68 = "Identity field"
+    @"http://psi.ontopia.net/ontology/identity-field"]
+[id13 : id55 = "Datatype"
+    @"http://psi.ontopia.net/ontology/datatype"]
+[id30 : id55 = "Subordinate Role Type"
+    @"http://www.techquila.com/psi/hierarchy/#subordinate-role-type"]
+[id52 : id55 = "Hierarchical Relation Type"
+    @"http://www.techquila.com/psi/hierarchy/#hierarchical-relation-type"]
+[id6 : id55 = "Superordinate Role Type"
+    @"http://www.techquila.com/psi/hierarchy/#superordinate-role-type"]
+[id65 : id55 = "Interface control"
+    @"http://psi.ontopia.net/ontology/interface-control"]
+[id68 : id55 = "Field Type"
+    @"http://psi.ontopia.net/ontology/field-type"]
+[id78 : id55 = "Cardinality"
+    @"http://psi.ontopia.net/ontology/cardinality"]
 
 /* -- TT: (untyped) -- */
-[id12 = "System topic"
+[id55 = "System topic"
     @"http://psi.ontopia.net/ontology/system-topic"]
 
 /* ----------------- Type Hierarchy ------------ */
 
-id70( id45 : id26, id71 : id25 )
-id70( id53 : id26, id33 : id25 )
-id70( id53 : id26, id42 : id25 )
-id70( id53 : id26, id5 : id25 )
-id70( id53 : id26, id69 : id25 )
-id70( id53 : id26, id81 : id25 )
-id70( id63 : id26, id17 : id25 )
-id70( id63 : id26, id67 : id25 )
+id20( id39 : id17, id1 : id35 )
+id20( id39 : id17, id11 : id35 )
+id20( id39 : id17, id51 : id35 )
+id20( id39 : id17, id64 : id35 )
+id20( id39 : id17, id79 : id35 )
+id20( id57 : id17, id60 : id35 )
+id20( id77 : id17, id47 : id35 )
+id20( id77 : id17, id49 : id35 )
 
 /* ----------------- Role Types ---------------- */
 
 
-/* -- TT: id12 -- */
-[id25 : id12 id5 id62 = "Subclass"
-    @"http://www.topicmaps.org/xtm/1.0/core.xtm#subclass"]
-[id26 : id12 id47 id5 = "Superclass"
+/* -- TT: id11 -- */
+[id12 : id11]
+[id17 : id11 id55 id6 = "Superclass"
     @"http://www.topicmaps.org/xtm/1.0/core.xtm#superclass"]
-[id53 : id12 id16 = "Field"
-    @"http://psi.ontopia.net/ontology/field"]
+[id26 : id11]
+[id35 : id11 id30 id55 = "Subclass"
+    @"http://www.topicmaps.org/xtm/1.0/core.xtm#subclass"]
 
-/* -- TT: id5 -- */
-[id21 : id5]
-[id72 : id5]
+/* -- TT: id55 -- */
+[id39 : id55 id68 = "Field"
+    @"http://psi.ontopia.net/ontology/field"]
 
 /* ----------------- Association Types --------- */
 
 
-/* -- TT: id12 -- */
-[id27 : id12 id69 = "Has field"
-    @"http://psi.ontopia.net/ontology/has-field"]
-[id37 : id12 id69 = "Has role"
-    @"http://psi.ontopia.net/ontology/has-role"]
-[id48 : id12 id69 = "Default Cardinality"
-    @"http://psi.ontopia.net/ontology/default-cardinality"]
-[id52 : id12 id69 = "Is abstract"
-    @"http://psi.ontopia.net/ontology/is-abstract"]
-[id70 : id12 id69 id83 = "Superclass/subclass"
-                       = "Subclass of" / id25
-                       = "Superclass of" / id26
+/* -- TT: id52 -- */
+[id20 : id52 id55 id64 = "Superclass/subclass"
+                       = "Superclass of" / id17
+                       = "Subclass of" / id35
     @"http://www.topicmaps.org/xtm/1.0/core.xtm#superclass-subclass"]
-[id73 : id12 id69 = "Has cardinality"
-    @"http://psi.ontopia.net/ontology/has-cardinality"]
-[id79 : id12 id69 = "Is hidden"
-    @"http://psi.ontopia.net/ontology/is-hidden"]
-[id8 : id12 id69 = "Uses interface control"
-    @"http://psi.ontopia.net/ontology/use-control"]
-[id80 : id12 id69 = "Has datatype"
-    @"http://psi.ontopia.net/ontology/has-datatype"]
 
-/* -- TT: id69 -- */
-[id18 : id69 = "parts of steps"
-             = "is part of" / id21
-             = "conatins" / id72
-    @"http://www.uni-leipzig.de/tmp/ikea/association/parts_of_steps"]
-   {id18, id3, [[a substep of a step]]}
-[id31 : id69 = "set of steps"
-             = "contains" / id21
-             = "is step of" / id72
+/* -- TT: id55 -- */
+[id38 : id55 id64 = "Is abstract"
+    @"http://psi.ontopia.net/ontology/is-abstract"]
+[id41 : id55 id64 = "Has role"
+    @"http://psi.ontopia.net/ontology/has-role"]
+[id48 : id55 id64 = "Uses interface control"
+    @"http://psi.ontopia.net/ontology/use-control"]
+[id5 : id55 id64 = "Has datatype"
+    @"http://psi.ontopia.net/ontology/has-datatype"]
+[id54 : id55 id64 = "Default Cardinality"
+    @"http://psi.ontopia.net/ontology/default-cardinality"]
+[id61 : id55 id64 = "Has field"
+    @"http://psi.ontopia.net/ontology/has-field"]
+[id84 : id55 id64 = "Has cardinality"
+    @"http://psi.ontopia.net/ontology/has-cardinality"]
+[id86 : id55 id64 = "Is hidden"
+    @"http://psi.ontopia.net/ontology/is-hidden"]
+
+/* -- TT: id64 -- */
+[id10 : id64 = "set of steps"
+             = "contains" / id12
+             = "is step of" / id26
     @"http://www.uni-leipzig.de/tmp/ikea/association/set_of_steps"]
-   {id31, id3, [[a set of steps of a product manual]]}
-[id39 : id69 = "belongs together"
-             = "belongs to" / id21
-             = "belongs to" / id72
+   {id10, id32, [[a set of steps of a product manual]]}
+[id28 : id64 = "parts of steps"
+             = "is part of" / id12
+             = "conatins" / id26
+    @"http://www.uni-leipzig.de/tmp/ikea/association/parts_of_steps"]
+   {id28, id32, [[a substep of a step]]}
+[id37 : id64 = "belongs together"
+             = "belongs to" / id12
+             = "belongs to" / id26
     @"http://www.uni-leipzig.de/tmp/ikea/assoiciation/belongsTo"]
-   {id39, id3, [[a screw belongs to a screw mother]]}
-[id40 : id69 = "sequence of steps"
-             = "do before" / id21
-             = "do after" / id72
+   {id37, id32, [[a screw belongs to a screw mother]]}
+[id4 : id64 = "sequence of steps"
+            = "do before" / id12
+            = "do after" / id26
     @"http://www.uni-leipzig.de/tmp/ikea/assoiciation/sequence_of_steps"]
-   {id40, id3, [[a step is do after an other]]}
-[id44 : id69 = "manual of"
-             = "manual of" / id21
-             = "its manual" / id72
-    @"http://www.uni-leipzig.de/tmp/ikea/association/manual_of"]
-   {id44, id3, [[a manual of a product]]}
-[id64 : id69 = "tools of step"
-             = "needs tools" / id21
-             = "is needed at" / id72
+   {id4, id32, [[a step is do after an other]]}
+[id62 : id64 = "tools of step"
+             = "needs tools" / id12
+             = "is needed at" / id26
     @"http://www.uni-leipzig.de/tmp/ikea/assoiciation/tools_of_step"]
-   {id64, id3, [[a tool of a step]]}
+   {id62, id32, [[a tool of a step]]}
+[id89 : id64 = "manual of"
+             = "manual of" / id12
+             = "its manual" / id26
+    @"http://www.uni-leipzig.de/tmp/ikea/association/manual_of"]
+   {id89, id32, [[a manual of a product]]}
 
 /* ----------------- Occurrence Types ---------- */
 
 
-/* -- TT: id12 -- */
-[id74 : id12 id42 = "Field order"
+/* -- TT: id55 -- */
+[id25 : id55 id79 = "Field order"
     @"http://psi.ontopia.net/ontology/field-order"]
-[id77 : id12 id42 = "Pattern"
+[id71 : id55 id79 = "Width"
+    @"http://psi.ontopia.net/ontology/width"]
+[id90 : id55 id79 = "Pattern"
     @"http://psi.ontopia.net/ontology/pattern"]
 
-/* -- TT: id42 -- */
-[id3 : id42 = "Description"
+/* -- TT: id79 -- */
+[id32 : id79 = "Description"
     @"http://purl.org/dc/elements/1.1/description"]
 
 /* ----------------- INSTANCES ----------------- */
@@ -204,413 +216,446 @@ id70( id63 : id26, id67 : id25 )
 /* ----------------- Topics -------------------- */
 
 
-/* -- TT: id12 -- */
-[id14 : id12 id42 = "Height"
-    @"http://psi.ontopia.net/ontology/height"]
-[id24 : id12 = "Ontology Version"
-    @"http://psi.ontopia.net/ontology/ted-ontology-version"]
-[id41 : id12 id69 = "Has large instance set"
-    @"http://psi.ontopia.net/ontology/has-large-instance-set"]
-[id51 : id12 id69 = "Is hierarchical"
-    @"http://psi.ontopia.net/ontology/is-hierarchical"]
-[id54 : id12 id42 = "Width"
-    @"http://psi.ontopia.net/ontology/width"]
-[id57 : id12 id69 = "Is read-only"
-    @"http://psi.ontopia.net/ontology/is-readonly"]
-[id7 : id12 id69 = "Is symmetric"
-    @"http://psi.ontopia.net/ontology/is-symmetric"]
-[id85 : id12 id69 = "Forms hierarchy for"
-                  = "Hierarchy" / id36
-                  = "Forms hierarchy for" / id69
-    @"http://psi.ontopia.net/ontology/forms-hierarchy-for"]
-
-/* -- TT: id17 -- */
-[id22 : id17 = "small metall screw mother"]
-
-/* -- TT: id28 -- */
-[id1 : id28 = "Step third"]
-[id30 : id28 = "Substep one b"]
-[id56 : id28 = "Substep one a"]
-[id60 : id28 = "Step one"]
-[id88 : id28 = "Step two"]
-
-/* -- TT: id33 -- */
-[id20 : id33]
-[id75 : id33 = "Name"
-    @"http://psi.ontopia.net/ontology/untyped-name"]
-
-/* -- TT: id36 -- */
-[id45 : id36 = "product"
-    @"http://www.uni-leipzig.de/tmp/types/product"]
-   {id45, id3, [[the final product]]}
-   {id45, id74, [[000000001]]} / id44 id72
-
-/* -- TT: id42 -- */
-[id15 : id42 = "Version"
-    @"http://purl.org/dc/elements/1.1/version"]
-[id59 : id42 = "Creator"
-    @"http://purl.org/dc/elements/1.1/creator"]
-
-/* -- TT: id43 -- */
-[id13 : id43 = "spanner"]
-
-/* -- TT: id46 -- */
-[id11 : id46 = "Number"
-    @"http://www.w3.org/2001/XMLSchema#decimal"]
-[id29 : id46 = "Image"
-    @"http://psi.ontopia.net/ontology/datatype-image"]
-[id32 : id46 = "URI"
-    @"http://www.w3.org/2001/XMLSchema#anyURI"]
-[id66 : id46 = "String"
-    @"http://www.w3.org/2001/XMLSchema#string"]
-[id68 : id46 = "Datetime"
-    @"http://www.w3.org/2001/XMLSchema#dateTime"]
-   {id68, id77, [[YYYY-MM-DD HH:MM:SS]]}
-[id76 : id46 = "HTML"
-    @"http://psi.ontopia.net/ontology/datatype-html"]
-[id86 : id46 = "Date"
-    @"http://www.w3.org/2001/XMLSchema#date"]
-   {id86, id77, [[YYYY-MM-DD]]}
-
-/* -- TT: id61 -- */
-[id23 : id61 = "Zero or more"
-    @"http://psi.ontopia.net/ontology/cardinality-0-M"]
-[id35 : id61 = "One or more"
-    @"http://psi.ontopia.net/ontology/cardinality-1-M"]
-[id49 : id61 = "Exactly one"
-    @"http://psi.ontopia.net/ontology/cardinality-1-1"]
-[id58 : id61 = "Zero or one"
-    @"http://psi.ontopia.net/ontology/cardinality-0-1"]
-
-/* -- TT: id63 -- */
-[id38 : id63]
-
-/* -- TT: id65 -- */
-[id34 : id65 = "Browse dialog"
-    @"http://psi.ontopia.net/ontology/browse-dialog"]
-[id50 : id65 = "Search dialog"
-    @"http://psi.ontopia.net/ontology/search-dialog"]
-[id78 : id65 = "Drop-down list"
-    @"http://psi.ontopia.net/ontology/drop-down-list"]
-
-/* -- TT: id67 -- */
-[id84 : id67 = "small plastic screw"]
-[id9 : id67 = "small metall screw"]
-
-/* -- TT: id69 -- */
-[id4 : id69 = "material of step"
-            = "needs matrial" / id21
-            = "is needed at" / id72
-    @"http://www.uni-leipzig.de/tmp/ikea/association/material_of_step"]
-   {id4, id3, [[material of a step]]}
-[id82 : id69 = "construction"
-             = "result of" / id21
-             = "constructs at" / id72
-    @"http://www.uni-leipzig.de/tmp/ikea/assoiciation/construction"]
-   {id82, id3, [[a step construct a new abstract material]]}
-
-/* -- TT: id71 -- */
-[id87 : id71 = "Textur"]
-
-/* -- TT: id81 -- */
-[id2 : id81 = "Subject locator"
+/* -- TT: id1 -- */
+[id36 : id1 = "Subject locator"
     @"http://psi.ontopia.net/ontology/subject-locator"]
-[id6 : id81 = "Subject identifier"
+[id87 : id1 = "Subject identifier"
     @"http://psi.ontopia.net/ontology/subject-identifier"]
 
-/* -- TT: id89 -- */
-[id55 : id89 = "Textur manual"]
+/* -- TT: id13 -- */
+[id15 : id13 = "Date"
+    @"http://www.w3.org/2001/XMLSchema#date"]
+   {id15, id90, [[YYYY-MM-DD]]}
+[id29 : id13 = "HTML"
+    @"http://psi.ontopia.net/ontology/datatype-html"]
+[id3 : id13 = "URI"
+    @"http://www.w3.org/2001/XMLSchema#anyURI"]
+[id34 : id13 = "Image"
+    @"http://psi.ontopia.net/ontology/datatype-image"]
+[id56 : id13 = "Number"
+    @"http://www.w3.org/2001/XMLSchema#decimal"]
+[id74 : id13 = "Datetime"
+    @"http://www.w3.org/2001/XMLSchema#dateTime"]
+   {id74, id90, [[YYYY-MM-DD HH:MM:SS]]}
+[id8 : id13 = "String"
+    @"http://www.w3.org/2001/XMLSchema#string"]
+
+/* -- TT: id18 -- */
+[id7 : id18 = "Textur manual"]
+
+/* -- TT: id43 -- */
+[id57 : id43 = "product"
+    @"http://www.uni-leipzig.de/tmp/types/product"]
+   {id57, id25, [[000000001]]} / id26 id89
+   {id57, id25, [[000000002]]} / id42
+   {id57, id25, [[000000003]]} / id16
+   {id57, id32, [[the final product]]}
+[id83 : id43 = "language"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/language"]
+   {id83, id25, [[000000001]]} / id16
+   {id83, id32, [[language]]}
+
+/* -- TT: id47 -- */
+[id82 : id47 = "small metall screw mother"]
+
+/* -- TT: id49 -- */
+[id2 : id49 = "small plastic screw"]
+[id80 : id49 = "small metall screw"]
+
+/* -- TT: id51 -- */
+[id16 : id51 = "Name"
+    @"http://psi.ontopia.net/ontology/untyped-name"]
+
+/* -- TT: id55 -- */
+[id14 : id55 id64 = "Is hierarchical"
+    @"http://psi.ontopia.net/ontology/is-hierarchical"]
+[id23 : id55 id64 = "Forms hierarchy for"
+                  = "Hierarchy" / id43
+                  = "Forms hierarchy for" / id64
+    @"http://psi.ontopia.net/ontology/forms-hierarchy-for"]
+[id24 : id55 id64 = "Is symmetric"
+    @"http://psi.ontopia.net/ontology/is-symmetric"]
+[id44 : id55 id64 = "Has large instance set"
+    @"http://psi.ontopia.net/ontology/has-large-instance-set"]
+[id67 : id55 = "Ontology Version"
+    @"http://psi.ontopia.net/ontology/ted-ontology-version"]
+[id76 : id55 id79 = "Height"
+    @"http://psi.ontopia.net/ontology/height"]
+[id9 : id55 id64 = "Is read-only"
+    @"http://psi.ontopia.net/ontology/is-readonly"]
+
+/* -- TT: id58 -- */
+[id19 : id58 = "Substep one a"]
+[id50 : id58 = "Step two"]
+[id53 : id58 = "Step third"]
+[id59 : id58 = "Step one"]
+[id81 : id58 = "Substep one b"]
+
+/* -- TT: id60 -- */
+[id85 : id60 = "Textur"]
+
+/* -- TT: id64 -- */
+[id31 : id64 = "material of step"
+             = "needs matrial" / id12
+             = "is needed at" / id26
+    @"http://www.uni-leipzig.de/tmp/ikea/association/material_of_step"]
+   {id31, id32, [[material of a step]]}
+[id63 : id64 = "construction"
+             = "result of" / id12
+             = "constructs at" / id26
+    @"http://www.uni-leipzig.de/tmp/ikea/assoiciation/construction"]
+   {id63, id32, [[a step construct a new abstract material]]}
+
+/* -- TT: id65 -- */
+[id33 : id65 = "Browse dialog"
+    @"http://psi.ontopia.net/ontology/browse-dialog"]
+[id66 : id65 = "Drop-down list"
+    @"http://psi.ontopia.net/ontology/drop-down-list"]
+[id75 : id65 = "Search dialog"
+    @"http://psi.ontopia.net/ontology/search-dialog"]
+
+/* -- TT: id73 -- */
+[id46 : id73 = "spanner"]
+
+/* -- TT: id77 -- */
+[id22 : id77]
+
+/* -- TT: id78 -- */
+[id21 : id78 = "One or more"
+    @"http://psi.ontopia.net/ontology/cardinality-1-M"]
+[id27 : id78 = "Zero or one"
+    @"http://psi.ontopia.net/ontology/cardinality-0-1"]
+[id72 : id78 = "Zero or more"
+    @"http://psi.ontopia.net/ontology/cardinality-0-M"]
+[id88 : id78 = "Exactly one"
+    @"http://psi.ontopia.net/ontology/cardinality-1-1"]
+
+/* -- TT: id79 -- */
+[id42 : id79 = "image"
+    @"http://www.uni-leipzig.de/tmp/ikea/types/image"]
+   {id42, id32, [[an image]]}
+   {id42, id71, [[250]]}
+[id45 : id79 = "Version"
+    @"http://purl.org/dc/elements/1.1/version"]
+[id69 : id79 = "Creator"
+    @"http://purl.org/dc/elements/1.1/creator"]
 
 /* ----------------- Associations -------------- */
 
-/* -- AT: id18 */
-id18( id60 : id72, id30 : id21 )
-id18( id60 : id72, id56 : id21 )
+/* -- AT: id10 */
+id10( id7 : id12, id19 : id26 )
+id10( id7 : id12, id50 : id26 )
+id10( id7 : id12, id53 : id26 )
+id10( id7 : id12, id59 : id26 )
+id10( id7 : id12, id81 : id26 )
 
-/* -- AT: id27 */
-id27( id28 : id36,
-      id75 : id53 )
-id27( id43 : id36,
-      id75 : id53 )
-id27( id63 : id36,
-      id75 : id53 )
-id27( id89 : id36,
-      id15 : id53 )
-id27( id89 : id36,
-      id59 : id53 )
-id27( id89 : id36,
-      id75 : id53 )
-id27( id21 : id5,
-      id28 : id36,
-      id18 : id53 )
-id27( id21 : id5,
-      id28 : id36,
-      id4 : id53 )
-id27( id21 : id5,
-      id28 : id36,
-      id40 : id53 )
-id27( id21 : id5,
-      id28 : id36,
-      id64 : id53 )
-id27( id21 : id5,
-      id28 : id36,
-      id82 : id53 )
-id27( id21 : id5,
-      id67 : id36,
-      id39 : id53 )
-id27( id21 : id5,
-      id89 : id36,
-      id31 : id53 )
-id27( id21 : id5,
-      id89 : id36,
-      id44 : id53 )
-id27( id72 : id5,
-      id17 : id36,
-      id39 : id53 )
-id27( id72 : id5,
-      id28 : id36,
-      id18 : id53 )
-id27( id72 : id5,
-      id28 : id36,
-      id31 : id53 )
-id27( id72 : id5,
-      id28 : id36,
-      id40 : id53 )
-id27( id72 : id5,
-      id43 : id36,
-      id64 : id53 )
-id27( id72 : id5,
-      id45 : id36,
-      id44 : id53 )
-id27( id72 : id5,
-      id63 : id36,
-      id4 : id53 )
-id27( id72 : id5,
-      id63 : id36,
-      id82 : id53 )
-
-/* -- AT: id31 */
-id31( id55 : id21, id1 : id72 )
-id31( id55 : id21, id30 : id72 )
-id31( id55 : id21, id56 : id72 )
-id31( id55 : id21, id60 : id72 )
-id31( id55 : id21, id88 : id72 )
+/* -- AT: id28 */
+id28( id59 : id26, id19 : id12 )
+id28( id59 : id26, id81 : id12 )
 
 /* -- AT: id37 */
-id37( id21 : id5, id18 : id69 )
-id37( id21 : id5, id31 : id69 )
-id37( id21 : id5, id39 : id69 )
-id37( id21 : id5, id4 : id69 )
-id37( id21 : id5, id40 : id69 )
-id37( id21 : id5, id44 : id69 )
-id37( id21 : id5, id64 : id69 )
-id37( id21 : id5, id82 : id69 )
-id37( id72 : id5, id18 : id69 )
-id37( id72 : id5, id31 : id69 )
-id37( id72 : id5, id39 : id69 )
-id37( id72 : id5, id4 : id69 )
-id37( id72 : id5, id40 : id69 )
-id37( id72 : id5, id44 : id69 )
-id37( id72 : id5, id64 : id69 )
-id37( id72 : id5, id82 : id69 )
+id37( id80 : id12, id82 : id26 )
 
-/* -- AT: id39 */
-id39( id9 : id21, id22 : id72 )
+/* -- AT: id38 */
+id38( id57 : id43 )
 
-/* -- AT: id40 */
-id40( id56 : id21, id30 : id72 )
-id40( id60 : id21, id88 : id72 )
-id40( id88 : id21, id1 : id72 )
+/* -- AT: id4 */
+id4( id19 : id12, id81 : id26 )
+id4( id50 : id12, id53 : id26 )
+id4( id59 : id12, id50 : id26 )
 
-/* -- AT: id44 */
-id44( id55 : id21, id87 : id72 )
+/* -- AT: id41 */
+id41( id12 : id11, id10 : id64 )
+id41( id12 : id11, id28 : id64 )
+id41( id12 : id11, id31 : id64 )
+id41( id12 : id11, id37 : id64 )
+id41( id12 : id11, id4 : id64 )
+id41( id12 : id11, id62 : id64 )
+id41( id12 : id11, id63 : id64 )
+id41( id12 : id11, id89 : id64 )
+id41( id26 : id11, id10 : id64 )
+id41( id26 : id11, id28 : id64 )
+id41( id26 : id11, id31 : id64 )
+id41( id26 : id11, id37 : id64 )
+id41( id26 : id11, id4 : id64 )
+id41( id26 : id11, id62 : id64 )
+id41( id26 : id11, id63 : id64 )
+id41( id26 : id11, id89 : id64 )
 
 /* -- AT: id48 */
-id48( id2 : id53, id49 : id61 )
-id48( id75 : id53, id49 : id61 )
-id48( id23 : id61, id5 : id16 )
-id48( id23 : id61, id69 : id16 )
-id48( id35 : id61, id81 : id16 )
-id48( id58 : id61, id33 : id16 )
-id48( id58 : id61, id42 : id16 )
+id48( id66 : id65,
+      id12 : id11,
+      id10 : id64 )
+id48( id66 : id65,
+      id12 : id11,
+      id28 : id64 )
+id48( id66 : id65,
+      id12 : id11,
+      id31 : id64 )
+id48( id66 : id65,
+      id12 : id11,
+      id37 : id64 )
+id48( id66 : id65,
+      id12 : id11,
+      id4 : id64 )
+id48( id66 : id65,
+      id12 : id11,
+      id62 : id64 )
+id48( id66 : id65,
+      id12 : id11,
+      id63 : id64 )
+id48( id66 : id65,
+      id12 : id11,
+      id89 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id10 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id28 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id31 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id37 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id4 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id62 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id63 : id64 )
+id48( id66 : id65,
+      id26 : id11,
+      id89 : id64 )
 
-/* -- AT: id52 */
-id52( id45 : id36 )
+/* -- AT: id5 */
+id5( id3 : id13, id36 : id39 )
+id5( id3 : id13, id42 : id39 )
+id5( id3 : id13, id87 : id39 )
+id5( id8 : id13, id32 : id39 )
+id5( id8 : id13, id45 : id39 )
+id5( id8 : id13, id69 : id39 )
 
-/* -- AT: id64 */
-id64( id13 : id72, id30 : id21 )
-id64( id13 : id72, id60 : id21 )
+/* -- AT: id54 */
+id54( id16 : id39, id88 : id78 )
+id54( id36 : id39, id88 : id78 )
+id54( id21 : id78, id1 : id68 )
+id54( id27 : id78, id51 : id68 )
+id54( id27 : id78, id79 : id68 )
+id54( id72 : id78, id11 : id68 )
+id54( id72 : id78, id64 : id68 )
 
-/* -- AT: id73 */
-id73( id21 : id5,
-      id23 : id61,
-      id28 : id36,
-      id4 : id53 )
-id73( id21 : id5,
-      id23 : id61,
-      id28 : id36,
-      id64 : id53 )
-id73( id21 : id5,
-      id35 : id61,
-      id28 : id36,
-      id82 : id53 )
-id73( id21 : id5,
-      id35 : id61,
-      id89 : id36,
-      id31 : id53 )
-id73( id21 : id5,
-      id49 : id61,
-      id28 : id36,
-      id18 : id53 )
-id73( id21 : id5,
-      id49 : id61,
-      id28 : id36,
-      id40 : id53 )
-id73( id21 : id5,
-      id49 : id61,
-      id67 : id36,
-      id39 : id53 )
-id73( id21 : id5,
-      id49 : id61,
-      id89 : id36,
-      id44 : id53 )
-id73( id72 : id5,
-      id23 : id61,
-      id28 : id36,
-      id18 : id53 )
-id73( id72 : id5,
-      id23 : id61,
-      id43 : id36,
-      id64 : id53 )
-id73( id72 : id5,
-      id23 : id61,
-      id63 : id36,
-      id82 : id53 )
-id73( id72 : id5,
-      id35 : id61,
-      id63 : id36,
-      id4 : id53 )
-id73( id72 : id5,
-      id49 : id61,
-      id17 : id36,
-      id39 : id53 )
-id73( id72 : id5,
-      id49 : id61,
-      id28 : id36,
-      id31 : id53 )
-id73( id72 : id5,
-      id49 : id61,
-      id28 : id36,
-      id40 : id53 )
-id73( id72 : id5,
-      id49 : id61,
-      id45 : id36,
-      id44 : id53 )
-id73( id35 : id61,
-      id45 : id36,
-      id3 : id53 )
-id73( id35 : id61,
-      id45 : id36,
-      id75 : id53 )
-id73( id35 : id61,
-      id71 : id36,
-      id75 : id53 )
-id73( id49 : id61,
-      id17 : id36,
-      id75 : id53 )
-id73( id49 : id61,
-      id28 : id36,
-      id75 : id53 )
-id73( id49 : id61,
-      id43 : id36,
-      id75 : id53 )
-id73( id49 : id61,
-      id63 : id36,
-      id75 : id53 )
-id73( id49 : id61,
-      id67 : id36,
-      id75 : id53 )
-id73( id49 : id61,
-      id89 : id36,
-      id15 : id53 )
-id73( id49 : id61,
-      id89 : id36,
-      id59 : id53 )
-id73( id49 : id61,
-      id89 : id36,
-      id75 : id53 )
+/* -- AT: id61 */
+id61( id12 : id11,
+      id18 : id43,
+      id10 : id39 )
+id61( id12 : id11,
+      id18 : id43,
+      id89 : id39 )
+id61( id12 : id11,
+      id49 : id43,
+      id37 : id39 )
+id61( id12 : id11,
+      id58 : id43,
+      id28 : id39 )
+id61( id12 : id11,
+      id58 : id43,
+      id31 : id39 )
+id61( id12 : id11,
+      id58 : id43,
+      id4 : id39 )
+id61( id12 : id11,
+      id58 : id43,
+      id62 : id39 )
+id61( id12 : id11,
+      id58 : id43,
+      id63 : id39 )
+id61( id26 : id11,
+      id47 : id43,
+      id37 : id39 )
+id61( id26 : id11,
+      id57 : id43,
+      id89 : id39 )
+id61( id26 : id11,
+      id58 : id43,
+      id10 : id39 )
+id61( id26 : id11,
+      id58 : id43,
+      id28 : id39 )
+id61( id26 : id11,
+      id58 : id43,
+      id4 : id39 )
+id61( id26 : id11,
+      id73 : id43,
+      id62 : id39 )
+id61( id26 : id11,
+      id77 : id43,
+      id31 : id39 )
+id61( id26 : id11,
+      id77 : id43,
+      id63 : id39 )
+id61( id18 : id43,
+      id16 : id39 )
+id61( id18 : id43,
+      id45 : id39 )
+id61( id18 : id43,
+      id69 : id39 )
+id61( id57 : id43,
+      id16 : id39 )
+id61( id57 : id43,
+      id42 : id39 )
+id61( id58 : id43,
+      id16 : id39 )
+id61( id73 : id43,
+      id16 : id39 )
+id61( id73 : id43,
+      id42 : id39 )
+id61( id77 : id43,
+      id16 : id39 )
+id61( id77 : id43,
+      id42 : id39 )
+id61( id83 : id43,
+      id16 : id39 )
 
-/* -- AT: id79 */
-id79( id14 : id16 )
-id79( id27 : id16 )
-id79( id37 : id16 )
-id79( id41 : id16 )
-id79( id48 : id16 )
-id79( id52 : id16 )
-id79( id54 : id16 )
-id79( id57 : id16 )
-id79( id7 : id16 )
-id79( id70 : id16 )
-id79( id73 : id16 )
-id79( id74 : id16 )
-id79( id77 : id16 )
-id79( id79 : id16 )
-id79( id8 : id16 )
-id79( id80 : id16 )
+/* -- AT: id62 */
+id62( id46 : id26, id59 : id12 )
+id62( id46 : id26, id81 : id12 )
 
-/* -- AT: id8 */
-id8( id78 : id65,
-     id21 : id5,
-     id18 : id69 )
-id8( id78 : id65,
-     id21 : id5,
-     id31 : id69 )
-id8( id78 : id65,
-     id21 : id5,
-     id39 : id69 )
-id8( id78 : id65,
-     id21 : id5,
-     id4 : id69 )
-id8( id78 : id65,
-     id21 : id5,
-     id40 : id69 )
-id8( id78 : id65,
-     id21 : id5,
-     id44 : id69 )
-id8( id78 : id65,
-     id21 : id5,
-     id64 : id69 )
-id8( id78 : id65,
-     id21 : id5,
-     id82 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id18 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id31 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id39 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id4 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id40 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id44 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id64 : id69 )
-id8( id78 : id65,
-     id72 : id5,
-     id82 : id69 )
+/* -- AT: id84 */
+id84( id12 : id11,
+      id21 : id78,
+      id18 : id43,
+      id10 : id39 )
+id84( id12 : id11,
+      id21 : id78,
+      id58 : id43,
+      id63 : id39 )
+id84( id12 : id11,
+      id72 : id78,
+      id58 : id43,
+      id31 : id39 )
+id84( id12 : id11,
+      id72 : id78,
+      id58 : id43,
+      id62 : id39 )
+id84( id12 : id11,
+      id88 : id78,
+      id18 : id43,
+      id89 : id39 )
+id84( id12 : id11,
+      id88 : id78,
+      id49 : id43,
+      id37 : id39 )
+id84( id12 : id11,
+      id88 : id78,
+      id58 : id43,
+      id28 : id39 )
+id84( id12 : id11,
+      id88 : id78,
+      id58 : id43,
+      id4 : id39 )
+id84( id26 : id11,
+      id21 : id78,
+      id77 : id43,
+      id31 : id39 )
+id84( id26 : id11,
+      id72 : id78,
+      id58 : id43,
+      id28 : id39 )
+id84( id26 : id11,
+      id72 : id78,
+      id73 : id43,
+      id62 : id39 )
+id84( id26 : id11,
+      id88 : id78,
+      id47 : id43,
+      id37 : id39 )
+id84( id26 : id11,
+      id88 : id78,
+      id57 : id43,
+      id89 : id39 )
+id84( id26 : id11,
+      id88 : id78,
+      id58 : id43,
+      id10 : id39 )
+id84( id26 : id11,
+      id88 : id78,
+      id58 : id43,
+      id4 : id39 )
+id84( id26 : id11,
+      id88 : id78,
+      id77 : id43,
+      id63 : id39 )
+id84( id21 : id78,
+      id18 : id43,
+      id16 : id39 )
+id84( id21 : id78,
+      id57 : id43,
+      id16 : id39 )
+id84( id21 : id78,
+      id57 : id43,
+      id32 : id39 )
+id84( id21 : id78,
+      id60 : id43,
+      id16 : id39 )
+id84( id21 : id78,
+      id77 : id43,
+      id16 : id39 )
+id84( id72 : id78,
+      id57 : id43,
+      id16 : id39 )
+id84( id72 : id78,
+      id77 : id43,
+      id42 : id39 )
+id84( id88 : id78,
+      id18 : id43,
+      id45 : id39 )
+id84( id88 : id78,
+      id18 : id43,
+      id69 : id39 )
+id84( id88 : id78,
+      id47 : id43,
+      id16 : id39 )
+id84( id88 : id78,
+      id49 : id43,
+      id16 : id39 )
+id84( id88 : id78,
+      id57 : id43,
+      id42 : id39 )
+id84( id88 : id78,
+      id58 : id43,
+      id16 : id39 )
+id84( id88 : id78,
+      id73 : id43,
+      id16 : id39 )
+id84( id88 : id78,
+      id73 : id43,
+      id42 : id39 )
+id84( id88 : id78,
+      id83 : id43,
+      id16 : id39 )
 
-/* -- AT: id80 */
-id80( id32 : id46, id2 : id53 )
-id80( id32 : id46, id6 : id53 )
-id80( id66 : id46, id15 : id53 )
-id80( id66 : id46, id3 : id53 )
-id80( id66 : id46, id59 : id53 )
+/* -- AT: id86 */
+id86( id20 : id68 )
+id86( id24 : id68 )
+id86( id25 : id68 )
+id86( id38 : id68 )
+id86( id41 : id68 )
+id86( id44 : id68 )
+id86( id48 : id68 )
+id86( id5 : id68 )
+id86( id54 : id68 )
+id86( id61 : id68 )
+id86( id71 : id68 )
+id86( id76 : id68 )
+id86( id84 : id68 )
+id86( id86 : id68 )
+id86( id9 : id68 )
+id86( id90 : id68 )
+
+/* -- AT: id89 */
+id89( id7 : id12, id85 : id26 )
