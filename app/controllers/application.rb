@@ -12,4 +12,14 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+
+   before_filter :set_tm
+
+  protected
+  def set_tm
+    RTM.connect
+    RTM.generate_database
+    @tm = RTM.from_xtm2lx("./Model/ikeatm.xtm2", "base locator")
+  end
+
 end
