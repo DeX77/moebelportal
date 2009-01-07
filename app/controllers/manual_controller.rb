@@ -1,5 +1,10 @@
 class ManualController < ApplicationController
   def index
-    @manuals = @tm.get("http://www.uni-leipzig.de/tmp/ikea/types/manual").instances
+    @manuals = @tm.get(@base_locator+"/types/manual").instances
+  end
+  
+  def show
+    @id = params[:id].to_i
+    @manual = @tm.topic_by_id(@id)
   end
 end

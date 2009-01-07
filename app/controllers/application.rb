@@ -17,13 +17,15 @@ class ApplicationController < ActionController::Base
   
   protected
   def set_tm
-    @tm = RTM[0]
+    @base_locator = "http://moebelportal.topicmapslab.de"
+    @tm = RTM[@base_locator]
   end
   
   def generate_db_from_xtm2
-    RTM.connect
+    @base_locator = "http://moebelportal.topicmapslab.de"
+    RTM.connect_sqlite3("db/development.sqlite3")
     RTM.generate_database
-    @tm = RTM.from_xtm2lx(File.open("./Model/ikeatm.xtm2"), "http://www.uni-leipzig.de/tmp/ikea")
+    @tm = RTM.from_xtm2lx(File.open("./Model/ikeatm.xtm2"), @base_locator)
   end
   
 end
