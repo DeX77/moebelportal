@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :product
   map.resources :step
   map.resources :manual
+  map.resources :material
  
   map.connect '', :controller => "product", :action => "index"
   
