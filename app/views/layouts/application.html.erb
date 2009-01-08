@@ -1,15 +1,87 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<title>Moebelportal</title>
-	</head>
-	<body>
-		<div>
-			<h1>
-				Willkommen beim Möbelportal!
-			</h1>
-		</div>
-		<%= yield %>
-	</body>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Monteringsanvisning</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/sahara.css" />
+    </head>
+    <body>
+        <div id="outer">
+            <div id="outer2">
+                <div id="header">
+                    <h1>Monteringsanvisning</h1>
+                    <h2>IKEA Bauanleitungsportal</h2>
+                </div>
+                <div id="menu">
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Produkte</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="content">
+                    <div id="column1">
+                        <h3>Lorem ipsum dolor</h3>
+                        <p>
+                            <%= yield %>
+                        </p>
+                    </div>
+                    <div id="column2">
+                        <h3>Nullam veroeros</h3>
+                        <ul>
+                            <li>
+                                <a href="#">Lorem ipsum dolor</a>
+                            </li>
+                            <li>
+                                <a href="#">Sed in augue et</a>
+                            </li>
+                            <li>
+                                <a href="#">Duis nec dui sed</a>
+                            </li>
+                            <li>
+                                <a href="#">Morbi ullamcorper</a>
+                            </li>
+                            <li>
+                                <a href="#">Praesent ultricies</a>
+                            </li>
+                            <li>
+                                <a href="#">Sed nonummy ante</a>
+                            </li>
+                            <li>
+                                <a href="#">Curabitur rhoncus</a>
+                            </li>
+                            <li>
+                                <a href="#">Veroeros vitae</a>
+                            </li>
+                        </ul>
+                        <h3>Ipsum sed tempus</h3>
+                        <ul>
+                            <li>
+                                <a href="#">Veroeros vitae</a>
+                            </li>
+                            <li>
+                                <a href="#">Nulla at enim</a>
+                            </li>
+                            <li>
+                                <a href="#">Donec tincidunt</a>
+                            </li>
+                            <li>
+                                <a href="#">Sed nonummy ante</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="footer">
+                    <p>
+                        Copyright &copy; 2009 <%= @base_locator %>. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
