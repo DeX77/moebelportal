@@ -37,7 +37,7 @@
     </name>
   </topic>
   <topic id="id12">
-      <subjectIdentifier href="http://www.uni-leipzig.de/tmp/ikea/types/screw"/>
+      <subjectIdentifier href="http://moebelportal.topicmapslab.de/types/screw"/>
     <instanceOf>
       <topicRef href="#id9"/>
     </instanceOf><name>
@@ -207,7 +207,7 @@
       <value>Has datatype</value>
     </name></topic>
   <topic id="id61">
-      <subjectIdentifier href="http://www.uni-leipzig.de/tmp/ikea/association/manual_of"/>
+      <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/manual_of"/>
     <instanceOf>
       <topicRef href="#id21"/>
     </instanceOf><name>
@@ -266,7 +266,7 @@
       <value>Is read-only</value>
     </name></topic>
   <topic id="id42">
-      <subjectIdentifier href="http://www.uni-leipzig.de/tmp/ikea/assoiciation/belongsTo"/>
+      <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/belongsTo"/>
     <instanceOf>
       <topicRef href="#id21"/>
     </instanceOf><name>
