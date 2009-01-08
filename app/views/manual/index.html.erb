@@ -2,7 +2,7 @@
     <div id="content">
         <div id="main">
             <div id="welcome" class="post">
-                <h2 class="title">Liste alle Handbücher</h2>
+                <h3>Liste alle Handbücher</h3>
                 <% for manual in @manuals %>
                 <br>
                 &bull; <a href="../manual/<%=h manual.id  %> "><%=h manual["-"].first.value %></a>

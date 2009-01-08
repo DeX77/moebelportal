@@ -19,14 +19,12 @@
 						<li><%= link_to_unless_current("Anleitungen", { :controller => 'manual', :action => 'index'}) {}%></li>
 						<li><%= link_to_unless_current("Produkte", { :controller => 'product', :action => 'index'}) {}%></li>
 						<li><%= link_to_unless_current("Schritte", { :controller => 'step', :action => 'index'}) {}%></li>
+						<li><%= link_to_unless_current("Materialien", { :controller => 'material', :action => 'index'}) {}%></li>
                     </ul>
                 </div>
                 <div id="content">
                     <div id="column1">
-                        <h3>Lorem ipsum dolor</h3>
-                        <p>
                             <%= yield %>
-                        </p>
                     </div>
                     <div id="column2">
                         <h3>Nullam veroeros</h3>
