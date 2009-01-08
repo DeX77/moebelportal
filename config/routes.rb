@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :product
   map.resources :step
   map.resources :manual
+ 
+  map.connect '', :controller => "product", :action => "index"
   
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
