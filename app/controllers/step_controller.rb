@@ -8,4 +8,24 @@ class StepController < ApplicationController
     @step = @tm.topic_by_id(@id)
     @materials = @step.counterplayers(:atype => @base_locator+"/association/material_of_step")
   end
+  
+  def create
+    
+  end
+  
+  def new
+    
+  end
+  
+  def update
+    
+  end
+  
+  def destroy
+    #Topic Nummer
+    @id = params[:id].to_i
+    #Aktueller Step
+    @step = @tm.topic_by_id(@id)
+    @tm.destroy(@step)
+  end
 end
