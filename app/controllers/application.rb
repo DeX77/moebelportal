@@ -26,6 +26,9 @@ class ApplicationController < ActionController::Base
     RTM.connect_sqlite3("db/development.sqlite3")
     RTM.generate_database
     @tm = RTM.from_xtm2lx(File.open("./Model/ikeatm.xtm2"), @base_locator)
+    if !(@tm)
+      @tm = RTM.from_xtm2(File.open("./Model/ikeatm.xtm2"), @base_locator)
+    end
   end
   
 end
