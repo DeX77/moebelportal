@@ -1,6 +1,10 @@
 class ManualController < ApplicationController
   def index
     @manuals = @tm.get(@base_locator+"/types/manual").instances
+    if (@manuals.size < 1)
+      redirect_to:controller => "product", :action => "index" 
+    end
+    
   end
   
   def show
@@ -25,7 +29,7 @@ class ManualController < ApplicationController
   end
   
   def update
-        
+    
   end
   
   def destroy

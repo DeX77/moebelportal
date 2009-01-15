@@ -1,5 +1,5 @@
 <% if @product.size > 0 %>
-<h3>Anleitung für <%= @product %></h3>
+<h3>Anleitung für</h3>
         <% for pdid in @product %>
         &bull; <a href="../product/<%=h  pdid.id %>"><%=h  pdid["-"].first.value %></a>
         <br>
@@ -12,4 +12,12 @@
         &bull; <a href="../step/<%=h  step.id %>"><%=h  step["-"].first.value %></a>
         <br>
         <% end %>
+<% end %>
+
+<%if @all_assosciations.size > 0 %>
+<h3>Sonstige Assoziationen</h3>
+	<% for assosc in @all_assosciations%>
+	&bull;  <% assosc.id %>
+	<br>
+	<% end %>
 <% end %>

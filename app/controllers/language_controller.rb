@@ -1,6 +1,9 @@
 class LanguageController < ApplicationController
   def index
     @languages = @tm.get(@base_locator+"/types/language").instances
+    if (@languages.size < 1)
+      redirect_to:controller => "product", :action => "index" 
+    end
   end
   
   def show

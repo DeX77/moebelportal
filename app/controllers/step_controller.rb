@@ -1,6 +1,9 @@
 class StepController < ApplicationController
   def index
     @steps = @tm.get(@base_locator+"/types/step").instances
+    if (@steps.size < 1)
+      redirect_to:controller => "product", :action => "index" 
+    end
   end
   
   def show
