@@ -7,14 +7,19 @@ class StepController < ApplicationController
   end
   
   def show
+    #ID aus Request
     @id = params[:id].to_i
+    #Schritt aus Topic Map holen
     @step = @tm.topic_by_id(@id)
-    @parts_of_steps = @step.counterplayers(:atype => @base_locator+"/association/parts_of_steps")
-    @materials = @step.counterplayers(:atype => @base_locator+"/association/material_of_step")
+    #Teilschritte holen
+    @parts_of_steps = @step.counterplayers(:atype => @base_locator+"/association/parts_of_steps", :rtype => @base_locator+"/types/role_supstep")
+    #uebergeordneter Schritt
+    @parentstep = @step.counterplayers(:atype => @base_locator+"/association/parts_of_steps", :rtype => @base_locator+"/types/role_substep")
+    @materials = @step.counterplayers(:atype => @base_locator+"/association/material_of_step" , :rtype => @base_locator+"/types/role_step")
     @tools = @step.counterplayers(:atype => @base_locator+"/association/tools_of_step")
     @results = @step.counterplayers(:atype => @base_locator+"/association/construction")
-    @doBefore = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps" , :otype => @base_locator+"/types/player" )
-    @doAfter = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps" , :otype => @base_locator+"/types/player_" )
+    @doBefore = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps", :rtype => @base_locator+"/types/role_following_step")
+    @doAfter = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps", :rtype => @base_locator+"/types/role_earlier_step")
   end
   
   def create

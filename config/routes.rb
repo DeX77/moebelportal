@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :manual
   map.resources :material
   map.resources :language
+  map.resources :tool
  
   map.connect '', :controller => "product", :action => "index"
   

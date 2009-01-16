@@ -2,18 +2,28 @@
 
 <h3>Sequenz</h3>
 <%  if @doAfter.size > 0 %>
- <% for doa in @doAfter %>
+ <% for doa in @doAfter %> 
       vorangegangener Schritt: <a href="../step/<%=h  doa.id %>"><%=h  doa["-"].first.value %></a>
+      <br />
   <% end %>
 <% end %>
 
 <%  if @doBefore.size > 0 %>
  <% for dob in @doBefore %>
       folgender Schritt: <a href="../step/<%=h  dob.id %>"><%=h  dob["-"].first.value %></a>
+      <br />
   <% end %>
 <% end %>
 
 <hr>
+
+<%  if @parentstep.size > 0 %>
+<h3>Teilschritt von</h3>
+  <% for ps in @parentstep %>
+    <a href="../step/<%=h  ps.id %>"><%=h  ps["-"].first.value %></a>
+    <br />
+  <% end %>
+<% end %>
 
 <%  if @parts_of_steps.size > 0 %>
 <h3>Teilschritte</h3>
