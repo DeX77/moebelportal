@@ -1,4 +1,30 @@
-<h2>Schritt</h2>
+<h2> <%=h @step["-"].first.value %> </h2>
+
+<h3>Sequenz</h3>
+<%  if @doAfter.size > 0 %>
+ <% for doa in @doAfter %>
+      vorangegangener Schritt: <a href="../step/<%=h  doa.id %>"><%=h  doa["-"].first.value %></a>
+  <% end %>
+<% end %>
+
+<%  if @doBefore.size > 0 %>
+ <% for dob in @doBefore %>
+      folgender Schritt: <a href="../step/<%=h  dob.id %>"><%=h  dob["-"].first.value %></a>
+  <% end %>
+<% end %>
+
+<hr>
+
+<%  if @parts_of_steps.size > 0 %>
+<h3>Teilschritte</h3>
+  <% for substep in @parts_of_steps %>
+    &bull; <a href="../step/<%=h  substep.id %>"><%=h  substep["-"].first.value %></a>
+    <br />
+  <% end %>
+<% end %>
+
+<hr>
+
 <% if @materials.size > 0 %>
 <h3>Materialien</h3>
         <% for material in @materials %>
@@ -7,3 +33,20 @@
         <% end %>
 <% end %>
 
+<% if @materials.size > 0 %>
+<h3>Werkzeuge</h3>
+<% for tool in @tools %>
+        &bull; <a href="../tool/<%=h  tool.id %>"><%=h  tool["-"].first.value %></a>
+        <br>
+        <% end %>
+<% end %>
+
+<hr>
+
+<% if @results.size > 0 %>
+<h3>Ergebnis</h3>
+<% for result in @results %>
+        &bull; <a href="../tool/<%=h  result.id %>"><%=h  result["-"].first.value %></a>
+        <br>
+        <% end %>
+<% end %>

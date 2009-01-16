@@ -17,7 +17,8 @@ class ManualController < ApplicationController
     #Produkt zum Handbuch
     @product = @manual.counterplayers(:atype => @base_locator+"/association/manual_of")
     #Nötige Schritte
-    @set_of_steps = sort_by_order(@manual.counterplayers(:atype => @base_locator+"/association/set_of_steps"))
+    @set_of_steps = @manual.counterplayers(:atype => @base_locator+"/association/set_of_steps")
+
   end
   
   def create

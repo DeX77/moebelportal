@@ -9,7 +9,12 @@ class StepController < ApplicationController
   def show
     @id = params[:id].to_i
     @step = @tm.topic_by_id(@id)
+    @parts_of_steps = @step.counterplayers(:atype => @base_locator+"/association/parts_of_steps")
     @materials = @step.counterplayers(:atype => @base_locator+"/association/material_of_step")
+    @tools = @step.counterplayers(:atype => @base_locator+"/association/tools_of_step")
+    @results = @step.counterplayers(:atype => @base_locator+"/association/construction")
+    @doBefore = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps" , :otype => @base_locator+"/types/player" )
+    @doAfter = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps" , :otype => @base_locator+"/types/player_" )
   end
   
   def create
