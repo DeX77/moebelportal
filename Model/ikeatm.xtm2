@@ -94,7 +94,7 @@
   </topic>
   <topic id="id50">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id855"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/membership"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/membership"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -356,7 +356,7 @@
   </topic>
   <topic id="id200">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id48"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/parts_of_steps"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/parts_of_steps"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -406,7 +406,7 @@
   </topic>
   <topic id="id212">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id45"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/sequence_of_steps"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/sequence_of_steps"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -645,7 +645,7 @@
   </topic>
   <topic id="id42">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id29"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/material_of_step"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/material_of_step"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -751,7 +751,7 @@
   </topic>
   <topic id="id136">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id53"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/tools_of_step"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/tools_of_step"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -931,7 +931,7 @@
   </topic>
   <topic id="id117">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id32"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/belongsTo"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/belongsTo"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -1099,7 +1099,7 @@
   </topic>
   <topic id="id61">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id41"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/set_of_steps"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/set_of_steps"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -1411,7 +1411,7 @@
   </topic>
   <topic id="id45">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id35"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/construction"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/construction"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
@@ -1692,7 +1692,7 @@
   </topic>
   <topic id="id70">
     <itemIdentity href="file:/C:/Programme/Apache%20Software%20Foundation/Tomcat%205.5/webapps/omnigator/WEB-INF/topicmaps/ikeatm.xtm#id102"></itemIdentity>
-    <subjectIdentifier href="http://moebelportal.topicmapslab.de/assoiciation/manual_of"></subjectIdentifier>
+    <subjectIdentifier href="http://moebelportal.topicmapslab.de/association/manual_of"></subjectIdentifier>
     <instanceOf>
       <topicRef href="#id13"></topicRef>
     </instanceOf>
