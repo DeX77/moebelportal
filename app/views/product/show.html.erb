@@ -1,1 +1,15 @@
-<h2>Produkt</h2>
+<h2><%=h @product["-"].first.value %></h2>
+<br />
+
+<%= get_image_tag(@product) %>
+
+<br />
+<br />
+
+<% if @manuals.size > 0 %>
+  <hr />
+  <h3><%=h @acc_manuals["-"].first.value  %></h3>
+  <% for manual in @manuals %>
+     &bull; <a href="../manual/<%=h  manual.id %>"><%=h  manual["-"].first.value %></a>
+  <% end %>
+<% end %>

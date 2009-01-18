@@ -1,16 +1,22 @@
 <h2> <%=h @step["-"].first.value %> </h2>
 
-<h3>Sequenz</h3>
+<br />
+
+<%= get_image_tag(@step) %>
+
+<br />
+<br />
+
 <%  if @doAfter.size > 0 %>
  <% for doa in @doAfter %> 
-      vorangegangener Schritt: <a href="../step/<%=h  doa.id %>"><%=h  doa["-"].first.value %></a>
+       <%=h @acc_sequence["-"].third.value %>  <a href="../step/<%=h  doa.id %>"><%=h  doa["-"].first.value %></a>
       <br />
   <% end %>
 <% end %>
 
 <%  if @doBefore.size > 0 %>
  <% for dob in @doBefore %>
-      folgender Schritt: <a href="../step/<%=h  dob.id %>"><%=h  dob["-"].first.value %></a>
+      <%=h @acc_sequence["-"].second.value %> <a href="../step/<%=h  dob.id %>"><%=h  dob["-"].first.value %></a>
       <br />
   <% end %>
 <% end %>
@@ -18,7 +24,7 @@
 <hr>
 
 <%  if @parentstep.size > 0 %>
-<h3>Teilschritt von</h3>
+<h3><%=h @acc_hierachie["-"].second.value %></h3>
   <% for ps in @parentstep %>
     <a href="../step/<%=h  ps.id %>"><%=h  ps["-"].first.value %></a>
     <br />
@@ -26,7 +32,7 @@
 <% end %>
 
 <%  if @parts_of_steps.size > 0 %>
-<h3>Teilschritte</h3>
+<h3><%=h @acc_hierachie["-"].first.value %></h3>
   <% for substep in @parts_of_steps %>
     &bull; <a href="../step/<%=h  substep.id %>"><%=h  substep["-"].first.value %></a>
     <br />
@@ -36,15 +42,15 @@
 <hr>
 
 <% if @materials.size > 0 %>
-<h3>Materialien</h3>
+<h3><%=h @acc_material["-"].third.value %></h3>
         <% for material in @materials %>
         &bull; <a href="../material/<%=h  material.id %>"><%=h  material["-"].first.value %></a>
         <br>
         <% end %>
 <% end %>
 
-<% if @materials.size > 0 %>
-<h3>Werkzeuge</h3>
+<% if @tools.size > 0 %>
+<h3><%=h @acc_tools["-"].first.value %></h3>
 <% for tool in @tools %>
         &bull; <a href="../tool/<%=h  tool.id %>"><%=h  tool["-"].first.value %></a>
         <br>
@@ -54,7 +60,7 @@
 <hr>
 
 <% if @results.size > 0 %>
-<h3>Ergebnis</h3>
+<h3><%=h @acc_result["-"].second.value %></h3>
 <% for result in @results %>
         &bull; <a href="../material/<%=h  result.id %>"><%=h  result["-"].first.value %></a>
         <br>

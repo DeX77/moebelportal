@@ -1,7 +1,8 @@
-<h2>Liste alle Produkte</h2>
+<h2><%=h @type["-"].first.value %> </h2>
+
 <% for product in @products %>
 <br>
-&bull; <a href="../product/<%=h product.id  %> "><%=h product["-"].first.value %></a>
+&bull; <a href="../product/<%=h product.id  %> "><%=h product["-"].first.value %> (<%=h @manual_count[product.id] %>)</a>
 </br>
 <br>
 <% end %>
