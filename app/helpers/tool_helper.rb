@@ -5,7 +5,7 @@ module ToolHelper
       if images.size > 0
         return "<img src=\"" + images.first.value + "\" />"
       else
-        return "No pic avaible"
+        return "<img src=\"../images/nopic.png\" />"
       end
     end
 

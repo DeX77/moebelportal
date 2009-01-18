@@ -1,6 +1,6 @@
 Fehlende Bestandteile des Praktikumsprojektes
 
-Produkte:
+Produkte: ( in Bearbeitung )
     - Liste aller Produkte buggy
     - Detailseite für Produkte
         - alle verfügbaren Handbücher
@@ -20,10 +20,6 @@ Material
     - Übersichtseite
         - Listen allem Materials
         - Anlegen/Entfernen/Bearbeiten
-    - Detailseite ( in Bearbeitung )
-        - Verwendung/Entstehung
-        - Bild wenn vorhanden
-        - spezielle Assoziationen ( Schrauben/Muttern )
 
 Werkzeug/ Tool
     - Übersicht

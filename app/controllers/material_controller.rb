@@ -10,6 +10,12 @@ class MaterialController < ApplicationController
   def show
     @id = params[:id].to_i
     @material = @tm.topic_by_id(@id)
+    @acc_needed = @tm.get(@base_locator+"/association/material_of_step")
+    @needed_at = @material.counterplayers(:atype => @base_locator+"/association/material_of_step")
+    @acc_construction = @tm.get(@base_locator+"/association/construction")
+    @construction = @material.counterplayers(:atype => @base_locator+"/association/construction")
+    @acc_belongsTo = @tm.get(@base_locator+"/association/belongsTo")
+    @belongsto = @material.counterplayers(:atype => @base_locator+"/association/belongsTo")
   end
   
   def create

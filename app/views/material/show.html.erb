@@ -1,1 +1,38 @@
-<h2>Material</h2>
+<h2><%=h @material["-"].first.value %></h2>
+<br />
+
+<%= get_image_tag(@material) %>
+
+<br />
+<br />
+
+<% if @belongsto.size > 0 %>
+    <h3><%=h @acc_belongsTo["-"].second.value %>:</h3>
+    <% for belong in @belongsto %>
+      &bull; <a href="../material/<%=h belong.id  %> "><%=h belong["-"].first.value %></a>
+      <br />
+    <% end %>
+    <br />
+    <hr />
+<% end %>
+
+<% if @needed_at.size > 0 %>
+    <h3><%=h @acc_needed["-"].first.value %>:</h3>
+    <% for step in @needed_at %>
+      &bull; <a href="../step/<%=h step.id  %> "><%=h step["-"].first.value %></a>
+      <br />
+    <% end %>
+    <br />
+    <hr />
+<% end %>
+
+<% if @construction.size > 0 %>
+  <h3><%=h @acc_construction["-"].second.value %>:</h3>
+    <% for steps in @construction %>
+      &bull; <a href="../step/<%=h steps.id  %> "><%=h steps["-"].first.value %></a>
+      <br />
+    <% end %>
+    <br />
+    <hr />
+<% end %>
+
