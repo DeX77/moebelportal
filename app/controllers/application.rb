@@ -21,9 +21,7 @@ class ApplicationController < ActionController::Base
     @base_locator = "http://moebelportal.topicmapslab.de"
     @tm = RTM[@base_locator]
   end
-  
-<<<<<<< local
-=======
+
   def generate_db_from_xtm2
     @base_locator = "http://moebelportal.topicmapslab.de"
     RTM.connect_sqlite3("db/development.sqlite3")
@@ -33,6 +31,4 @@ class ApplicationController < ActionController::Base
       @tm = RTM.from_xtm2(File.open("./Model/ikeatm.xtm2"), @base_locator)
     #end
   end
-  
->>>>>>> other
 end

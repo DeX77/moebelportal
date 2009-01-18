@@ -1,0 +1,37 @@
+Fehlende Bestandteile des Praktikumsprojektes
+
+Produkte:
+    - Liste aller Produkte buggy
+    - Detailseite für Produkte
+        - alle verfügbaren Handbücher
+        - Bildlink
+        - Hinzufügen/Bearbeiten von Handbüchern
+
+Handbuch/ Manual
+    - Entfernen/Hinzufügen/Bearbeiten von Handbüchern
+
+Step
+    - Detailseite
+        - Bild anzeigen wenn verfügbar
+    - Übersicht
+        - Entfernen/Hinzufügen/Editieren von Schritten
+
+Material
+    - Übersichtseite
+        - Listen allem Materials
+        - Anlegen/Entfernen/Bearbeiten
+    - Detailseite ( in Bearbeitung )
+        - Verwendung/Entstehung
+        - Bild wenn vorhanden
+        - spezielle Assoziationen ( Schrauben/Muttern )
+
+Werkzeug/ Tool
+    - Übersicht
+        - Anlegen/Entfernen/Bearbeiten
+
+Allgemein
+    - Suchen
+
+
+
+
