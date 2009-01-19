@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
-  before_filter :set_tm
-  #before_filter :generate_db_from_xtm2
+  #before_filter :set_tm
+  before_filter :generate_db_from_xtm2
   
   protected
   def set_tm
