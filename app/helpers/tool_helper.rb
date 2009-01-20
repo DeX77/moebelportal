@@ -1,6 +1,4 @@
 module ToolHelper
-<<<<<<< local
-=======
 
    def get_image_tag(t)
       images = t[@base_locator+"/types/image"]
@@ -24,5 +22,4 @@ module ToolHelper
       return html;
    end
 
->>>>>>> other
 end

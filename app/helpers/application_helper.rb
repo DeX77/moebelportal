@@ -1,6 +1,5 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-<<<<<<< local
   
    def get_image_tag(t)
       images = t[@base_locator+"/types/image"]
@@ -9,7 +8,7 @@ module ApplicationHelper
       else
         return "<img src=\"../images/nopic.png\" />"
       end
-=======
+  end
 
   def get_label_in_scope(t,l)
      languages = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/language" )
@@ -23,11 +22,7 @@ module ApplicationHelper
        end
      end
      return namedlabel;
->>>>>>> other
   end
-<<<<<<< local
-  
-=======
 
   def create_label_in_scope(label,l,t)
     #type = @tm.get(@base_locator + "/types/displaylabel")
@@ -40,5 +35,4 @@ module ApplicationHelper
     asso.cr l.si.first.value ,  @base_locator + "/types/language"
   end
 
->>>>>>> other
 end
