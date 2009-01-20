@@ -19,12 +19,18 @@ class ToolController < ApplicationController
     @id = params[:id].to_i
     #Schritt aus Topic Map holen    
     @tool = @tm.topic_by_id(@id)
+<<<<<<< local
     if (@tm.get(topicType).instances.include?(@tool))
       @acc = @tm.get(@base_locator+"/association/tools_of_step")
       @steps = @tool.counterplayers(:atype => @base_locator+"/association/tools_of_step", :rtype => @base_locator+"/types/role_tool")
     else
       redirect_to:controller => "tool", :action => "index" 
     end
+=======
+    @labels = @tool.counterplayers(:atype => @base_locator+"/association/scoping")
+    @acc = @tm.get(@base_locator+"/association/tools_of_step")
+    @steps = @tool.counterplayers(:atype => @base_locator+"/association/tools_of_step", :rtype => @base_locator+"/types/role_tool")
+>>>>>>> other
   end
   
   

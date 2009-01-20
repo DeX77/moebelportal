@@ -13,12 +13,17 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+<<<<<<< local
   before_filter :set_tm
   
   def get_Instance_from_Number(number)
     @base_locator = "http://moebelportal.topicmapslab.de"
     return @base_locator + "/instances/" + number
   end
+=======
+  #before_filter :set_tm
+  before_filter :generate_db_from_xtm2
+>>>>>>> other
   
   protected
   def set_tm
