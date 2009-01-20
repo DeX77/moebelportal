@@ -2,7 +2,7 @@
 
 <% for product in @products %>
 <br>
-&bull; <a href="../product/<%=h product.id  %> "><%=h product["-"].first.value %> (<%=h @manual_count[product.id] %>)</a>
+&bull; <a href="../product/<%=h product.id  %> "><%=h product["-"].first.value %> (<%=h getNumberOfManuals(product) %>)</a>
 </br>
 <br>
 <% end %>

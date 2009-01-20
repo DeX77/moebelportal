@@ -1,6 +1,14 @@
 class ManualController < ApplicationController
+  private
+  def topicType
+    return @base_locator + "/types/manual" 
+  end
+  
+  public
+  
+  
   def index
-    @manuals = @tm.get(@base_locator+"/types/manual").instances
+    @manuals = @tm.get(topicType).instances
     if (@manuals.size < 1)
       redirect_to:controller => "product", :action => "index" 
     end
@@ -12,13 +20,17 @@ class ManualController < ApplicationController
     @id = params[:id].to_i
     #Aktuelles Manual
     @manual = @tm.topic_by_id(@id)
-    #Alle Assoziationen
-    @all_assosciations = @manual.counterplayers
-    #Produkt zum Handbuch
-    @product = @manual.counterplayers(:atype => @base_locator+"/association/manual_of")
-    #Nötige Schritte
-    @set_of_steps = @manual.counterplayers(:atype => @base_locator+"/association/set_of_steps")
-
+    if (@tm.get(topicType).instances.include?(@manual))
+      #Alle Assoziationen
+      @all_assosciations = @manual.counterplayers
+      #Produkt zum Handbuch
+      @product = @manual.counterplayers(:atype => @base_locator+"/association/manual_of")
+      #Nötige Schritte
+      @set_of_steps = @manual.counterplayers(:atype => @base_locator+"/association/set_of_steps")
+    else
+      redirect_to:controller => "manual", :action => "index"
+    end
+    
   end
   
   def create
@@ -26,7 +38,8 @@ class ManualController < ApplicationController
   end
   
   def new
-    
+    @product = @tm.get!("")
+    @product.add_type(topicType)
   end
   
   def update

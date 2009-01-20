@@ -1,6 +1,14 @@
 class ToolController < ApplicationController
+  
+  private
+  def topicType
+    return @base_locator + "/types/tool" 
+  end
+  
+  public
+  
   def index
-    @tools = @tm.get(@base_locator+"/types/tool").instances
+    @tools = @tm.get(topicType).instances
     if (@tools.size < 1)
       redirect_to:controller => "product", :action => "index" 
     end
@@ -11,16 +19,22 @@ class ToolController < ApplicationController
     @id = params[:id].to_i
     #Schritt aus Topic Map holen    
     @tool = @tm.topic_by_id(@id)
-    @acc = @tm.get(@base_locator+"/association/tools_of_step")
-    @steps = @tool.counterplayers(:atype => @base_locator+"/association/tools_of_step", :rtype => @base_locator+"/types/role_tool")
+    if (@tm.get(topicType).instances.include?(@tool))
+      @acc = @tm.get(@base_locator+"/association/tools_of_step")
+      @steps = @tool.counterplayers(:atype => @base_locator+"/association/tools_of_step", :rtype => @base_locator+"/types/role_tool")
+    else
+      redirect_to:controller => "tool", :action => "index" 
+    end
   end
+  
   
   def create
     
   end
   
   def new
-    
+    @product = @tm.get!("")
+    @product.add_type(topicType)
   end
   
   def update
