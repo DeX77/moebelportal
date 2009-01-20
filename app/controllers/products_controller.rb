@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
     new_product["image"] = image_tmp
     #new_product["description"] = description_tmp
     new_product.add_type(topicType)
-    redirect_to(product_url)   
+    redirect_to(product_url(new_product.id))   
   end
   
   def new
