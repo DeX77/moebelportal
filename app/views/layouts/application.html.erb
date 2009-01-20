@@ -15,16 +15,24 @@
                     <h2>IKEA Bauanleitungsportal</h2>
                 </div>
                 <div id="menu">
-                    <ul>                    	
-						<li><%= link_to_unless_current("Anleitungen", { :controller => 'manual', :action => 'index'}) {}%></li>
-						<li><%= link_to_unless_current("Produkte", { :controller => 'product', :action => 'index'}) {}%></li>
-						<li><%= link_to_unless_current("Schritte", { :controller => 'step', :action => 'index'}) {}%></li>
-						<li><%= link_to_unless_current("Materialien", { :controller => 'material', :action => 'index'}) {}%></li>
+                    <ul>
+                        <li>
+                            <%= link_to_unless_current("Anleitungen", manuals_url ) {} %>
+                        </li>
+                        <li>
+                            <%= link_to_unless_current("Produkte", products_url) {} %>
+                        </li>
+                        <li>
+                            <%= link_to_unless_current("Schritte", steps_url ) {} %>
+                        </li>
+                        <li>
+                            <%= link_to_unless_current("Materialien", materials_url ) {} %>
+                        </li>
                     </ul>
                 </div>
                 <div id="content">
                     <div id="column1">
-                            <%= yield %>
+                        <%= yield %>
                     </div>
                     <div id="column2">
                         <h3>Nullam veroeros</h3>

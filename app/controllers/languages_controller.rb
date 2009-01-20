@@ -1,4 +1,4 @@
-class LanguageController < ApplicationController
+class LanguagesController < ApplicationController
   private
   def topicType
     return @base_locator + "/types/language" 

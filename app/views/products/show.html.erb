@@ -9,7 +9,5 @@
 <% if @manuals.size > 0 %>
   <hr />
   <h3><%=h @acc_manuals["-"].first.value  %></h3>
-  <% for manual in @manuals %>
-     &bull; <a href="../manual/<%=h  manual.id %>"><%=h  manual["-"].first.value %></a>
-  <% end %>
+  <%= render :partial => "shared/manual", :collection => @manuals %>
 <% end %>

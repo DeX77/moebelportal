@@ -1,4 +1,4 @@
-class MaterialController < ApplicationController
+class MaterialsController < ApplicationController
   private
   def topicType
     return @base_locator + "/types/material" 

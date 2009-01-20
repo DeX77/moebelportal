@@ -1,4 +1,4 @@
-class ManualController < ApplicationController
+class ManualsController < ApplicationController
   private
   def topicType
     return @base_locator + "/types/manual" 

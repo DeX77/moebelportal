@@ -1,4 +1,4 @@
-class ToolController < ApplicationController
+class ToolsController < ApplicationController
   
   private
   def topicType

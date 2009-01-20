@@ -1,4 +1,4 @@
-class StepController < ApplicationController
+class StepsController < ApplicationController
   private
   def topicType
     return @base_locator + "/types/step" 
