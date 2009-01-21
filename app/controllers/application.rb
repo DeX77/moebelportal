@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     @tm = RTM[@base_locator]
   end
   
-  public
+  
   
   def destroy
     #Topic Nummer
@@ -34,4 +34,21 @@ class ApplicationController < ActionController::Base
     @topic = @tm.topic_by_id(@id)
     @tm.destroy(@topic)    
   end
+  
+  def createTopic(params)
+    topic_tmp = params[:topic]
+    number_tmp = topic_tmp[:number]
+    name_tmp = topic_tmp[:name]
+    image_tmp = topic_tmp[:image]
+    description_tmp = topic_tmp[:description]
+    
+    new_topic = @tm.get!(get_Instance_from_Number(number_tmp))
+    new_topic[@base_locator+ "/types/label"] = name_tmp
+    new_topic[@base_locator+ "/types/image"] = image_tmp
+    new_topic[@base_locator+ "/types/description"] = description_tmp
+    new_topic.add_type(topicType)
+    
+    return new_topic
+  end
+  
 end
