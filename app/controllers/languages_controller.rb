@@ -35,11 +35,5 @@ class LanguagesController < ApplicationController
     
   end
   
-  def destroy
-    #Topic Nummer
-    @id = params[:id].to_i
-    #Aktuelle Sprache
-    @language = @tm.topic_by_id(@id)
-    @tm.destroy(@language)
-  end
+  
 end

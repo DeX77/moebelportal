@@ -46,14 +46,6 @@ class ManualsController < ApplicationController
     
   end
   
-  def destroy
-    #Topic Nummer
-    @id = params[:id].to_i
-    #Aktuelles Manual
-    @manual = @tm.topic_by_id(@id)
-    @tm.destroy(@manual)
-  end
-  
   def sort_by_order(set_of_steps)
     return set_of_steps.sort() do |a,b|
       if (a ==b)

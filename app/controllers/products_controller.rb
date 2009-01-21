@@ -30,10 +30,11 @@ class ProductsController < ApplicationController
     description_tmp = product_tmp[:description]
     
     new_product = @tm.get!(get_Instance_from_Number(number_tmp))
-    new_product["-"] = name_tmp
+    #new_product["-"] = name_tmp
     new_product[@base_locator+ "/types/image"] = image_tmp
-    new_product.add_type(topicType)
     new_product[@base_locator+ "/types/description"] = description_tmp
+    new_product.add_type(topicType)
+    
     redirect_to(product_url(new_product.id))   
   end
   
@@ -43,16 +44,6 @@ class ProductsController < ApplicationController
   
   def update
     
-  end
+  end  
   
-  def destroy
-    #Topic Nummer
-    @id = params[:id].to_i
-    #Aktuelles Produkt
-    @product = @tm.topic_by_id(@id)
-    if (@tm.get(topicType).instances.include?(@product))
-      @tm.destroy(@product)
-    end
-    
-  end
 end

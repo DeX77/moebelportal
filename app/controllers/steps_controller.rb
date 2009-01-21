@@ -50,11 +50,4 @@ class StepsController < ApplicationController
     
   end
   
-  def destroy
-    #Topic Nummer
-    @id = params[:id].to_i
-    #Aktueller Step
-    @step = @tm.topic_by_id(@id)
-    @tm.destroy(@step)
-  end
 end
