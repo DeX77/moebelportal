@@ -19,7 +19,7 @@ class ToolsController < ApplicationController
     @id = params[:id].to_i
     #Schritt aus Topic Map holen    
     @tool = @tm.topic_by_id(@id)
-    
+
     if (@tm.get(topicType).instances.include?(@tool))
       @labels = @tool.counterplayers(:atype => @base_locator+"/association/scoping")
       @acc = @tm.get(@base_locator+"/association/tools_of_step")
@@ -27,9 +27,8 @@ class ToolsController < ApplicationController
     else
       redirect_to tools_url 
     end
-    
-  end
-  
+  end  
+
   
   def create
     tool_tmp = params[:topic]

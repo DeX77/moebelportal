@@ -8,7 +8,9 @@
 
 <h3><%=h @acc["-"].second.value %></h3>
 <%  if @steps.size > 0 %>
+
 <%= render :partial => "shared/step", :collection => @steps %>
+
 <% end %>
 
 <%= list_labels(@tool) %>
