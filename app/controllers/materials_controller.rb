@@ -42,11 +42,5 @@ class MaterialsController < ApplicationController
     
   end
   
-  def destroy
-    #Topic Nummer
-    @id = params[:id].to_i
-    #Aktuelles Material
-    @material = @tm.topic_by_id(@id)
-    @tm.destroy(@material)
-  end
+  
 end

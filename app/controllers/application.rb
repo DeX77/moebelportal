@@ -25,4 +25,13 @@ class ApplicationController < ActionController::Base
     @tm = RTM[@base_locator]
   end
   
+  public
+  
+  def destroy
+    #Topic Nummer
+    @id = params[:id].to_i
+    #Aktuelles Topic
+    @topic = @tm.topic_by_id(@id)
+    @tm.destroy(@topic)    
+  end
 end
