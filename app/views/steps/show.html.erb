@@ -6,19 +6,15 @@
 
 <br />
 <br />
-
-
 <%= render :partial => "shared/step", :collection => @doAfter %>
 <%= render :partial => "shared/step", :collection => @doBefore %>
 <hr>
-
 <%= render :partial => "shared/step", :collection => @parentstep %>
 <%= render :partial => "shared/step", :collection => @parts_of_steps %>
 <hr>
 <%= render :partial => "shared/material", :collection => @materials %>
-
 <%= render :partial => "shared/tool", :collection => @tools %>
-
 <hr>
-
 <%= render :partial => "shared/material", :collection => @results %>
+<hr>
+<%= link_to h("Töööööttteeeennn!!!"), :action => "destroy"     %>

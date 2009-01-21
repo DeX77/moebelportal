@@ -1,21 +1,2 @@
 <h2>Neues Produkt</h2>
-
-<%= form_tag :action => "create" %>
-ProduktNummer:
-<br/>
-<%= text_field "product", "number" %>
-<br/>
-Name:
-<br/>
-<%= text_field "product", "name" %>
-<br/>
-<br/>
-Link auf Bild <%= text_field "product", "image" %>
-<br/>
-<br/>
-Beschreibung:
-<br/>
-<%= text_area("product", "description", "rows" => "15") %>
-<br/>
-<br/>
-<%= submit_tag "Speichern" %>
+<%= render :partial => "shared/form" %>

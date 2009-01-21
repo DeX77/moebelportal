@@ -1,2 +1,2 @@
-&bull; <%= link_to h(step["-"].first.value), step_url(step.id) %>
+&bull; <%= link_to h(step["-"].first.value), step_url(step.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => step.id%>
 <br/>

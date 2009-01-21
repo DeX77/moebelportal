@@ -1,1 +1,2 @@
-&bull; <%= link_to h(tool["-"].first.value), tool_url(tool.id)%>
+&bull; <%= link_to h(tool["-"].first.value), tool_url(tool.id)%> <%= link_to h("Löschen"), :action => "destroy", :id => tool.id%>
+<br />

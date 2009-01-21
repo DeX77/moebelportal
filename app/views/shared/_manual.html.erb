@@ -1,1 +1,2 @@
-&bull; <%= link_to h(manual["-"].first.value), manual_url(manual.id) %>
+&bull; <%= link_to h(manual["-"].first.value), manual_url(manual.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => manual.id%>
+<br />

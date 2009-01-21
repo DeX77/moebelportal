@@ -9,7 +9,7 @@ class LanguagesController < ApplicationController
   def index
     @languages = @tm.get(topicType).instances
     if (@languages.size < 1)
-      redirect_to:controller => "product", :action => "index" 
+      redirect_to products_url 
     end
   end
   
@@ -18,7 +18,7 @@ class LanguagesController < ApplicationController
     @language = @tm.topic_by_id(@id)
     if (@tm.get(topicType).instances.include?(@language))
     else
-      redirect_to:controller => "language", :action => "index"
+      redirect_to languages_url
     end
   end
   

@@ -1,2 +1,2 @@
-&bull; <%= link_to h(material["-"].first.value), material_url(material.id) %>
-<br>
+&bull; <%= link_to h(material["-"].first.value), material_url(material.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => material.id%>
+<br />

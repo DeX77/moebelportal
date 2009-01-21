@@ -1,7 +1,2 @@
 <h2>Liste alle Werkzeuge</h2>
-<% for tool in @tools %>
-<br>
-&bull; <a href="../tool/<%=h tool.id  %> "><%=h tool["-"].first.value %></a>
-</br>
-<br>
-<% end %>
+<%= render :partial => "shared/tool", :collection => @tools %>

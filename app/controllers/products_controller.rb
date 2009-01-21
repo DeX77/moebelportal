@@ -18,12 +18,12 @@ class ProductsController < ApplicationController
       @manuals = @product.counterplayers(:atype => @base_locator+"/association/manual_of")
       @acc_manuals = @tm.get( @base_locator+"/association/manual_of")
     else
-      redirect_to :controller => "product", :action => "index"
+      redirect_to home_url
     end
   end
   
   def create
-    product_tmp = params[:product]
+    product_tmp = params[:topic]
     number_tmp = product_tmp[:number]
     name_tmp = product_tmp[:name]
     image_tmp = product_tmp[:image]
@@ -31,15 +31,14 @@ class ProductsController < ApplicationController
     
     new_product = @tm.get!(get_Instance_from_Number(number_tmp))
     new_product["-"] = name_tmp
-    new_product["image"] = image_tmp
-    #new_product["description"] = description_tmp
+    new_product[@base_locator+ "/types/image"] = image_tmp
     new_product.add_type(topicType)
+    new_product[@base_locator+ "/types/description"] = description_tmp
     redirect_to(product_url(new_product.id))   
   end
   
   def new
-    product = @tm.get!("")
-    product.add_type(topicType)
+    
   end
   
   def update
@@ -51,6 +50,9 @@ class ProductsController < ApplicationController
     @id = params[:id].to_i
     #Aktuelles Produkt
     @product = @tm.topic_by_id(@id)
-    @tm.destroy(@product)
+    if (@tm.get(topicType).instances.include?(@product))
+      @tm.destroy(@product)
+    end
+    
   end
 end

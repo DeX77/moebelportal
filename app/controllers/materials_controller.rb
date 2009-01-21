@@ -9,7 +9,7 @@ class MaterialsController < ApplicationController
   def index
     @materials = @tm.get(topicType).instances
     if (@materials.size < 1)
-      redirect_to:controller => "product", :action => "index" 
+      redirect_to home_url 
     end
   end
   
@@ -24,7 +24,7 @@ class MaterialsController < ApplicationController
       @acc_belongsTo = @tm.get(@base_locator+"/association/belongsTo")
       @belongsto = @material.counterplayers(:atype => @base_locator+"/association/belongsTo")
     else
-      redirect_to:controller => "material", :action => "index"
+      redirect_to materials_url
     end
     
   end

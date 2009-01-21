@@ -10,7 +10,7 @@ class ManualsController < ApplicationController
   def index
     @manuals = @tm.get(topicType).instances
     if (@manuals.size < 1)
-      redirect_to:controller => "product", :action => "index" 
+      redirect_to home_url 
     end
     
   end
@@ -28,7 +28,7 @@ class ManualsController < ApplicationController
       #Nötige Schritte
       @set_of_steps = @manual.counterplayers(:atype => @base_locator+"/association/set_of_steps")
     else
-      redirect_to:controller => "manual", :action => "index"
+      redirect_to manuals_url
     end
     
   end

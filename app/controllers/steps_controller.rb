@@ -8,7 +8,7 @@ class StepsController < ApplicationController
   def index
     @steps = @tm.get(topicType).instances
     if (@steps.size < 1)
-      redirect_to:controller => "product", :action => "index" 
+      redirect_to home_url 
     end
   end
   
