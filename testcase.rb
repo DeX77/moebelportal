@@ -1,11 +1,14 @@
 @base_locator = "http://moebelportal.topicmapslab.de"
 @tm = RTM[@base_locator]
 
-toptic65 = @tm.topic_by_id(65)
-puts "Name: " + toptic65["-"].first.value
+topic = @tm.topic_by_id(104)
+puts "Name: " + topic["-"].first.value
 
 tempTopic = @tm.get!("Blahub")
-tempTopic["name"] = "was andres"
+tempTopic["-"] = "was andres"
 tempTopic["image"] = "lustiges Foto"
+#tempTopic.add_type(@base_locator + "/types/product")
+@tm.get(@base_locator + "/types/product").add_instance(tempTopic)
 
-puts "Name: " + toptic65["-"].first.value
+puts "Name: " + topic["-"].first.value
+puts "Name: " + tempTopic["-"].first.value
