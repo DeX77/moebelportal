@@ -7,8 +7,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :materials
   map.resources :languages
   map.resources :tools
- 
-  map.connect '', :controller => "products", :action => "index"
+  map.home '', :controller => "products", :action => "index"
+  
   
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
