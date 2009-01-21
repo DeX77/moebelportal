@@ -1,2 +1,2 @@
-&bull; <%= link_to h(language["-"].first.value), language_url(language.id) %>; <%= link_to h("Löschen"), :action => "destroy" :id => language.id%>
+&bull; <%= link_to h(language[@base_locator+ "/types/label"]), language_url(language.id) %>; <%= link_to h("Löschen"), :action => "destroy" :id => language.id%>
 <br />

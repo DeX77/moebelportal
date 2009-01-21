@@ -37,13 +37,8 @@ class StepsController < ApplicationController
     end
   end
   
-  def create
-    
-  end
-  
-  def new
-    @product = @tm.get!("")
-    @product.add_type(topicType)
+  def create        
+    redirect_to(step_url(createTopic(params).id))   
   end
   
   def update

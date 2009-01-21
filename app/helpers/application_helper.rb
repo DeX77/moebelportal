@@ -16,8 +16,8 @@ module ApplicationHelper
      namedlabels = languages.zip(labels);
      namedlabel = "";
      for label in namedlabels
-       if  label[0]["-"].first.value == l["-"].frst.value
-        namedlabel = label[1]["-"].first.value
+       if  label[0]["-label"].first.value == l["-label"].frst.value
+        namedlabel = label[1]["-label"].first.value
         break
        end
      end
@@ -28,7 +28,7 @@ module ApplicationHelper
     #type = @tm.get(@base_locator + "/types/displaylabel")
     topic = @tm.get!(@base_locator + "/instances/labels/" + label)
     topic.add_type(@base_locator + "/types/displaylabel")
-    topic["-"] = label    
+    topic["-label"] = label
     asso = @tm.get(@base_locator + "/association/scoping")    
     asso.cr t.si.first.value, @base_locator + "/types/named_topic_type"
     asso.cr topic ,  @base_locator + "/types/displaylabel"

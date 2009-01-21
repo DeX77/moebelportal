@@ -1,4 +1,4 @@
-<h2><%=h @product[@base_locator+ "/types/label"] %></h2>
+<h2><%=h @product[@base_locator+ "/types/label"].first.value%></h2>
 <br />
 
 <%= get_image_tag(@product) %>
@@ -8,6 +8,6 @@
 
 <% if @manuals.size > 0 %>
   <hr />
-  <h3><%=h @acc_manuals["-"].first.value  %></h3>
+  <h3><%=h @acc_manuals[@base_locator+ "/types/label"] %></h3>
   <%= render :partial => "shared/manual", :collection => @manuals %>
 <% end %>

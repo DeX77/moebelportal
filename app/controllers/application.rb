@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
     image_tmp = topic_tmp[:image]
     description_tmp = topic_tmp[:description]
     
+    puts "SI: " + get_Instance_from_Number(number_tmp)
     new_topic = @tm.get!(get_Instance_from_Number(number_tmp))
     new_topic[@base_locator+ "/types/label"] = name_tmp
     new_topic[@base_locator+ "/types/image"] = image_tmp
