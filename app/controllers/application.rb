@@ -14,17 +14,31 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   before_filter :set_tm
+  before_filter :authorize, :except =>[:index, :show]  
+  
+  protected
+  
+  def authorize
+    unless admin?
+      flash[:error] = "Poeser Pursche!!"
+      redirect_to home_url
+      false
+    end
+  end
+  
+  def admin?
+    current_user.admin?
+  end
   
   def get_Instance_from_Number(number)
     @base_locator = "http://moebelportal.topicmapslab.de"
     return @base_locator + "/instances/" + number
   end
-  protected
+  
   def set_tm
     @base_locator = "http://moebelportal.topicmapslab.de"
     @tm = RTM[@base_locator]
   end
-  
   
   
   def destroy
