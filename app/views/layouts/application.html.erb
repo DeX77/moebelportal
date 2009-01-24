@@ -6,9 +6,20 @@
         <meta name="keywords" content="" />
         <meta name="description" content="" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/sahara.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/autocomplete.css">
+        <!--script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script-->
+        <script src="/javascripts/jquery-latest.js" type="text/javascript"></script>
+        <script src="/javascripts/dimensions.js" type="text/javascript"></script>
+        <script src="/javascripts/autocomplete.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function(){
+                setAutoComplete("autocomp", "results", "/autocomplete/");
+            });
+        </script>
         <%= javascript_include_tag "prototype" %>
     </head>
     <body>
+        <input type="text" id="autocomp" name="autocomp" />
         <div id="outer">
             <div id="outer2">
                 <div id="header">
