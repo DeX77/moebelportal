@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :materials
   map.resources :languages
   map.resources :tools
+  map.resources :autocomplete
   map.home '', :controller => "products", :action => "index"
   
   
