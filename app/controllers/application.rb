@@ -14,19 +14,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   before_filter :set_tm
-<<<<<<< local
-  #before_filter :generate_db_from_xtm2
-
-  def generate_db_from_xtm2
-    @base_locator = "http://moebelportal.topicmapslab.de"
-    RTM.connect_sqlite3("db/development.sqlite3")
-    RTM.generate_database
-    #@tm = RTM.from_xtm2lx(File.open("./Model/ikeatm.xtm2"), @base_locator)
-    #if !(@tm)
-      @tm = RTM.from_xtm2(File.open("./Model/ikeatm.xtm2"), @base_locator)
-    #end
-=======
-  before_filter :authorize, :except =>[:index, :show]  
+  before_filter :authorize, :except =>[:index, :show]
   
   protected
   
@@ -36,17 +24,13 @@ class ApplicationController < ActionController::Base
       redirect_to home_url
       false
     end
->>>>>>> other
-  end
-<<<<<<< local
 
-=======
   
   def admin?
     current_user.admin?
   end
   
->>>>>>> other
+
   def get_Instance_from_Number(number)
     @base_locator = "http://moebelportal.topicmapslab.de"
     return @base_locator + "/instances/" + number
