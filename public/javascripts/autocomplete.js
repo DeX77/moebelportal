@@ -28,7 +28,10 @@ function setAutoComplete(field_id, results_id, get_url){
 	acURL 		= get_url;
 
 	// create the results div
-	$("body").append('<div id="' + results_id + '"></div>');
+    var div = document.createElement("div");
+    div.id = results_id;
+    document.body.appendChild(div);
+	//$("body").append('<div id="' + results_id + '"></div>');
 
 	// register mostly used vars
 	acSearchField	= $(acSearchId);
@@ -59,12 +62,12 @@ function setAutoComplete(field_id, results_id, get_url){
 		}
 
 		// if is text, call with delay
-		setTimeout(function () {autoComplete(lastVal)}, acDelay);
+		setTimeout(function () {autoComplete()}, acDelay);
 	});
 }
 
 // treat the auto-complete action (delayed function)
-function autoComplete(lastValue)
+function autoComplete()
 {
 	// get the field value
 	var part = acSearchField.val();
@@ -75,15 +78,19 @@ function autoComplete(lastValue)
 		return;
 	}
 
+    var splits = part.split(" ");
+    if ( splits.length > 0 ){
+        part = splits[splits.length-1];
+    }
+
 	// if it's equal the value from the time of the call, allow
-	if(lastValue != part){
+	/*if(lastValue != part){
 		return;
-	}
+	}*/
 
 	// get remote data as JSON
 	$.getJSON(acURL + part, function(json){
 
-        alert(json);
 		// get the total of results
 		var ansLength = acListTotal = json.length;
 
@@ -112,7 +119,19 @@ function autoComplete(lastValue)
 		
 			// on click copy the result text to the search field and hide
 			divs.click( function() {
-				acSearchField.val(this.childNodes[0].nodeValue);
+                var lastVal = this.childNodes[0].nodeValue;
+                var txt = acSearchField.val();
+                var splits = txt.split(" ");
+                if ( splits.length > 0 ){
+                    splits[splits.length-1] = lastVal;
+                }
+                txt = "";
+                for ( str in splits ){
+                    txt += (splits[str] + " ");
+                }
+
+                acSearchField.val(txt);
+
 				clearAutoComplete();
 			});
 

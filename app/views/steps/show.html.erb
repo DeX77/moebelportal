@@ -15,12 +15,14 @@
 <%= render :partial => "shared/material", :collection => @materials %>
 
 Material Hinzufügen:
-		<script type="text/javascript">
-$(function(){
-	setAutoComplete("autocomp", "results", "../json/");
-});
-</script>
 <input type="text" id="autocomp" name="autocomp" />
+
+        <script type="text/javascript">
+          $(function(){
+              setAutoComplete("autocomp", "results", "../materials/json/");
+          });
+        </script>
+
 <%= render :partial => "shared/tool", :collection => @tools %>
 <hr>
 <%= render :partial => "shared/material", :collection => @results %>

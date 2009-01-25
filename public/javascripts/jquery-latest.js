@@ -3366,8 +3366,6 @@ jQuery.extend({
 
 				// Attach handlers for all browsers
 				script.onload = script.onreadystatechange = function(){
-                    alert("Done:"+ done);
-                    alert("State: "+this.readyState);
 					if ( !done && (!this.readyState ||
 							this.readyState == "loaded" || this.readyState == "complete") ) {
 						done = true;
@@ -3518,7 +3516,6 @@ jQuery.extend({
 			onreadystatechange();
 
 		function success(){
-            alert("success");
 			// If a local callback was specified, fire it and pass it the data
 			if ( s.success )
 				s.success( data, status );
@@ -3583,9 +3580,6 @@ jQuery.extend({
 		var ct = xhr.getResponseHeader("content-type"),
 			xml = type == "xml" || !type && ct && ct.indexOf("xml") >= 0,
 			data = xml ? xhr.responseXML : xhr.responseText;
-
-            alert("data " + data );
-
 		if ( xml && data.documentElement.tagName == "parsererror" )
 			throw "parsererror";
 			
