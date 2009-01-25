@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|  
   # The priority is based upon order of creation: first created -> highest priority.
+
+  map.root :controller => "products" 
   
   map.resources :products
   map.resources :steps
@@ -7,8 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :materials
   map.resources :languages
   map.resources :tools
-  map.resources :autocomplete
-  map.home '', :controller => "products", :action => "index"
+
+  map.json_with_text ':controller/json/:id',  :action => 'index_json'
   
   
   # Sample of regular route:

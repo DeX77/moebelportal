@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
       @manuals = @product.counterplayers(:atype => @base_locator+"/association/manual_of")
       @acc_manuals = @tm.get( @base_locator+"/association/manual_of")
     else
-      redirect_to home_url
+      redirect_to root_url
     end
   end
   

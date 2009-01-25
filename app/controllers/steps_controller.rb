@@ -8,7 +8,7 @@ class StepsController < ApplicationController
   def index
     @steps = @tm.get(topicType).instances
     if (@steps.size < 1)
-      redirect_to home_url 
+      redirect_to root_url 
     end
   end
   
@@ -33,16 +33,19 @@ class StepsController < ApplicationController
       @doBefore = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps", :rtype => @base_locator+"/types/role_following_step")
       @doAfter = @step.counterplayers(:atype => @base_locator+"/association/sequence_of_steps", :rtype => @base_locator+"/types/role_earlier_step")
     else
-      redirect_to:controller => "step", :action => "index" 
+      redirect_to steps_url 
     end
+    
   end
   
   def create        
-    redirect_to(step_url(createTopic(params).id))   
+    redirect_to(step_url(createTopic(params)))   
   end
   
   def update
     
   end
+  
+  
   
 end

@@ -7,19 +7,13 @@
         <meta name="description" content="" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/sahara.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/autocomplete.css">
-        <!--script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script-->
-        <script src="/javascripts/jquery-latest.js" type="text/javascript"></script>
-        <script src="/javascripts/dimensions.js" type="text/javascript"></script>
-        <script src="/javascripts/autocomplete.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(function(){
-                setAutoComplete("autocomp", "results", "/autocomplete/");
-            });
-        </script>
+        <%= javascript_include_tag "jquery-latest" %>
+        <%= javascript_include_tag "dimensions" %>
+        <%= javascript_include_tag "autocomplete" %>
         <%= javascript_include_tag "prototype" %>
     </head>
     <body>
-        <input type="text" id="autocomp" name="autocomp" />
+        <!-- <input type="text" id="autocomp" name="autocomp" />-->
         <div id="outer">
             <div id="outer2">
                 <div id="header">
@@ -49,7 +43,6 @@
                         <% content_tag :script, :type => "text/javascript" do -%>
                         setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);<% end %>
                         <% end %>
-						
                         <%= yield %>
                     </div>
                     <div id="column2">

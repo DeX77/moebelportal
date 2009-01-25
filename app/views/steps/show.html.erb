@@ -13,6 +13,14 @@
 <%= render :partial => "shared/step", :collection => @parts_of_steps %>
 <hr>
 <%= render :partial => "shared/material", :collection => @materials %>
+
+Material Hinzufügen:
+		<script type="text/javascript">
+$(function(){
+	setAutoComplete("autocomp", "results", "../json/");
+});
+</script>
+<input type="text" id="autocomp" name="autocomp" />
 <%= render :partial => "shared/tool", :collection => @tools %>
 <hr>
 <%= render :partial => "shared/material", :collection => @results %>

@@ -1,4 +1,4 @@
-module ProductHelper
+module ProductsHelper
   
   def getNumberOfManuals(product)
     return "(" + product.counterplayers(:atype => @base_locator+"/association/manual_of").size.to_s + ")"

@@ -14,23 +14,24 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   before_filter :set_tm
-  before_filter :authorize, :except =>[:index, :show]
+  before_filter :authorize, :except =>[:index, :show, :index_json]
   
   protected
   
   def authorize
     unless admin?
       flash[:error] = "Poeser Pursche!!"
-      redirect_to home_url
+      redirect_to root_url
       false
     end
-
+  end
+  
   
   def admin?
     current_user.admin?
   end
   
-
+  
   def get_Instance_from_Number(number)
     @base_locator = "http://moebelportal.topicmapslab.de"
     return @base_locator + "/instances/" + number
@@ -50,6 +51,18 @@ class ApplicationController < ActionController::Base
     @tm.destroy(@topic)    
   end
   
+  def update_name(topic, name)
+    topic[@base_locator+ "/types/label"] = name
+  end
+  
+  def update_image(topic, image_url)
+    topic[@base_locator+ "/types/image"] = image_url
+  end
+  
+  def update_description(topic, description)
+    topic[@base_locator+ "/types/description"] = description
+  end
+  
   def createTopic(params)
     topic_tmp = params[:topic]
     number_tmp = topic_tmp[:number]
@@ -59,12 +72,62 @@ class ApplicationController < ActionController::Base
     
     puts "SI: " + get_Instance_from_Number(number_tmp)
     new_topic = @tm.get!(get_Instance_from_Number(number_tmp))
-    new_topic[@base_locator+ "/types/label"] = name_tmp
-    new_topic[@base_locator+ "/types/image"] = image_tmp
-    new_topic[@base_locator+ "/types/description"] = description_tmp
+    update_name(new_topic, name_tmp)
+    update_image(new_topic, image_tmp)    
+    update_description(new_topic, description_tmp)
     new_topic.add_type(topicType)
     
     return new_topic
   end
   
+  def updateTopic(params)
+    number_tmp = topic_tmp[:number]
+    name_tmp = topic_tmp[:name]
+    image_tmp = topic_tmp[:image]
+    description_tmp = topic_tmp[:description]
+    
+    updated_topic = @tm.get_by_id(params[:id])
+    update_name(updated_topic, name_tmp)
+    update_image(updated_topic, image_tmp)    
+    update_description(updated_topic, description_tmp)
+    
+    return new_topic
+  end
+  
+  def instanceLabels(topicType)
+    @instances = @tm.get(topicType).instances
+    @result = Array.new
+    
+    @instances.each do |instance|
+      labels = instance.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
+      if !labels.empty?
+        @result << labels.join
+        next
+      else      
+        basename = instance["-"].first
+        if basename
+          @result << basename.value
+          next
+        else
+          defaultlabel = instance[@base_locator + "/types/label"].first
+          if defaultlabel
+            @result << defaultlabel.value
+            next
+          end
+        end
+      end
+    end
+    
+    return @result
+  end
+  
+  def labelsIncluding(instanceLabels, text)
+    blah = instanceLabels.select() do |label|
+      label.include? text
+    end
+  end
+  public
+  def index_json
+    render :json => labelsIncluding(instanceLabels(topicType), params[:id])
+  end
 end

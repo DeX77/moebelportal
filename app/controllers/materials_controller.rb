@@ -9,7 +9,7 @@ class MaterialsController < ApplicationController
   def index
     @materials = @tm.get(topicType).instances
     if (@materials.size < 1)
-      redirect_to home_url 
+      redirect_to root_url 
     end
   end
   
