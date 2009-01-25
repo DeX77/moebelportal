@@ -1,2 +1,2 @@
-&bull; <%= link_to h(tool[@base_locator+ "/types/label"]), tool_url(tool.id)%> <%= link_to h("Löschen"), :action => "destroy", :id => tool.id%>
+&bull; <%= link_to h(get_label(tool)), tool_url(tool.id)%> <%= link_to h("Löschen"), :action => "destroy", :id => tool.id%>
 <br />

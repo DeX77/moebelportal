@@ -9,30 +9,38 @@ module ApplicationHelper
       return "<img src=\"../images/nopic.png\" />"
     end
   end
-  
-  def get_label_in_scope(t,l)
+
+  #this method fetch die display label of a topic by the current language if it exists
+  def get_label(t)
+    labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
+    for label in labels
+      if @current_lang
+        return get_label_in_scope(t,@current_lang)
+      else
+        return get_default_label(label)
+      end
+    end
+  end
+
+  #this method returns the label of the topic in given scope
+  def get_label_in_scope(t,l)    
+    @lang_ = get_default_label(l)
     languages = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/language" )
     labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
-    namedlabels = languages.zip(labels);
-    namedlabel = "";
+    namedlabels = languages.zip(labels)
+    namedlabel = get_default_label(t)
     for label in namedlabels
-      if  label[0]["-label"].first.value == l["-label"].frst.value
-        namedlabel = label[1]["-label"].first.value
+      if  get_default_label(label[0]).include?(@lang_)
+        namedlabel = get_default_label(label[1])
         break
       end
     end
     return namedlabel;
+  end  
+
+  #this method returns the default label
+  def get_default_label(t)
+    return (t[@base_locator+"/types/label"].first)?(t[@base_locator+"/types/label"].first.value):(t["-"].first.value)
   end
-  
-  def create_label_in_scope(label,l,t)
-    #type = @tm.get(@base_locator + "/types/displaylabel")
-    topic = @tm.get!(@base_locator + "/instances/labels/" + label)
-    topic.add_type(@base_locator + "/types/displaylabel")
-    topic["-label"] = label
-    asso = @tm.get(@base_locator + "/association/scoping")    
-    asso.cr t.si.first.value, @base_locator + "/types/named_topic_type"
-    asso.cr topic ,  @base_locator + "/types/displaylabel"
-    asso.cr l.si.first.value ,  @base_locator + "/types/language"
-  end
-  
+
 end

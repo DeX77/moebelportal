@@ -13,6 +13,12 @@
         <%= javascript_include_tag "autocomplete" %>
     </head>
     <body>
+        <iframe src="" id="idInvisible" style="visibility:hidden;position:absolute;"></iframe>
+        <select id="languages" onChange="document.getElementById('idInvisible').src = '/languages/switch/'+this[this.selectedIndex].value">
+          <% for lang in @tm.get(@base_locator + "/types/language").instances %>
+            <option value="<%=h lang.id %>"><%=h get_default_label(lang) %></option>
+          <% end %>
+        </select>
         <!--<input type="text" id="autocomp" name="autocomp" />-->
         <div id="outer">
             <div id="outer2">

@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tools
 
   map.json_with_text ':controller/json/:id',  :action => 'index_json'
+
+  map.switch_lang ':controller/switch/:id', :action => 'switch'
   
   
   # Sample of regular route:

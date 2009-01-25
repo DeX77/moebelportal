@@ -28,7 +28,6 @@ class LanguagesController < ApplicationController
   
   def update
     
-  end
-  
+  end  
   
 end

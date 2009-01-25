@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   before_filter :set_tm
-  before_filter :authorize, :except =>[:index, :show, :index_json]
+  before_filter :authorize, :except =>[:index, :show, :index_json, :switch]
   
   protected
   
@@ -41,7 +41,10 @@ class ApplicationController < ActionController::Base
     @base_locator = "http://moebelportal.topicmapslab.de"
     @tm = RTM[@base_locator]
   end
-  
+
+  def set_lang
+    @current_lang = find_language("de")
+  end
   
   def destroy
     #Topic Nummer
@@ -93,7 +96,7 @@ class ApplicationController < ActionController::Base
     
     return new_topic
   end
-  
+
   def instanceLabels(topicType)
     @instances = @tm.get(topicType).instances
     @result = Array.new
@@ -126,8 +129,46 @@ class ApplicationController < ActionController::Base
       label.include? text
     end
   end
+
+  #this method create a new label in diven language
+  def create_label_in_scope(params)
+    topic_tmp = params[:topic]
+    lang_tmp = topic_tmp[:lang]
+    label_tmp = topic_tmp[:label]
+
+    topic = @tm.topic_by_id(params[:id])
+
+    new_topic = @tm.get!(params[:id] + "_" + lang_tmp )
+    update_name(new_topic, label_tmp)
+    #todo so richtig???
+    new_topic.add_type(tm.get(@base_locator + "/types/displaylabel"))
+
+    lang = @tm.get_by_id(lang_tmp)
+
+    asso = @tm.get(@base_locator + "/association/scoping")
+    asso.cr topic, @base_locator + "/types/named_topic_type"
+    asso.cr new_topic ,  @base_locator + "/types/displaylabel"
+    asso.cr lang,  @base_locator + "/types/language"
+  end
+
+   def find_language(label_)
+    @langs = @tm.get(@base_locator +"/types/language").instances
+    for lang in @langs
+      label = lang["-"].first
+      if label && label.value.include?(label_)
+        return lang
+      end
+    end
+    return nil
+  end
+
   public
+
+   def switch
+    @current_lang = @tm.topic_by_id(params[:id].to_i)
+  end
+
   def index_json
     render :json => labelsIncluding(instanceLabels(topicType), params[:id])
-  end
+  end  
 end
