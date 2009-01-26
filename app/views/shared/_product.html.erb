@@ -1,2 +1,2 @@
-&bull; <%= link_to h(getNumberOfManuals(product)+product[@base_locator+ "/types/label"].first.value), product_url(product.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => product.id%>
+&bull; <%= link_to h(get_label(product)), product_url(product.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => product.id%>
 <br />

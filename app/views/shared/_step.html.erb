@@ -1,2 +1,2 @@
-&bull; <%= link_to h(step[@base_locator+ "/types/label"]), step_url(step.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => step.id%>
+&bull; <%= link_to h(get_label(step)), step_url(step.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => step.id%>
 <br/>

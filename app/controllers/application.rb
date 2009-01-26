@@ -165,7 +165,7 @@ class ApplicationController < ActionController::Base
   public
 
    def switch
-    @current_lang = @tm.topic_by_id(params[:id].to_i)
+    $current_lang = @tm.topic_by_id(params[:id].to_i)
   end
 
   def index_json

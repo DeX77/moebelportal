@@ -1,2 +1,2 @@
-&bull; <%= link_to h(material[@base_locator+ "/types/label"]), material_url(material.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => material.id%>
+&bull; <%= link_to h(get_label(material)), material_url(material.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => material.id%>
 <br />

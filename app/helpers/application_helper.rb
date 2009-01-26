@@ -14,12 +14,13 @@ module ApplicationHelper
   def get_label(t)
     labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
     for label in labels
-      if @current_lang
-        return get_label_in_scope(t,@current_lang)
+      if $current_lang
+        return get_label_in_scope(t,$current_lang)
       else
         return get_default_label(label)
       end
     end
+    return get_default_label(t)
   end
 
   #this method returns the label of the topic in given scope
@@ -40,7 +41,12 @@ module ApplicationHelper
 
   #this method returns the default label
   def get_default_label(t)
-    return (t[@base_locator+"/types/label"].first)?(t[@base_locator+"/types/label"].first.value):(t["-"].first.value)
+    arg = (t[@base_locator+"/types/label"].first)?(t[@base_locator+"/types/label"].first):(t["-"].first)
+    if arg
+      return arg.value
+    else
+      return "Unknown"
+    end
   end
 
 end
