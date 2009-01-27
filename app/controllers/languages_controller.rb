@@ -22,12 +22,5 @@ class LanguagesController < ApplicationController
     end
   end
   
-  def create        
-    redirect_to(language_url(createTopic(params).id))   
-  end
-  
-  def update
-    
-  end  
   
 end

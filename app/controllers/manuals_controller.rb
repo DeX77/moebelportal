@@ -33,14 +33,6 @@ class ManualsController < ApplicationController
     
   end
   
-  def create        
-    redirect_to(manual_url(createTopic(params).id))   
-  end
-  
-  def update
-    
-  end
-  
   def sort_by_order(set_of_steps)
     return set_of_steps.sort() do |a,b|
       if (a ==b)

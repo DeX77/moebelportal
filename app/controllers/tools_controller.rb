@@ -30,13 +30,4 @@ class ToolsController < ApplicationController
   end  
   
   
-  def create        
-    redirect_to(tool_url(createTopic(params).id))   
-  end
-  
-  def update
-    
-  end
-  
-  
 end

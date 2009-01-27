@@ -38,14 +38,5 @@ class StepsController < ApplicationController
     
   end
   
-  def create        
-    redirect_to(step_url(createTopic(params)))   
-  end
-  
-  def update
-    
-  end
-  
-  
   
 end

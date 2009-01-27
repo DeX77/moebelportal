@@ -29,13 +29,6 @@ class MaterialsController < ApplicationController
     
   end
   
-  def create        
-    redirect_to(material_url(createTopic(params).id))   
-  end
-  
-  def update
-    
-  end
   
   
 end
