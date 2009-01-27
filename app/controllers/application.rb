@@ -273,13 +273,13 @@ class ApplicationController < ActionController::Base
     @topic = @tm.topic_by_id(@id)
 
     @label = params[:label]
-
-    @new_topic = @tm.get!(params[:id] + "_" + get_default_label($current_lang) )
+    @subI = get_Instance_from_Number(params[:id] + "_" + get_default_label($current_lang))
+    @new_topic = @tm.get!(@subI)
     update_name(@new_topic, @label)
     @new_topic.add_type(@tm.get(@base_locator + "/types/displaylabel"))
 
     create_association_ex(@base_locator + "/association/scoping", @topic, @base_locator + "/types/named_topic_type", @new_topic, @base_locator + "/types/displaylabel", $current_lang, @base_locator + "/types/language")
-    redirect_to("./")
+    redirect_to products_url 
   end
 
 
