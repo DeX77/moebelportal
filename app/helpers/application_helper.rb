@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   #this method returns the label of the topic in given scope
-  def get_label_in_scope(t,l)    
+  def get_label_in_scope(t,l)
     @lang_ = get_default_label(l)
     languages = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/language" )
     labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
@@ -37,7 +37,7 @@ module ApplicationHelper
       end
     end
     return namedlabel;
-  end  
+  end
 
   #this method returns the default label
   def get_default_label(t)

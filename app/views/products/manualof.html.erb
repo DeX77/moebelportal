@@ -1,0 +1,8 @@
+<%=h get_label(@product) %>
+<br />  
+<%= form_tag :action => "create_manualof" %>
+<%= hidden_field_tag(:id, @id) %>
+<%=h @acc_manuals["-"].second.value %>: &nbsp;
+<%= select_tag(:manual_id, options_for_select(@hash)) %>
+<br />
+<%= submit_tag "Speichern" %>

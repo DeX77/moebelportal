@@ -1,0 +1,8 @@
+<%=h get_label(@step) %>
+<br />
+<%= form_tag :action => "create_result" %>
+<%= hidden_field_tag(:id, @id) %>
+<%=h @association["-"].third.value %>: &nbsp;
+<%= select_tag(:material_id, options_for_select(@hash)) %>
+<br />
+<%= submit_tag "Speichern" %>

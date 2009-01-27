@@ -1,17 +1,18 @@
+<h2><%=h get_label(@manual)%></h2>
+<br />
+
+<%= get_image_tag(@manual) %>
+<br />
+
 <% if @product.size > 0 %>
-<h3>Anleitung für</h3>
+<h3><%=h @association2["-"].first.value %></h3>
 <%= render :partial => "shared/product", :collection => @product %>		
 <% end %>
 
-<% if @set_of_steps.size > 0 %>
-<h3>Schritte</h3>
-<%= render :partial => "shared/step", :collection => @set_of_steps %>		
-<% end %>
+<br />
 
-<%if @all_assosciations.size > 0 %>
-<h3>Sonstige Assoziationen</h3>
-	<% for assosc in @all_assosciations%>
-	&bull;  <% assosc.id %>
-	<br>
-	<% end %>
-<% end %>
+<h3>
+  <%=h @association["-"].third.value %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./contains/<%=h @id %>';"/><br />
+</h3>
+<%= render :partial => "shared/step", :collection => @set_of_steps %>		

@@ -13,7 +13,25 @@ ActionController::Routing::Routes.draw do |map|
   map.json_with_text ':controller/json/:id',  :action => 'index_json'
 
   map.switch_lang ':controller/switch/:id', :action => 'switch'
+
+  map.manualof ':controller/manualof/:id', :action => 'manualof'
+  map.contains ':controller/contains/:id', :action => 'contains'
+  map.doafter ':controller/doafter/:id', :action => 'doafter'
+  map.dobefore ':controller/dobefore/:id', :action => 'dobefore'
+  map.result ':controller/result/:id', :action => 'result'
+  map.materialof ':controller/materialof/:id', :action => 'materialof'
+  map.toolof ':controller/toolof/:id', :action => 'toolof'
+  map.childof ':controller/childof/:id', :action => 'childof'
   
+  map.post ':controller/create_manualof/', :action => 'create_manualof'
+  map.post ':controller/create_contains/', :action => 'create_contains'
+  map.post ':controller/create_doafter/', :action => 'create_doafter'
+  map.post ':controller/create_dobefore/', :action => 'create_dobefore'
+  map.post ':controller/create_result/', :action => 'create_result'
+  map.post ':controller/create_materialof/', :action => 'create_materialof'
+  map.post ':controller/create_toolof/', :action => 'create_toolof'
+  map.post ':controller/create_childof/', :action => 'create_childof'
+
   
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'

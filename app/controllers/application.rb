@@ -14,10 +14,49 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   before_filter :set_tm
-  before_filter :authorize, :except =>[:index, :show, :index_json, :switch]
+  #before_filter :authorize, :except =>[:index, :show, :index_json, :switch]
   
   protected
-  
+
+  #this method fetch die display label of a topic by the current language if it exists
+  def get_label(t)
+    labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
+    for label in labels
+      if $current_lang
+        return get_label_in_scope(t,$current_lang)
+      else
+        return get_default_label(label)
+      end
+    end
+    return get_default_label(t)
+  end
+
+  #this method returns the label of the topic in given scope
+  def get_label_in_scope(t,l)
+    @lang_ = get_default_label(l)
+    languages = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/language" )
+    labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
+    namedlabels = languages.zip(labels)
+    namedlabel = get_default_label(t)
+    for label in namedlabels
+      if  get_default_label(label[0]).include?(@lang_)
+        namedlabel = get_default_label(label[1])
+        break
+      end
+    end
+    return namedlabel;
+  end
+
+  #this method returns the default label
+  def get_default_label(t)
+    arg = (t[@base_locator+"/types/label"].first)?(t[@base_locator+"/types/label"].first):(t["-"].first)
+    if arg
+      return arg.value
+    else
+      return "Unknown"
+    end
+  end
+
   def authorize
     unless admin?
       flash[:error] = "Poeser Pursche!!"
@@ -161,7 +200,15 @@ class ApplicationController < ActionController::Base
     end
     return nil
   end
-  
+
+  def create_association(typeAssociation,player1,typePlayer1,player2,typePlayer2)
+    if player1.si.first && player2.si.first
+      asso = @tm.create_association(typeAssociation)
+      asso.cr player1.si.first.value, typePlayer1
+      asso.cr player2.si.first.value, typePlayer2
+    end
+  end
+
   public
   
   def switch

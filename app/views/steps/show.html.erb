@@ -7,46 +7,63 @@
 <br />
 <br />
 
-<% if @doAfter.size > 0 %>
-  <%=h @acc_sequence["-"].third.value %>:&nbsp;
+ <%=h @acc_sequence["-"].third.value %>:&nbsp;
+<% if @doAfter.size > 0 %> 
   <%= render :partial => "shared/step", :collection => @doAfter %>
+<% else %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./doafter/<%=h @id %>';"/><br />
 <% end %>
 
-<% if @doBefore.size > 0 %>
-  <%=h @acc_sequence["-"].second.value %>:&nbsp;
+<%=h @acc_sequence["-"].second.value %>:&nbsp;
+<% if @doBefore.size > 0 %>  
   <%= render :partial => "shared/step", :collection => @doBefore %>
+<% else %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./dobefore/<%=h @id %>';"/><br />
 <% end %>
 
 <hr>
-<% if @parts_of_steps.size > 0 %>
-  <h4><%=h @acc_hierachie["-"].first.value %></h4>
-  <%= render :partial => "shared/step", :collection => @parts_of_steps %>
-  <hr>
-<% end %>
 
-<% if @parentstep.size > 0 %>
-  <h4><%=h @acc_hierachie["-"].second.value %></h4>
-  <%= render :partial => "shared/step", :collection => @parentstep %>
-  <hr>
-<%  end %>
+<h4>
+   <%=h @acc_hierachie["-"].first.value %>
+   <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./contains/<%=h @id %>';"/><br />
+</h4>
+<%= render :partial => "shared/step", :collection => @parts_of_steps %>
+<hr>
 
-<% if @materials.size > 0 %>
-  <h4><%=h @acc_material["-"].first.value %></h4>
-  <%= render :partial => "shared/material", :collection => @materials %>
-  <hr>
-<%  end %>
 
-<% if @tools.size > 0 %>
-  <h4><%=h @acc_tools["-"].first.value %></h4>
-  <%= render :partial => "shared/tool", :collection => @tools %>
-  <hr>
-<%  end %>
 
-<% if @results.size > 0 %>
-  <h4><%=h @acc_result["-"].third.value %></h4>
-  <%= render :partial => "shared/material", :collection => @results %>
-  <hr>
-<%  end %>
+<h4>
+  <%=h @acc_hierachie["-"].second.value %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./childof/<%=h @id %>';"/><br />
+</h4>
+<%= render :partial => "shared/step", :collection => @parentstep %>
+<hr>
+
+
+
+<h4>
+  <%=h @acc_material["-"].first.value %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./materialof/<%=h @id %>';"/><br />
+</h4>
+<%= render :partial => "shared/material", :collection => @materials %>
+<hr>
+
+
+
+<h4>
+  <%=h @acc_tools["-"].first.value %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./toolof/<%=h @id %>';"/><br />
+</h4>
+<%= render :partial => "shared/tool", :collection => @tools %>
+<hr>
+
+<h4>
+  <%=h @acc_result["-"].third.value %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./result/<%=h @id %>';"/><br />
+</h4>
+<%= render :partial => "shared/material", :collection => @results %>
+<hr>
+
 
 Material Hinzufügen:
 <input type="text" id="autocomp" name="autocomp" />

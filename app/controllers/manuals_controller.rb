@@ -20,6 +20,8 @@ class ManualsController < ApplicationController
     @id = params[:id].to_i
     #Aktuelles Manual
     @manual = @tm.topic_by_id(@id)
+    @association = @tm.get( @base_locator+"/association/set_of_steps")
+    @association2 = @tm.get( @base_locator+"/association/manual_of")
     if (@tm.get(topicType).instances.include?(@manual))
       #Alle Assoziationen
       @all_assosciations = @manual.counterplayers
@@ -52,4 +54,29 @@ class ManualsController < ApplicationController
     end
     
   end
+
+  def contains
+    @id = params[:id].to_i
+    #Aktuelles Manual
+    @manual = @tm.topic_by_id(@id)
+    @association = @tm.get( @base_locator+"/association/set_of_steps")
+    @hash = Hash.new
+    if (@tm.get(topicType).instances.include?(@manual))
+      @steps = @tm.get(@base_locator + "/types/step").instances
+      for step in @steps
+        @hash[get_label(step)] = step.id
+      end
+    end
+  end
+
+  def create_contains
+     @id = params[:id].to_i
+    @step_id = params[:step_id].to_i
+    @manual = @tm.topic_by_id(@id)
+    @step = @tm.topic_by_id(@step_id)
+
+    create_association(@base_locator+"/association/set_of_steps",@manual,@base_locator+"/types/role_manual",@step,@base_locator+"/types/role_step")
+    redirect_to(manual_url(@id))
+  end
+
 end

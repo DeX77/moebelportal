@@ -1,13 +1,13 @@
-<h2><%=h @product[@base_locator+ "/types/label"].first.value%></h2>
+<h2><%=h get_label(@product)%></h2>
 <br />
 
 <%= get_image_tag(@product) %>
 
 <br />
-<br />
 
-<% if @manuals.size > 0 %>
-  <hr />
-  <h3><%=h @acc_manuals[@base_locator+ "/types/label"] %></h3>
-  <%= render :partial => "shared/manual", :collection => @manuals %>
-<% end %>
+<h3>
+  <%=h @acc_manuals["-"].second.value %>
+  <img src="/images/add.png" style="width:10px;height:10px;cursor:pointer" onclick="document.location.href='./manualof/<%=h @id %>';"/>
+</h3>
+<%= render :partial => "shared/manual", :collection => @manuals %>
+
