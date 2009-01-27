@@ -106,11 +106,10 @@ class ApplicationController < ActionController::Base
   end
   
   def createTopic(params)
-    topic_tmp = params[:topic]
-    number_tmp = topic_tmp[:number]
-    name_tmp = topic_tmp[:name]
-    image_tmp = topic_tmp[:image]
-    description_tmp = topic_tmp[:description]
+    number_tmp = params[:si]
+    name_tmp = params[:label]
+    image_tmp = params[:image_occ]
+    description_tmp = params[:desc]
     
     puts "SI: " + get_Instance_from_Number(number_tmp)
     new_topic = @tm.get!(get_Instance_from_Number(number_tmp))
@@ -119,21 +118,20 @@ class ApplicationController < ActionController::Base
     update_description(new_topic, description_tmp)
     new_topic.add_type(topicType)
     
-    return new_topic
+    return new_topic.id
   end
   
   def updateTopic(params)
-    number_tmp = topic_tmp[:number]
-    name_tmp = topic_tmp[:name]
-    image_tmp = topic_tmp[:image]
-    description_tmp = topic_tmp[:description]
+    name_tmp = params[:label]
+    image_tmp = params[:image_occ]
+    description_tmp = params[:desc]
     
-    updated_topic = @tm.get_by_id(params[:id])
+    updated_topic = @tm.topic_by_id(params[:id])
     update_name(updated_topic, name_tmp)
     update_image(updated_topic, image_tmp)    
     update_description(updated_topic, description_tmp)
     
-    return new_topic
+    return updated_topic.id
   end
   
   def instanceLabels(topicType)
