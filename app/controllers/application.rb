@@ -186,19 +186,14 @@ class ApplicationController < ActionController::Base
   end
   
   #this method create a new label in diven language
-  def create_label_in_scope(params)
-    topic_tmp = params[:topic]
-    lang_tmp = topic_tmp[:lang]
-    label_tmp = topic_tmp[:label]
-    
-    topic = @tm.topic_by_id(params[:id])
-    
-    new_topic = @tm.get!(params[:id] + "_" + lang_tmp )
-    update_name(new_topic, label_tmp)
-    #todo so richtig???
-    new_topic.add_type(tm.get(@base_locator + "/types/displaylabel"))
-    
-    lang = @tm.get_by_id(lang_tmp)
+  def set_label_in_scope(id,t,label)
+
+    @subI = get_Instance_from_Number(id + "_" + get_default_label($current_lang))
+    @new_topic = @tm.get!(@subI)
+    update_name(@new_topic, label)
+    @new_topic.add_type(@tm.get(@base_locator + "/types/displaylabel"))
+
+    create_association_ex(@base_locator + "/association/scoping", t, @base_locator + "/types/named_topic_type", @new_topic, @base_locator + "/types/displaylabel", $current_lang, @base_locator + "/types/language")
     
     
   end
@@ -273,12 +268,9 @@ class ApplicationController < ActionController::Base
     @topic = @tm.topic_by_id(@id)
 
     @label = params[:label]
-    @subI = get_Instance_from_Number(params[:id] + "_" + get_default_label($current_lang))
-    @new_topic = @tm.get!(@subI)
-    update_name(@new_topic, @label)
-    @new_topic.add_type(@tm.get(@base_locator + "/types/displaylabel"))
 
-    create_association_ex(@base_locator + "/association/scoping", @topic, @base_locator + "/types/named_topic_type", @new_topic, @base_locator + "/types/displaylabel", $current_lang, @base_locator + "/types/language")
+    set_label_in_scope(params[:id],@topic,@label)
+
     redirect_to products_url 
   end
 

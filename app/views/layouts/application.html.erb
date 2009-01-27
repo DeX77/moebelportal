@@ -38,6 +38,9 @@
                          <li>
                             <%= link_to_unless_current(get_label(@tm.get(@base_locator + "/types/tool")), tools_url ) {} %>
                         </li>
+                        <li>
+                            <%= link_to_unless_current(get_label(@tm.get(@base_locator + "/types/language")), languages_url ) {} %>
+                        </li>
                         &nbsp;
                         <select id="languages" onChange="document.getElementById('idInvisible').src = '/languages/switch/'+this[this.selectedIndex].value" style="width:50px">
                           <% for lang in @tm.get(@base_locator + "/types/language").instances %>
