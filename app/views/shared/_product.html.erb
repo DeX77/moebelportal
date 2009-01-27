@@ -1,2 +1,6 @@
-&bull; <%= link_to h(get_label(product)), product_url(product.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => product.id%>
+&bull; <%= link_to h(get_label(product)), product_url(product.id) %>
+<%= link_to h("Löschen"), :action => "destroy", :id => product.id%>
+&nbsp;
+<img src="/images/trans.png" style="width:15px;height:15px;cursor:pointer" onclick="document.location.href='../products/view_translate/<%=h product.id %>';"/>
+
 <br />

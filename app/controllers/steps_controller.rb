@@ -6,6 +6,7 @@ class StepsController < ApplicationController
   
   public
   def index
+    @type = @tm.get(topicType)
     @steps = @tm.get(topicType).instances
     if (@steps.size < 1)
       redirect_to root_url 

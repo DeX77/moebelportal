@@ -1,2 +1,3 @@
 &bull; <%= link_to h(get_label(material)), material_url(material.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => material.id%>
+<img src="/images/trans.png" style="width:15px;height:15px;cursor:pointer" onclick="document.location.href='../materials/view_translate/<%=h material.id %>';"/>
 <br />

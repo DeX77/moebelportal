@@ -7,6 +7,7 @@ class LanguagesController < ApplicationController
   public
   
   def index
+    @type = @tm.get(topicType)
     @languages = @tm.get(topicType).instances
     if (@languages.size < 1)
       redirect_to products_url 

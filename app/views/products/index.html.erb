@@ -1,2 +1,5 @@
-<h2><%=h @type[@base_locator+ "/types/label"] %> </h2>
+<h3>
+   <%=h get_label(@type) %>
+   <img src="/images/add.png" style="width:15px;height:15px;cursor:pointer" onclick="document.location.href='products/new/';"/>
+</h3>
 <%= render :partial => "shared/product", :collection => @products %>

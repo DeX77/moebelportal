@@ -8,6 +8,7 @@ class ManualsController < ApplicationController
   
   
   def index
+    @type = @tm.get(topicType)
     @manuals = @tm.get(topicType).instances
     if (@manuals.size < 1)
       redirect_to root_url 

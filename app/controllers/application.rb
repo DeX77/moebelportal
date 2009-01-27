@@ -47,6 +47,21 @@ class ApplicationController < ActionController::Base
     return namedlabel;
   end
 
+  def check_translation(t)
+    @lang_ = get_default_label(l)
+    languages = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/language" )
+    labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
+    namedlabels = languages.zip(labels)
+    namedlabel = false
+    for label in namedlabels
+      if  get_default_label(label[0]).include?(@lang_)
+        namedlabel = true
+        break
+      end
+    end
+    return namedlabel;
+  end
+
   #this method returns the default label
   def get_default_label(t)
     arg = (t[@base_locator+"/types/label"].first)?(t[@base_locator+"/types/label"].first):(t["-"].first)
@@ -79,10 +94,13 @@ class ApplicationController < ActionController::Base
   def set_tm
     @base_locator = "http://moebelportal.topicmapslab.de"
     @tm = RTM[@base_locator]
+    if $current_lang == nil
+      set_lang
+    end
   end
   
   def set_lang
-    @current_lang = find_language("de")
+    $current_lang = find_language("de")
   end
   
   def destroy
@@ -92,7 +110,7 @@ class ApplicationController < ActionController::Base
     @topic = @tm.topic_by_id(@id)
     @tm.destroy(@topic)    
   end
-  
+
   def update_name(topic, name)
     topic[@base_locator+ "/types/label"] = name
   end
@@ -182,10 +200,7 @@ class ApplicationController < ActionController::Base
     
     lang = @tm.get_by_id(lang_tmp)
     
-    asso = @tm.get(@base_locator + "/association/scoping")
-    asso.cr topic, @base_locator + "/types/named_topic_type"
-    asso.cr new_topic ,  @base_locator + "/types/displaylabel"
-    asso.cr lang,  @base_locator + "/types/language"
+    
   end
   
   def find_language(label_)
@@ -204,6 +219,15 @@ class ApplicationController < ActionController::Base
       asso = @tm.create_association(typeAssociation)
       asso.cr player1.si.first.value, typePlayer1
       asso.cr player2.si.first.value, typePlayer2
+    end
+  end
+
+  def create_association_ex(typeAssociation,player1,typePlayer1,player2,typePlayer2,player3,typePlayer3)
+    if player1.si.first && player2.si.first && player3.si.first
+      asso = @tm.create_association(typeAssociation)
+      asso.cr player1.si.first.value, typePlayer1
+      asso.cr player2.si.first.value, typePlayer2
+      asso.cr player3.si.first.value, typePlayer3
     end
   end
 
@@ -240,6 +264,29 @@ class ApplicationController < ActionController::Base
   
   def create        
     redirect_to(step_url(createTopic(params)))   
+  end
+
+  
+
+  def set_translation
+    @id = params[:id].to_i
+    @topic = @tm.topic_by_id(@id)
+
+    @label = params[:label]
+
+    @new_topic = @tm.get!(params[:id] + "_" + get_default_label($current_lang) )
+    update_name(@new_topic, @label)
+    @new_topic.add_type(@tm.get(@base_locator + "/types/displaylabel"))
+
+    create_association_ex(@base_locator + "/association/scoping", @topic, @base_locator + "/types/named_topic_type", @new_topic, @base_locator + "/types/displaylabel", $current_lang, @base_locator + "/types/language")
+    redirect_to("./")
+  end
+
+
+  def view_translate
+    @id = params[:id].to_i
+    @topic = @tm.topic_by_id(@id)
+    @label = get_default_label(@topic)
   end
   
 end

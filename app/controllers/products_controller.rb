@@ -25,11 +25,7 @@ class ProductsController < ApplicationController
   def create        
     redirect_to(product_url(createTopic(params).id))   
   end
-  
-  def new
     
-  end
-  
   def update
     
   end
@@ -57,5 +53,5 @@ class ProductsController < ApplicationController
     create_association(@base_locator+"/association/manual_of",@product,@base_locator+"/types/role_product",@manual,@base_locator+"/types/role_manual")        
     redirect_to(product_url(@id))   
   end
-  
+
 end

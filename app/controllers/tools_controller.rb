@@ -8,6 +8,7 @@ class ToolsController < ApplicationController
   public
   
   def index
+    @type = @tm.get(topicType)
     @tools = @tm.get(topicType).instances
     if (@tools.size < 1)
       redirect_to root_url 
