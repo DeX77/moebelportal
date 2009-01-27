@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   #before_filter :authorize, :except =>[:index, :show, :index_json, :switch]
   
   protected
-
+  
   #this method fetch die display label of a topic by the current language if it exists
   def get_label(t)
     labels = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/displaylabel" )
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     end
     return get_default_label(t)
   end
-
+  
   #this method returns the label of the topic in given scope
   def get_label_in_scope(t,l)
     @lang_ = get_default_label(l)
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     end
     return namedlabel;
   end
-
+  
   def check_translation(t)
     @lang_ = get_default_label(l)
     languages = t.counterplayers(:atype => @base_locator+"/association/scoping", :rtype=>@base_locator+"/types/named_topic_type", :otype => @base_locator+"/types/language" )
@@ -71,7 +71,7 @@ class ApplicationController < ActionController::Base
       return "Unknown"
     end
   end
-
+  
   def authorize
     unless admin?
       flash[:error] = "Poeser Pursche!!"
@@ -96,7 +96,7 @@ class ApplicationController < ActionController::Base
     @tm = RTM[@base_locator]
     if $current_lang == nil
       set_lang
-    end
+  end
   end
   
   def set_lang
@@ -110,17 +110,20 @@ class ApplicationController < ActionController::Base
     @topic = @tm.topic_by_id(@id)
     @tm.destroy(@topic)    
   end
-
+  
   def update_name(topic, name)
-    topic[@base_locator+ "/types/label"] = name
+    puts "Update name zu:" + name
+    topic[@base_locator+ "/types/label"].first.value = name
   end
   
   def update_image(topic, image_url)
-    topic[@base_locator+ "/types/image"] = image_url
+    puts "Update image_url zu:" + image_url
+    topic[@base_locator+ "/types/image"].first.value = image_url
   end
   
   def update_description(topic, description)
-    topic[@base_locator+ "/types/description"] = description
+    puts "Update description zu:" + description.join(" ")
+    topic[@base_locator+ "/types/description"].first.value = description
   end
   
   def createTopic(params)
@@ -145,9 +148,17 @@ class ApplicationController < ActionController::Base
     description_tmp = params[:desc]
     
     updated_topic = @tm.topic_by_id(params[:id])
-    update_name(updated_topic, name_tmp)
-    update_image(updated_topic, image_tmp)    
-    update_description(updated_topic, description_tmp)
+    if (!name_tmp.empty?)
+      update_name(updated_topic, name_tmp)
+    end
+    
+    if (!image_tmp.empty?)
+      update_image(updated_topic, image_tmp)
+    end
+    
+    if (!description_tmp.join(" ").empty?)
+      update_description(updated_topic, description_tmp)
+    end
     
     return updated_topic.id
   end
@@ -180,19 +191,19 @@ class ApplicationController < ActionController::Base
   end
   
   def labelsIncluding(instanceLabels, text)
-    blah = instanceLabels.select() do |label|
+    instanceLabels.select() do |label|
       label.include? text
     end
   end
   
   #this method create a new label in diven language
   def set_label_in_scope(id,t,label)
-
+    
     @subI = get_Instance_from_Number(id + "_" + get_default_label($current_lang))
     @new_topic = @tm.get!(@subI)
     update_name(@new_topic, label)
     @new_topic.add_type(@tm.get(@base_locator + "/types/displaylabel"))
-
+    
     create_association_ex(@base_locator + "/association/scoping", t, @base_locator + "/types/named_topic_type", @new_topic, @base_locator + "/types/displaylabel", $current_lang, @base_locator + "/types/language")
     
     
@@ -208,7 +219,7 @@ class ApplicationController < ActionController::Base
     end
     return nil
   end
-
+  
   def create_association(typeAssociation,player1,typePlayer1,player2,typePlayer2)
     if player1.si.first && player2.si.first
       asso = @tm.create_association(typeAssociation)
@@ -216,7 +227,7 @@ class ApplicationController < ActionController::Base
       asso.cr player2.si.first.value, typePlayer2
     end
   end
-
+  
   def create_association_ex(typeAssociation,player1,typePlayer1,player2,typePlayer2,player3,typePlayer3)
     if player1.si.first && player2.si.first && player3.si.first
       asso = @tm.create_association(typeAssociation)
@@ -249,18 +260,18 @@ class ApplicationController < ActionController::Base
     
     @topic = @tm.topic_by_id(@id)
     @nummer = @topic.si
-    @image = @topic[@base_locator+"/types/image"]
-    @image = @topic[@base_locator+"/types/description"]
+    @image = @topic[@base_locator+"/types/image"].first.value
+    @description = @topic[@base_locator+"/types/description"].first.value
   end
   
   def update
-    redirect_to(step_url(updateTopic(params)))
+    redirect_to :action => "show", :id => updateTopic(params)
   end
   
   def create        
-    redirect_to(step_url(createTopic(params)))   
+    redirect_to  :action => "show", :id => createTopic(params)   
   end
-
+  
   
 
   def set_translation
