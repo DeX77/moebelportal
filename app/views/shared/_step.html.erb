@@ -1,3 +1,6 @@
-&bull; <%= link_to h(get_label(step)), step_url(step.id) %> <%= link_to h("Löschen"), :action => "destroy", :id => step.id%>
-<img src="/images/trans.png" style="width:15px;height:15px;cursor:pointer" onclick="document.location.href='../steps/view_translate/<%=h step.id %>';"/>
+&bull;
+<%= link_to h(get_label(step)), step_url(step.id) %>;
+<%= link_to h("Löschen"), :action => "destroy", :id => step.id%>;
+<%= link_to h("Bearbeiten"), :action => "destroy", :id => step.id%>;
+<%= link_to image_tag("trans.png", :size => "15x15"), :action => "view_translate", :id => step.id%>
 <br/>

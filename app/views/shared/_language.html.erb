@@ -1,2 +1,5 @@
-&bull; <%= link_to h(get_label(language)), language_url(language.id) %>; <%= link_to h("Löschen"), :action => "destroy", :id => language.id%>
+&bull;
+<%= link_to h(get_label(language)), language_url(language.id) %>;
+<%= link_to h("Löschen"), :action => "destroy", :id => language.id%>;
+<%= link_to h("Bearbeiten"), :action => "destroy", :id => language.id%>
 <br />

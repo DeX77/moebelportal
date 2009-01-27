@@ -113,7 +113,7 @@ class ApplicationController < ActionController::Base
   
   def update_name(topic, name)
     puts "Update name zu:" + name
-    topic[@base_locator+ "/types/label"].first.value = name
+     topic[@base_locator+ "/types/label"].first.value =name
   end
   
   def update_image(topic, image_url)

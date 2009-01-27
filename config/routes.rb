@@ -22,7 +22,7 @@ ActionController::Routing::Routes.draw do |map|
   map.materialof ':controller/materialof/:id', :action => 'materialof'
   map.toolof ':controller/toolof/:id', :action => 'toolof'
   map.childof ':controller/childof/:id', :action => 'childof'
-  map.childof ':controller/view_translate/:id', :action => 'view_translate'
+  map.view_translate ':controller/view_translate/:id', :action => 'view_translate'
   
   map.post ':controller/create_manualof/', :action => 'create_manualof'
   map.post ':controller/create_contains/', :action => 'create_contains'
