@@ -1,18 +1,19 @@
-Nummer:
+<%= label_tag "si", "ID" %>
 <br/>
-<%= text_field "topic", "number" %>
+<%= text_field_tag "si", @nummer %>
 <br/>
-Name:
+<%= label_tag "label", "Name" %>
 <br/>
-<%= text_field "topic", "name" %>
-<br/>
-<br/>
-Link auf Bild <%= text_field "topic", "image" %>
+<%= text_field_tag "label", get_default_label(@topic) %>
 <br/>
 <br/>
-Beschreibung:
+<%= label_tag "image_occ", "Image Link" %>
+<%= text_field_tag "image_occ", @image %>
 <br/>
-<%= textile_editor("topic", "description") %>
+<br/>
+<%= label_tag "desc", "Description" %>
+<br/>
+<%= textile_editor("desc", @description) %>
 <br/>
 <br/>
 <%= submit_tag "Speichern" %>
