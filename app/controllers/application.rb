@@ -235,11 +235,11 @@ class ApplicationController < ActionController::Base
   end
   
   def update
-    redirect_to(step_url(updateTopic(params)))
+    redirect_to :action => "show", :id => updateTopic(params)
   end
   
   def create        
-    redirect_to(step_url(createTopic(params)))   
+    redirect_to  :action => "show", :id => createTopic(params)   
   end
   
 end
