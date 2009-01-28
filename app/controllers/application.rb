@@ -113,17 +113,29 @@ class ApplicationController < ActionController::Base
   
   def update_name(topic, name)
     puts "Update name zu:" + name
-     topic[@base_locator+ "/types/label"].first.value =name
+     if topic[@base_locator+ "/types/label"].first
+       topic[@base_locator+ "/types/label"].first.value = name
+     else
+       topic[@base_locator+ "/types/label"] = name
+     end
   end
   
   def update_image(topic, image_url)
-    puts "Update image_url zu:" + image_url
-    topic[@base_locator+ "/types/image"].first.value = image_url
+    puts "Update image_url zu:" + image_url    
+    if topic[@base_locator+ "/types/image"].first
+      topic[@base_locator+ "/types/image"].first.value = image_url
+    else
+      topic[@base_locator+ "/types/image"] = image_url
+    end
   end
   
   def update_description(topic, description)
-    puts "Update description zu:" + description.join(" ")
-    topic[@base_locator+ "/types/description"].first.value = description
+    puts "Update description zu:" + description.join(" ")    
+    if topic[@base_locator+ "/types/description"].first
+      topic[@base_locator+ "/types/description"].first.value = description
+    else
+      topic[@base_locator+ "/types/description"] = description
+    end
   end
   
   def createTopic(params)
@@ -258,7 +270,7 @@ class ApplicationController < ActionController::Base
   def edit
     #ID aus Request
     @id = params[:id].to_i
-    
+    @type = topicType
     @topic = @tm.topic_by_id(@id)
     @nummer = @topic.si
     @image = @topic[@base_locator+"/types/image"].first.value
@@ -283,7 +295,7 @@ class ApplicationController < ActionController::Base
 
     set_label_in_scope(params[:id],@topic,@label)
 
-    redirect_to products_url 
+    redirect_to :action => "index"
   end
 
 

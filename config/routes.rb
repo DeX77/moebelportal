@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.post ':controller/create_childof/', :action => 'create_childof'
 
   map.post ':controller/set_translation/', :action => 'set_translation'
+  map.post ':controller/:id/update/', :action => 'update'
 
   
   # Sample of regular route:

@@ -4,10 +4,20 @@
 	padding: 0em;
 }
 
+img
+{
+    border: 0px solid;
+}
+
 a
 {
 	color: #8DA359;
-	text-decoration: underline;
+	text-decoration: none;
+}
+
+a:link
+{
+	text-decoration: none;
 }
 
 a:hover

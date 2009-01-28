@@ -1,6 +1,6 @@
 &bull;
-<%= link_to h(get_label(manual)), manual_url(manual.id) %>;
-<%= link_to h("Löschen"), :action => "destroy", :id => manual.id%>;
-<%= link_to h("Bearbeiten"), :action => "destroy", :id => manual.id%>;
-<%= link_to image_tag("trans.png", :size => "15x15"), :action => "view_translate", :id => manual.id%>
+<%= link_to h(get_label(manual)), manual_url(manual.id) %>&nbsp;
+<%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => manual.id%>&nbsp;
+<%= link_to image_tag("trans.png", :size => "15x15"), :action => "view_translate", :id => manual.id%>&nbsp;
+<%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => manual.id%>&nbsp;
 <br />
