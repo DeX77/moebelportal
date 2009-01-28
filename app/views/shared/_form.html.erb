@@ -4,7 +4,16 @@
 <br/>
 <%= label_tag "label", "Name" %>
 <br/>
-<%= text_field_tag "label", get_label(@topic) %>
+<% if @type.include?(@base_locator + "/types/step") %>
+  <input type="text" id="label" name="label" />
+  <script type="text/javascript">
+    $(function(){
+        setAutoComplete("label", "results", "../../materials/json/");
+    });
+  </script>
+<% else %>
+  <%= text_field_tag "label", get_label(@topic) %>
+<% end %>
 <br/>
 <br/>
 <%= label_tag "image_occ", "Image Link" %>

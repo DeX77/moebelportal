@@ -63,12 +63,3 @@
 </h4>
 <%= render :partial => "shared/material", :collection => @results %>
 <hr>
-
-
-Material Hinzufügen:
-<input type="text" id="autocomp" name="autocomp" />
-<script type="text/javascript">
-  $(function(){
-      setAutoComplete("autocomp", "results", "../materials/json/");
-  });
-</script>

@@ -248,6 +248,7 @@ class ApplicationController < ActionController::Base
   end
   
   def new
+    @type = topicType
     @nummer = "Nr"
     @image ="ImageURL"
     @topic = @tm.get("")
