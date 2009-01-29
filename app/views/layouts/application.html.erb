@@ -21,7 +21,7 @@
                 <div id="header">
                     <h1>Monteringsanvisning</h1>
                     <h2>IKEA Bauanleitungsportal</h2>
-                </div>                
+                </div>
                 <div id="menu">
                     <ul>
                         <li>
@@ -48,19 +48,6 @@
                         <li>
                             <%= link_to_unless_current(get_label(@tm.get(@base_locator + "/types/usergroup")), usergroups_url ) {} %>
                         </li>
-                        &nbsp;
-                        <select id="languages" onChange="document.getElementById('idInvisible').src = '/languages/switch/'+this[this.selectedIndex].value" style="width:50px">
-                            <% for lang in @tm.get(@base_locator + "/types/language").instances %>
-                            <option value="<%=h lang.id %>"<%=h (lang == $current_lang)?("selected"):("") %>><%=h get_default_label(lang) %></option>
-                            <% end %>
-                        </select>
-                        <input type="text" id="search" name="search" />
-                        <script type="text/javascript">
-                           $(function(){
-                               setSearchAutoComplete("search", "searchResults", "../../products/search/");
-                          });
-                        </script>
-                        <%=  image_tag("search.png", :size => "15x15") %>
                     </ul>
                 </div>
                 <div id="content">
@@ -71,6 +58,25 @@
                         setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);<% end %>
                         <% end %>
                         <%= yield %>
+                    </div>
+                    <div id="column2">
+                        <select id="languages" onChange="document.getElementById('idInvisible').src = '/languages/switch/'+this[this.selectedIndex].value" style="width:50px">
+                            <% for lang in @tm.get(@base_locator + "/types/language").instances %>
+                            <option value="<%=h lang.id %>"<%=h (lang == $current_lang)?("selected"):("") %>><%=h get_default_label(lang) %></option>
+                            <% end %>
+                        </select>
+                        <input type="text" id="search" name="search" />
+                        <script type="text/javascript">
+                            $(function(){
+                                setSearchAutoComplete("search", "searchResults", "../../products/search/");
+                            });
+                        </script>
+                        <%= image_tag("search.png", :size => "15x15") %>
+                        <%= link_to_unless(session[:user], "Login", login_url) %>
+                        <% if(session[:user]) %>
+                        <%= session[:user] %>
+                        <%= link_to("Logout", logout_url) %>
+                        <% end %>
                     </div>
                 </div>
                 <div id="footer">

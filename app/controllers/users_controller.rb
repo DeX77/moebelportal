@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-    before_filter :authorize_admin, :except => [:show, :index]
+    before_filter :authorize_admin, :except => [:show, :index, :login, :validate_login]
     
   private
   def topicType
