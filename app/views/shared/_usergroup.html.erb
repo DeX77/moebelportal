@@ -1,0 +1,5 @@
+&bull;
+<%= link_to h(get_label(usergroup)), usergroup_url(usergroup.id) %>&nbsp;
+<%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => usergroup.id%>&nbsp;
+<%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => usergroup.id%>&nbsp;
+<br />
