@@ -273,8 +273,24 @@ class ApplicationController < ActionController::Base
     @type = topicType
     @topic = @tm.topic_by_id(@id)
     @nummer = @topic.si
-    @image = @topic[@base_locator+"/types/image"].first.value
-    @description = @topic[@base_locator+"/types/description"].first.value
+    imageOcc = @topic[@base_locator+"/types/image"]
+    descOcc = @topic[@base_locator+"/types/description"]
+    
+    if (imageOcc)
+      imageOcc = imageOcc.first
+      if (imageOcc)
+        @image = imageOcc.value
+      end
+    end
+    
+    if (descOcc)
+      descOcc = descOcc.first
+      if (descOcc)
+        @description = descOcc.value
+      end
+    end
+    
+    
   end
   
   def update

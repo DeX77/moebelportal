@@ -1,2 +1,2 @@
-<%= form_tag :action => "update" %>
+<%= form_tag(step_url(@id), :method => 'put')  %>
 <%= render :partial => "shared/form" %>
