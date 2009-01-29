@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :materials
   map.resources :languages
   map.resources :tools
+  map.resources :users
+  map.resources :usergroups
 
   map.json_with_text ':controller/json/:id',  :action => 'index_json'
 
