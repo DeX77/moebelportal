@@ -1,0 +1,6 @@
+<%= form_tag :action => "set_usergroup" %>
+<%= hidden_field_tag(:id, @id) %>
+<%=h @association["-"].second.value %>: &nbsp;
+<%= select_tag(:group_id, options_for_select(@hash)) %>
+<br />
+<%= submit_tag "Speichern" %>

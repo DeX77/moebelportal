@@ -30,8 +30,8 @@ class UsersController < ApplicationController
     else
       redirect_to users_url 
     end
-  end
-  
+  end  
+ 
   def login
     
   end
@@ -69,4 +69,31 @@ class UsersController < ApplicationController
     end
   end
   
+  def membership    
+    #ID aus Request
+    @id = params[:id].to_i
+    #Schritt aus Topic Map holen
+    @user = @tm.topic_by_id(@id)
+    @association = @tm.get(@base_locator+"/association/membership")
+    @hash = Hash.new
+    if (@tm.get(topicType).instances.include?(@user))
+          @usergroup = @tm.get(@base_locator + "/types/usergroup").instances
+          for group in @usergroup
+            @hash[get_label(group)] = group.id
+          end
+    else
+      redirect_to root_url
+    end
+  end
+
+  def set_usergroup
+    #ID aus Request
+    @id = params[:id].to_i
+    #Schritt aus Topic Map holen
+    @user = @tm.topic_by_id(@id)
+    @group = params[:group_id].to_i
+    @usergroup = @tm.topic_by_id(@id)
+    create_association(@base_locator+"/association/membership",@user,@base_locator+"/role/member",@usergroup,@base_locator+"/role/group")
+    redirect_to(users_url(@id))
+  end
 end

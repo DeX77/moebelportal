@@ -30,7 +30,9 @@ ActionController::Routing::Routes.draw do |map|
   map.login "login", :controller => "users", :action => "login"
   map.logout "logout", :controller => "users", :action => "logout"
   map.validate_login "validate_login", :controller => "users", :action => "validate_login"
-  
+
+  map.membership ':controller/membership/:id', :action => 'membership'
+
   map.post ':controller/create_manualof/', :action => 'create_manualof'
   map.post ':controller/create_contains/', :action => 'create_contains'
   map.post ':controller/create_doafter/', :action => 'create_doafter'
@@ -42,8 +44,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.post ':controller/set_translation/', :action => 'set_translation'
   map.post ':controller/:id/update/', :action => 'update'
-  
-  
+  map.post ':controller/:id/set_usergroup/', :action => 'set_usergroup'
+ 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
