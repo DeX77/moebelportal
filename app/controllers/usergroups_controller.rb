@@ -1,5 +1,7 @@
 class UsergroupsController < ApplicationController
   
+  before_filter :authorize_admin, :except => [:show, :index]
+  
   private
   def topicType
     return @base_locator + "/types/usergroup" 

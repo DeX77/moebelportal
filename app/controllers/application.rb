@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   before_filter :set_tm
-  #before_filter :authorize, :except =>[:index, :show, :index_json, :switch]
+  before_filter :authorize_reporter, :only =>[:edit, :update, :new, :create, :view_translate]
   
   protected
   
@@ -74,7 +74,15 @@ class ApplicationController < ActionController::Base
   
   def authorize_admin
     unless admin?
-      flash[:error] = "Poeser Pursche!!"
+      flash[:error] = "Need Login"
+      redirect_to root_url
+      false
+    end
+  end
+  
+  def authorize_reporter
+    unless (reporter? || admin?)
+      flash[:error] = "Need Login"
       redirect_to root_url
       false
     end
@@ -82,8 +90,51 @@ class ApplicationController < ActionController::Base
   
   
   def admin?
-    admins = @tm.get(@base_locator + "/types/usergroup").instances
-    session[:user]
+    if (!session[:user])
+      return false
+    end
+    
+    groups = @tm.get(@base_locator + "/types/usergroup").instances
+    
+    groups.each() do |group|
+      if (get_default_label(group).include? "admins")
+        adminGroup = group
+        admins = adminGroup.counterplayers(:atype => @base_locator+"/association/membership", :rtype => @base_locator+"/role/group")
+        
+        admins.each() do |admin|
+          if (get_default_label(group).include? session[:user])
+            return true
+          end
+        end
+        return false
+      end
+    end
+    
+  end
+  
+  def reporter?
+    if (!session[:user])
+      return false
+    end
+    
+    groups = @tm.get(@base_locator + "/types/usergroup").instances
+    reporterGroup = ""
+    
+    groups.each() do |group|
+      if (get_default_label(group).include? "reporters")
+        reporterGroup = group
+        reporters = reporterGroup.counterplayers(:atype => @base_locator+"/association/membership", :rtype => @base_locator+"/role/group")
+        
+        reporters.each() do |reporter|
+          if (get_default_label(reporter).include? session[:user])
+            return true
+          end
+        end
+        return false
+        
+      end
+    end
+    
   end
   
   
