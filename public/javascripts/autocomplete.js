@@ -98,6 +98,7 @@ function autoComplete()
 		if(ansLength > 0){
 
 			var newData = '';
+      
 
 			// create a div for each result
 			for(i=0; i < ansLength; i++) {

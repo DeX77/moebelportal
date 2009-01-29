@@ -10,6 +10,7 @@
         <%= javascript_include_tag "jquery-latest" %>
         <%= javascript_include_tag "dimensions" %>
         <%= javascript_include_tag "autocomplete" %>
+        <%= javascript_include_tag "search" %>
     </head>
     <body>
         <iframe src="" id="idInvisible" style="visibility:hidden;position:absolute;">
@@ -20,7 +21,7 @@
                 <div id="header">
                     <h1>Monteringsanvisning</h1>
                     <h2>IKEA Bauanleitungsportal</h2>
-                </div>
+                </div>                
                 <div id="menu">
                     <ul>
                         <li>
@@ -53,6 +54,13 @@
                             <option value="<%=h lang.id %>"<%=h (lang == $current_lang)?("selected"):("") %>><%=h get_default_label(lang) %></option>
                             <% end %>
                         </select>
+                        <input type="text" id="search" name="search" />
+                        <script type="text/javascript">
+                           $(function(){
+                               setSearchAutoComplete("search", "searchResults", "../../products/search/");
+                          });
+                        </script>
+                        <%=  image_tag("search.png", :size => "15x15") %>
                     </ul>
                 </div>
                 <div id="content">

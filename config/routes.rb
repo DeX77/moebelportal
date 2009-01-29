@@ -14,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.json_with_text ':controller/json/:id',  :action => 'index_json'
 
+  map.json_with_text ':controller/search/:id',  :action => 'index_json_search'
+
   map.switch_lang ':controller/switch/:id', :action => 'switch'
 
   map.manualof ':controller/manualof/:id', :action => 'manualof'

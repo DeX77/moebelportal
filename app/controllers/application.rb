@@ -339,5 +339,52 @@ class ApplicationController < ActionController::Base
     @topic = @tm.topic_by_id(@id)
     @label = get_default_label(@topic)
   end
-  
+
+  def index_json_search
+    @text = params[:id];
+    @result = Array.new
+
+    @products = @tm.get(@base_locator + "/types/product").instances
+    for product in @products
+      @label = get_label(product)
+      if @label.include?(@text)
+        @result  << "p:" + product.id.to_s + ":" + @label
+      end
+    end
+
+    @manuals = @tm.get(@base_locator + "/types/manual").instances
+    for manual in @manuals
+      @label = get_label(manual)
+      if @label.include?(@text)
+        @result  << "m:" + manual.id.to_s + ":" + @label
+      end
+    end
+
+    @steps= @tm.get(@base_locator + "/types/step").instances
+    for step in @steps
+      @label = get_label(step)
+      if @label.include?(@text)
+        @result  << "s:" + step.id.to_s + ":" + @label
+      end
+    end
+
+    @tools = @tm.get(@base_locator + "/types/tool").instances
+    for tool in @tools
+      @label = get_label(tool)
+      if @label.include?(@text)
+        @result  << "t:" + tool.id.to_s + ":" + @label
+      end
+    end
+
+    @materials = @tm.get(@base_locator + "/types/material").instances
+    for material in @materials
+      @label = get_label(material)
+      if @label.include?(@text)
+        @result  << "e:" + material.id.to_s + ":" + @label
+      end
+    end
+
+    render :json => @result
+  end
+
 end
