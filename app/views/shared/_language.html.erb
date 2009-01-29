@@ -1,5 +1,5 @@
 &bull;
-<%= link_to h(get_label(language)), language_url(language.id) %>&nbsp;
+<%= h(get_label(language))  %>&nbsp;
 <%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => language.id%>&nbsp;
 <%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => language.id%>&nbsp;
 <br />

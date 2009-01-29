@@ -17,6 +17,7 @@ class LanguagesController < ApplicationController
   def show
     @id = params[:id].to_i
     @language = @tm.topic_by_id(@id)
+    
     if (@tm.get(topicType).instances.include?(@language))
     else
       redirect_to languages_url

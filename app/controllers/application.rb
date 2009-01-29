@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
     end
     return namedlabel;
   end
-
+  
   #this method returns the default label
   def get_default_label(t)
     arg = (t[@base_locator+"/types/label"].first)?(t[@base_locator+"/types/label"].first):(t["-"].first)
@@ -72,7 +72,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def authorize
+  def authorize_admin
     unless admin?
       flash[:error] = "Poeser Pursche!!"
       redirect_to root_url
@@ -82,7 +82,8 @@ class ApplicationController < ActionController::Base
   
   
   def admin?
-    true
+    admins = @tm.get(@base_locator + "/types/usergroup").instances
+    session[:user]
   end
   
   
@@ -96,7 +97,7 @@ class ApplicationController < ActionController::Base
     @tm = RTM[@base_locator]
     if $current_lang == nil
       set_lang
-  end
+    end
   end
   
   def set_lang
@@ -113,29 +114,47 @@ class ApplicationController < ActionController::Base
   
   def update_name(topic, name)
     puts "Update name zu:" + name
-     if topic[@base_locator+ "/types/label"].first
-       topic[@base_locator+ "/types/label"].first.value = name
-     else
-       topic[@base_locator+ "/types/label"] = name
-     end
+    labelOcc = topic[@base_locator+ "/types/label"]
+    
+    if (labelOcc)
+      labelOcc = labelOcc.first
+      if (labelOcc)
+        labelOcc = labelOcc.value
+      end
+    end
+    
+    labelOcc = name
+    
   end
   
   def update_image(topic, image_url)
     puts "Update image_url zu:" + image_url    
-    if topic[@base_locator+ "/types/image"].first
-      topic[@base_locator+ "/types/image"].first.value = image_url
-    else
-      topic[@base_locator+ "/types/image"] = image_url
+    
+    imageOcc = topic[@base_locator+ "/types/image"]
+    
+    if (imageOcc)
+      imageOcc = imageOcc.first
+      if (imageOcc)
+        imageOcc = imageOcc.value
+      end
     end
+    
+    imageOcc = image_url
   end
   
   def update_description(topic, description)
     puts "Update description zu:" + description.join(" ")    
-    if topic[@base_locator+ "/types/description"].first
-      topic[@base_locator+ "/types/description"].first.value = description
-    else
-      topic[@base_locator+ "/types/description"] = description
+    
+    desccOcc = topic[@base_locator+ "/types/description"]
+    
+    if (desccOcc)
+      desccOcc = desccOcc.first
+      if (desccOcc)
+        desccOcc = desccOcc.value
+      end
     end
+    
+    desccOcc = description
   end
   
   def createTopic(params)
@@ -248,7 +267,7 @@ class ApplicationController < ActionController::Base
       asso.cr player3.si.first.value, typePlayer3
     end
   end
-
+  
   public
   
   def switch
@@ -302,19 +321,19 @@ class ApplicationController < ActionController::Base
   end
   
   
-
+  
   def set_translation
     @id = params[:id].to_i
     @topic = @tm.topic_by_id(@id)
-
+    
     @label = params[:label]
-
+    
     set_label_in_scope(params[:id],@topic,@label)
-
+    
     redirect_to :action => "index"
   end
-
-
+  
+  
   def view_translate
     @id = params[:id].to_i
     @topic = @tm.topic_by_id(@id)
