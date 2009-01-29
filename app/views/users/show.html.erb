@@ -1,0 +1,16 @@
+<h2> <%=h @user[@base_locator+ "/types/label"].first.value%> </h2>
+<br />
+
+<%= get_image_tag(@user) %>
+
+<br />
+<br />
+
+<h3><%=h @acc_members["-"].second.value %></h3>
+<%  if @usergroups.size > 0 %>
+
+<%= render :partial => "shared/usergroup", :collection => @usergroups %>
+
+<% end %>
+
+<%= list_labels(@user) %>
