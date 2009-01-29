@@ -1,24 +1,5 @@
 Fehlende Bestandteile des Praktikumsprojektes
 
-Produkte:
-    - Detailseite für Produkte
-        - Bearbeiten von Handbüchern
-
-Handbuch/ Manual
-    - Bearbeiten von Handbüchern
-
-Step
-    - Übersicht
-        - Editieren von Schritten
-
-Material
-    - Übersichtseite
-        - Bearbeiten
-
-Werkzeug/ Tool
-    - Übersicht
-        - Bearbeiten
-
 Allgemein
     - Suchen
 	- Login
