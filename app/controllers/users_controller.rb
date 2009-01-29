@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  
+    before_filter :authorize_admin, :except => [:show, :index]
+    
   private
   def topicType
     return @base_locator + "/types/user" 
@@ -27,6 +30,43 @@ class UsersController < ApplicationController
     else
       redirect_to users_url 
     end
-  end  
+  end
+  
+  def login
+    
+  end
+  
+  def logout
+    flash[:notice] = "Logged out"
+    reset_session
+    redirect_to root_url
+  end
+  
+  def validate_login
+    entered_username = params[:login]
+    entered_password = params[:pwd].first
+    
+    puts "Nutzer: " + entered_username
+    userTopic = ""
+    @tm.get(topicType).instances.each() do |topic|
+      if (get_default_label(topic).include? entered_username)
+        userTopic = topic
+        break
+      end
+    end
+    
+    userPwd = userTopic[@base_locator+"/types"].first.value
+    
+    if (userPwd == entered_password)
+      flash[:notice] = "Logged in"
+      session[:user] = entered_username
+      redirect_to root_url
+    else
+      flash[:error] = "Poeser Pursche!!"
+      puts "Password: " + entered_password
+      puts " sollte sein: " + userPwd
+      redirect_to login_url
+    end
+  end
   
 end

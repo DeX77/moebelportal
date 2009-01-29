@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|  
   # The priority is based upon order of creation: first created -> highest priority.
-
+  
   map.root :controller => "products" 
   
   map.resources :products
@@ -11,13 +11,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tools
   map.resources :users
   map.resources :usergroups
-
+  
   map.json_with_text ':controller/json/:id',  :action => 'index_json'
-
+  
   map.json_with_text ':controller/search/:id',  :action => 'index_json_search'
 
   map.switch_lang ':controller/switch/:id', :action => 'switch'
-
+  
   map.manualof ':controller/manualof/:id', :action => 'manualof'
   map.contains ':controller/contains/:id', :action => 'contains'
   map.doafter ':controller/doafter/:id', :action => 'doafter'
@@ -27,6 +27,9 @@ ActionController::Routing::Routes.draw do |map|
   map.toolof ':controller/toolof/:id', :action => 'toolof'
   map.childof ':controller/childof/:id', :action => 'childof'
   map.view_translate ':controller/view_translate/:id', :action => 'view_translate'
+  map.login "login", :controller => "users", :action => "login"
+  map.logout "logout", :controller => "users", :action => "logout"
+  map.validate_login "validate_login", :controller => "users", :action => "validate_login"
   
   map.post ':controller/create_manualof/', :action => 'create_manualof'
   map.post ':controller/create_contains/', :action => 'create_contains'
@@ -36,10 +39,10 @@ ActionController::Routing::Routes.draw do |map|
   map.post ':controller/create_materialof/', :action => 'create_materialof'
   map.post ':controller/create_toolof/', :action => 'create_toolof'
   map.post ':controller/create_childof/', :action => 'create_childof'
-
+  
   map.post ':controller/set_translation/', :action => 'set_translation'
   map.post ':controller/:id/update/', :action => 'update'
-
+  
   
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
