@@ -1,5 +1,0 @@
-Fehlende Bestandteile des Praktikumsprojektes
-
-Allgemein
-    - Suchen
-	- Login
