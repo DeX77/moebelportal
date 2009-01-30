@@ -1,4 +1,4 @@
-<h2> <%=h @user[@base_locator+ "/types/label"].first.value%> </h2>
+<h2> <%=h get_label(@user) %> </h2>
 <br />
 
 <%= get_image_tag(@user) %>
@@ -12,7 +12,7 @@
 <%= render :partial => "shared/usergroup", :collection => @usergroups %>
 
 <% else %>
-<%= link_to image_tag("add.png", :size => "15x15"), :action => "membership", :id => user.id%>&nbsp;
+<%= link_to image_tag("add.png", :size => "15x15"), :action => "membership", :id => @user.id%>&nbsp;
 </h3>
 
 <% end %>

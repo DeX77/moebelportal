@@ -1,5 +1,5 @@
 require 'rtm/io/from_xtm2_libxml.rb'
-dbFileName = "db/development.sqlite3"
+dbFileName = "db/production.sqlite3"
 puts "Gucken ob altes File da"
 if (File.exists?(dbFileName))
   puts "File löschen"

@@ -165,47 +165,29 @@ class ApplicationController < ActionController::Base
   
   def update_name(topic, name)
     puts "Update name zu:" + name
-    labelOcc = topic[@base_locator+ "/types/label"]
-    
-    if (labelOcc)
-      labelOcc = labelOcc.first
-      if (labelOcc)
-        labelOcc = labelOcc.value
-      end
-    end
-    
-    labelOcc = name
-    
+     if topic[@base_locator+ "/types/label"].first
+       topic[@base_locator+ "/types/label"].first.value = name
+     else
+       topic[@base_locator+ "/types/label"] = name
+     end
   end
   
   def update_image(topic, image_url)
     puts "Update image_url zu:" + image_url    
-    
-    imageOcc = topic[@base_locator+ "/types/image"]
-    
-    if (imageOcc)
-      imageOcc = imageOcc.first
-      if (imageOcc)
-        imageOcc = imageOcc.value
-      end
+    if topic[@base_locator+ "/types/image"].first
+      topic[@base_locator+ "/types/image"].first.value = image_url
+    else
+      topic[@base_locator+ "/types/image"] = image_url
     end
-    
-    imageOcc = image_url
   end
   
   def update_description(topic, description)
     puts "Update description zu:" + description.join(" ")    
-    
-    desccOcc = topic[@base_locator+ "/types/description"]
-    
-    if (desccOcc)
-      desccOcc = desccOcc.first
-      if (desccOcc)
-        desccOcc = desccOcc.value
-      end
+    if topic[@base_locator+ "/types/description"].first
+      topic[@base_locator+ "/types/description"].first.value = description
+    else
+      topic[@base_locator+ "/types/description"] = description
     end
-    
-    desccOcc = description
   end
   
   def createTopic(params)
@@ -333,7 +315,7 @@ class ApplicationController < ActionController::Base
     @type = topicType
     @nummer = "Nr"
     @image ="ImageURL"
-    @topic = @tm.get("")
+    @topic = @tm.get!("")
     @image = "Description"
   end
   

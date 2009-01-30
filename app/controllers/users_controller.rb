@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-    before_filter :authorize_admin, :except => [:show, :index, :login, :validate_login]
+    #before_filter :authorize_admin, :except => [:show, :index, :login, :validate_login]
     
   private
   def topicType
@@ -94,6 +94,6 @@ class UsersController < ApplicationController
     @group = params[:group_id].to_i
     @usergroup = @tm.topic_by_id(@id)
     create_association(@base_locator+"/association/membership",@user,@base_locator+"/role/member",@usergroup,@base_locator+"/role/group")
-    redirect_to(users_url(@id))
+    redirect_to user_url
   end
 end
