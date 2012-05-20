@@ -48,7 +48,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_moebelportal_session',
+    :key => '_moebelportal_session',
     :secret      => 'f5398f1c6124542d79afbe327dd1566a8ac3a9548d0a5e1ad6d7950254739c003f62e144b232926ce90e844457cf107ae550fe3ffd5becc21cd79b89d84c579f'
   }
 
