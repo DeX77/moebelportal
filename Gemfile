@@ -3,7 +3,13 @@ source :gemcutter
 gem "rails", "~> 2.3.8"
 gem "multi_json",  "~> 1.1.0"
 gem "rtm",  "~> 0.1.6"
-gem "sqlite3", "~> 1.3.6"
+
+#C ruby
+gem "sqlite3", "~> 1.3.6", :platforms => :ruby
+
+#jruby specific
+gem "jdbc-sqlite3", :platforms => :jruby
+gem "activerecord-jdbcsqlite3-adapter", :platforms => :jruby
 
 group :development do
   # bundler requires these gems in development
