@@ -1,7 +1,0 @@
-syntax: regexp
-log/.*\.log
-\.orig\..*$
-\.orig$
-\.chg\..*$
-\.rej$
-\.conflict\~$
