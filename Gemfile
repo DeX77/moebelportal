@@ -1,13 +1,15 @@
 source :gemcutter
 
-gem "rails", "~> 2.3.8"
+gem "rails", "= 2.3.8"
 gem "multi_json",  "~> 1.1.0"
-gem "rtm",  "~> 0.1.6"
+gem "textile_editor_helper"
 
 #C ruby
 gem "sqlite3", "~> 1.3.6", :platforms => :ruby
+gem "rtm-activerecord",  "=0.3.1", :platforms => :ruby
 
 #jruby specific
+gem "rtm-ontopia", "=0.3.1", :platforms => :jruby
 gem "jdbc-sqlite3", :platforms => :jruby
 gem "activerecord-jdbcsqlite3-adapter", :platforms => :jruby
 
