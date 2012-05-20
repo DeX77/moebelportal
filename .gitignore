@@ -2,3 +2,5 @@ nbproject/**
 .loadpath
 .project
 *~
+db/*
+Gemfile.lock
