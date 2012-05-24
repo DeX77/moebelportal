@@ -9,13 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
-
-  create_table "association_roles", :force => true do |t|
-    t.integer "association_id", :null => false
-    t.integer "ttype_id"
-    t.integer "topic_id"
-  end
+ActiveRecord::Schema.define(:version => 20120524210600) do
 
   create_table "associations", :force => true do |t|
     t.integer "topic_map_id", :null => false
@@ -23,10 +17,16 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   create_table "item_identifiers", :force => true do |t|
-    t.integer "topic_map_id",             :null => false
-    t.string  "reference",                :null => false
-    t.integer "topic_map_construct_id"
-    t.string  "topic_map_construct_type"
+    t.integer "topic_map_id",   :null => false
+    t.string  "reference",      :null => false
+    t.integer "construct_id"
+    t.string  "construct_type"
+  end
+
+  create_table "names", :force => true do |t|
+    t.integer "topic_id", :null => false
+    t.integer "ttype_id"
+    t.string  "value"
   end
 
   create_table "occurrences", :force => true do |t|
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer "ttype_id"
     t.text    "value"
     t.string  "datatype"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.integer "association_id", :null => false
+    t.integer "ttype_id"
+    t.integer "topic_id"
   end
 
   create_table "scoped_objects_topics", :force => true do |t|
@@ -58,12 +64,6 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string "base_locator", :null => false
   end
 
-  create_table "topic_names", :force => true do |t|
-    t.integer "topic_id", :null => false
-    t.integer "ttype_id"
-    t.string  "value"
-  end
-
   create_table "topics", :force => true do |t|
     t.integer "topic_map_id", :null => false
     t.integer "reified_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   create_table "variants", :force => true do |t|
-    t.integer "topic_name_id", :null => false
+    t.integer "name_id",  :null => false
     t.text    "value"
     t.string  "datatype"
   end
