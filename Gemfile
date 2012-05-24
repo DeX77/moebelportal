@@ -22,5 +22,6 @@ end
 
 group :test do
   # bundler requires these gems while running tests
-  gem "rcov"
+  # rcov version 1.0 doesn't work with jruby
+  gem "rcov", "=0.9.11"
 end
