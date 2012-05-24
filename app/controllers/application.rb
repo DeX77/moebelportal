@@ -145,7 +145,10 @@ class ApplicationController < ActionController::Base
   
   def set_tm
     @base_locator = "http://moebelportal.topicmapslab.de"
-    @tm = RTM[@base_locator]
+    
+    connection = RTM.connect
+    @tm = connection.create @base_locator
+    
     if $current_lang == nil
       set_lang
     end
