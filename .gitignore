@@ -4,5 +4,6 @@ nbproject/**
 *~
 db/*
 Gemfile.lock
-coverage*
+coverage/*
+coverage.data
 log/*
