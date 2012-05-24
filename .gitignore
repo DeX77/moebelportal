@@ -3,7 +3,7 @@ nbproject/**
 .project
 .settings/**
 *~
-db/*
+db/*.sqlite3
 Gemfile.lock
 coverage/**
 coverage.data
