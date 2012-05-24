@@ -1,9 +1,10 @@
 nbproject/**
 .loadpath
 .project
+.settings/**
 *~
 db/*
 Gemfile.lock
-coverage/*
+coverage/**
 coverage.data
-log/*
+log/**
