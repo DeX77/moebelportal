@@ -23,7 +23,10 @@ group :test do
   # bundler requires these gems while running tests
   # rcov version 1.0 doesn't work with jruby
   gem "rcov", "=0.9.11"
-  gem "capybara", "1.1.1"
-  gem "cucumber", "1.1.0"
+  gem "capybara", "0.3.9"
+  gem "gherkin", "=2.4.1"
+  gem "cucumber", "0.10.7"
   gem "cucumber-rails", "0.3.2"
+  gem "spork"
+  gem "database_cleaner" , ">= 0.5.0"
 end
