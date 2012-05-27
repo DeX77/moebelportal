@@ -8,3 +8,4 @@ Gemfile.lock
 coverage/**
 coverage.data
 log/**
+capybara-*.html
