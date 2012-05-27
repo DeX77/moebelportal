@@ -1,14 +1,9 @@
-Given /^the following products:$/ do |products|
-  Product.create!(products.hashes)
-end
-
-When /^I delete the (\d+)(?:st|nd|rd|th) product$/ do |pos|
-  visit products_path
-  within("table tr:nth-child(#{pos.to_i+1})") do
-    click_link "Destroy"
-  end
-end
-
-Then /^I should see the following products:$/ do |expected_products_table|
-  expected_products_table.diff!(tableish('table tr', 'td,th'))
+Given /^there is no product named "([^"]*)"$/ do |product_name|
+  base_locator = "http://moebelportal.topicmapslab.de"
+  tm = RTM[base_locator]
+  topicType = base_locator + "/types/product"
+           
+  products = tm.get(topicType).instances      
+  product = products.select{  |x| x.occurrences.try(:first).try(:value) == product_name }.first unless products.blank?
+  product.delete! unless product.blank?
 end

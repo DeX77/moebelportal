@@ -1,14 +1,9 @@
-Given /^the following manuals:$/ do |manuals|
-  Manual.create!(manuals.hashes)
-end
-
-When /^I delete the (\d+)(?:st|nd|rd|th) manual$/ do |pos|
-  visit manuals_path
-  within("table tr:nth-child(#{pos.to_i+1})") do
-    click_link "Destroy"
-  end
-end
-
-Then /^I should see the following manuals:$/ do |expected_manuals_table|
-  expected_manuals_table.diff!(tableish('table tr', 'td,th'))
+Given /^there is no manual named "([^"]*)"$/ do |manual_name|
+  base_locator = "http://moebelportal.topicmapslab.de"
+  tm = RTM[base_locator]
+  topicType = base_locator + "/types/manual"
+           
+  manuals = tm.get(topicType).instances      
+  manual = manuals.select{  |x| x.occurrences.try(:first).try(:value) == manual_name }.first unless manuals.blank?
+  manual.delete! unless manual.blank?
 end
