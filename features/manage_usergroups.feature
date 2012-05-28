@@ -8,12 +8,17 @@ Feature: Manage usergroups
     Given I am not logged in
     When I go to the usergroups page
     Then I should be on the usergroups page
-    And I should see "reporters"
+    And I should see "reporters"   
   
   Scenario: Try to add a new usergroup without login
     Given I am not logged in
     When I go to the new usergroup page
     Then I should see "Need Login"
+
+  Scenario: Show non existing usergroup
+      Given I am not logged in
+      When I go to a non existing usergroup page
+      Then I should be on the usergroups page    
     
   Scenario: Try to add a new usergroup with correct login
     Given I am logged in as "dex" with password "dex"

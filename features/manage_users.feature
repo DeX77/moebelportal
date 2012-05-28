@@ -17,7 +17,33 @@ Feature: Manage users
     Then I should see "Poeser Pursche!!"
     And I should not see "Logged in"
     And I should not see "Logout"
-    
+
+  Scenario: Show non existing user
+      Given I am not logged in
+      When I go to a non existing user page
+      Then I should be on the users page
+
+  Scenario: Show an existing user
+      Given I am not logged in
+      When I go to the page of user named "dex"
+      And I should see "dex"
+      And I should see "of group"
+      And I should see "reporters"
+      
+  Scenario: Try to edit an user without login
+      Given I am not logged in
+      When I go to the users page
+      And I follow "Edit dex"
+      Then I should be on the homepage
+      And I should see "Need Login"
+      
+  Scenario: Try to edit an user while loged in
+      Given I am logged in as "dex" with password "dex"
+      When I go to the users page
+      And I follow "Edit dex"
+      Then I should be on the edit page of user "dex"
+      And I should not see "Need Login"      
+          
   Scenario: Try login with correct credentials
     Given I am not logged in
     When I go to the login page

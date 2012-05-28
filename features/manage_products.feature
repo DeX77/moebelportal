@@ -14,6 +14,18 @@ Feature: Manage products
     When I go to the new product page
     Then I should see "Need Login"
 
+  Scenario: Show non existing product
+      Given I am not logged in
+      When I go to a non existing product page
+      Then I should be on the homepage    
+      
+  Scenario: Show an existing product
+      Given I am not logged in
+      When I go to the page of product named "Textur"
+      Then I should see "Textur"
+      And I should see "its manual"
+      And I should see "Textur manual"         
+
   Scenario: Try to add a new product with correct login
     Given I am logged in as "dex" with password "dex"
     Given there is no product named "Torquemada"

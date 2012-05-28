@@ -34,31 +34,36 @@ module NavigationHelpers
     when /the new language page/
       new_language_path
 
-    when /the page of usergroup named "(.+)"/
+    when /the page of (.+) named "(.+)"/
       base_locator = "http://moebelportal.topicmapslab.de"
       tm = RTM[base_locator]
-      topicType = base_locator + "/types/usergroup"
-      usergroups = tm.get(topicType).instances
-      group = usergroups.select{  |x| x.occurrences.try(:first).try(:value) == $1 }.first unless usergroups.blank?
-      usergroup_path(group.id) unless group.blank?
+      topicType = base_locator + "/types/"+$1
 
-    when /the page of manual named "(.+)"/
+      instances = tm.get(topicType).instances
+      single_instance = instances.select{  |x| x.occurrences.try(:first).try(:value) == $2 }.first unless instances.blank?
+      url_for :controller => $1.pluralize, :only_path => true, :action => 'show', :id => single_instance.id unless single_instance.blank?
+
+    when /a non existing (.+) page/
       base_locator = "http://moebelportal.topicmapslab.de"
       tm = RTM[base_locator]
-      topicType = base_locator + "/types/manual"
+      topicType = base_locator + "/types/"+$1
 
-      manuals = tm.get(topicType).instances
-      manual = manuals.select{  |x| x.occurrences.try(:first).try(:value) == $1 }.first unless manuals.blank?
-      manual_path(manual.id) unless manual.blank?
+      all_instances = tm.instances
+      topic_instances = tm.get(topicType).instances
+      not_topic_instances = all_instances - topic_instances
 
-    when /the page of product named "(.+)"/
+      random_id = not_topic_instances.map { |x| x.id }.sample
+
+      "/#{$1.pluralize}/#{random_id}"
+
+    when /the edit page of (.*) "(.*)"/
       base_locator = "http://moebelportal.topicmapslab.de"
       tm = RTM[base_locator]
-      topicType = base_locator + "/types/product"
+      topicType = base_locator + "/types/"+$1
 
-      products = tm.get(topicType).instances
-      product = products.select{  |x| x.occurrences.try(:first).try(:value) == $1 }.first unless products.blank?
-      product_path(product.id) unless product.blank?
+      instances = tm.get(topicType).instances
+      single_instance = instances.select{  |x| x.occurrences.try(:first).try(:value) == $2 }.first unless instances.blank?
+      url_for :controller => $1.pluralize, :only_path => true, :action => 'edit', :id => single_instance.id unless single_instance.blank?
 
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:

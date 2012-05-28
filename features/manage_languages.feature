@@ -9,6 +9,11 @@ Feature: Manage languages
     Then I should be on the languages page
     And I should see "de"
     And I should see "en"
+
+  Scenario: Show non existing language
+      Given I am not logged in
+      When I go to a non existing language page
+      Then I should be on the languages page    
       
   Scenario: Try to register new language without login
     Given I am not logged in
