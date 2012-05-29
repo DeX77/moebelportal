@@ -7,7 +7,7 @@ Feature: Manage products
     Given I am not logged in
     When I go to the products page
     Then I should be on the products page
-    And I should see "Textur"
+    And I should see "Textur"    
       
   Scenario: Try to add a new product without login
     Given I am not logged in
@@ -24,7 +24,8 @@ Feature: Manage products
       When I go to the page of product named "Textur"
       Then I should see "Textur"
       And I should see "its manual"
-      And I should see "Textur manual"         
+      And I should see "Textur manual"
+      And show me the page         
 
   Scenario: Try to add a new product with correct login
     Given I am logged in as "dex" with password "dex"
