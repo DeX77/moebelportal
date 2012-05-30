@@ -13,6 +13,6 @@
 
 <h3>
   <%=h @association["-"].third.value %>
-  <img src="/images/add.png" style="width:15px;height:15px;cursor:pointer" onclick="document.location.href='./contains/<%=h @id %>';"/><br />
+  <%= link_to image_tag("add.png", :size => "15x15", :alt => "Add step"+get_label(@manual)), :action => "contains", :id => @id %>  
 </h3>
 <%= render :partial => "shared/step", :collection => @set_of_steps %>		
