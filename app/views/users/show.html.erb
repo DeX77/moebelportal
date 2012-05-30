@@ -6,16 +6,11 @@
 <br />
 <br />
 
-<h3><%=h @acc_members["-"].second.value %>
-<%  if @usergroups.size > 0 %>
+<h3><%=h @acc_members["-"].second.value %><%= link_to image_tag("add.png", :size => "15x15", :alt => "Add #{get_label(@user)} to usergroup"), :action => "membership", :id => @user.id%>&nbsp;
 </h3>
 <%= render :partial => "shared/usergroup", :collection => @usergroups %>
 
-<% else %>
-<%= link_to image_tag("add.png", :size => "15x15"), :action => "membership", :id => @user.id%>&nbsp;
 </h3>
-
-<% end %>
 
 
 <%= list_labels(@user) %>
