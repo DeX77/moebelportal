@@ -25,7 +25,6 @@ Feature: Manage products
       Then I should see "Textur"
       And I should see "its manual"
       And I should see "Textur manual"
-      And show me the page         
 
   Scenario: Try to add a new product with correct login
     Given I am logged in as "dex" with password "dex"
@@ -39,3 +38,13 @@ Feature: Manage products
       | desc_         | At last, a chair with a point!                                                           |
     And I press "Speichern"
     Then I should be on the page of product named "Torquemada"
+    
+  Scenario: Add an manual to a product
+      Given I am not logged in
+      When I go to the page of product named "Textur"    
+      And I follow "Add manual to Textur"
+      And I select "Textur manual" from "manual_id"
+      And I press "Speichern"
+      Then I should see "Textur manual"
+      
+      

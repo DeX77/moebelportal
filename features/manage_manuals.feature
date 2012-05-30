@@ -9,7 +9,7 @@ Feature: Manage manuals
     Then I should be on the manuals page
     And I should see "Textur manual"
     
-  Scenario: List manuals
+  Scenario: Show an existing manual
     Given I am not logged in
     When I go to the page of manual named "Textur manual"
     Then I should see "manual of"
@@ -23,10 +23,19 @@ Feature: Manage manuals
   Scenario: Show non existing manual
       Given I am not logged in
       When I go to a non existing manual page
-      Then I should be on the manuals page        
+      Then I should be on the manuals page
       
   Scenario: Try to add a new manual without login
     Given I am not logged in
     When I go to the new manual page
     Then I should see "Need Login"
+    
+  Scenario: Add an step to a manual
+    Given I am not logged in
+    When I go to the page of manual named "Textur manual"
+    And I follow "Add step"
+    And I select "Create full lamp foot" from "step_id"
+    And I press "Speichern"
+    Then I should see "Create full lamp foot"
+    
     

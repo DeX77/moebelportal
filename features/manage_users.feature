@@ -60,4 +60,13 @@ Feature: Manage users
     Then I should not see "Logged in"
     And I should not see "Logout"
     But I should see "Login"
+
+  Scenario: Add a user to a usergroup
+    Given I am not logged in
+    When I go to the page of user named "dex"    
+    And I follow "Add dex to usergroup"
+    And I select "reporters" from "group_id"
+    And I press "Speichern"
+    Then I should see "reporters"
+    
     
