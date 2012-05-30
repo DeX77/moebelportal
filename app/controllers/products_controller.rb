@@ -22,9 +22,6 @@ class ProductsController < ApplicationController
     end
   end
   
-  def create        
-    redirect_to(product_url(createTopic(params).id))   
-  end
     
   def update
     
