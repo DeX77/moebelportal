@@ -1,0 +1,2 @@
+-module(moebelportal_erlang_application_controller, [Req]).
+-compile(export_all).

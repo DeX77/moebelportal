@@ -1,0 +1,8 @@
+{application, moebelportal_erlang, [
+        {description, "IKEA Moebelportal"},
+        {vsn, "0.2.0"},
+        {modules, []},
+        {registered, []},
+        {applications, [kernel, stdlib, crypto, boss]},
+        {env, []}
+    ]}.
