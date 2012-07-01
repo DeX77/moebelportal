@@ -14,9 +14,9 @@ before_install:
   - "cd .."
   
 before_script:
-  - "sh init.sh start"
+  - "rebar boss c=start_cmd"
   
 script: "cucumber"
 
 after_script:
-  - "sh init.sh stop"
+  - "rebar boss c=stop_cmd"
