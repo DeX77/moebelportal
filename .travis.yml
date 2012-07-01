@@ -6,7 +6,17 @@ otp_release:
    - R14B03
    - R14B02
 
+
+before_install:
+  - "git clone git://github.com/evanmiller/ChicagoBoss.git"
+  - "cd ChicagoBoss"
+  - "make"
+  - "cd .."
+  
 before_script:
-  - "sh init-dev.sh"
+  - "sh init.sh start"
   
 script: "cucumber"
+
+after_script:
+  - "sh init.sh stop"
