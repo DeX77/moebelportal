@@ -1,4 +1,4 @@
-{application, moebelportal_erlang, [
+{application, moebelporta, [
         {description, "IKEA Moebelportal"},
         {vsn, "0.2.0"},
         {modules, []},
