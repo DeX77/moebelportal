@@ -1,4 +1,4 @@
--module(moebelportal_erlang_custom_filters).
+-module(moebelportal_custom_filters).
 -compile(export_all).
 
 % put custom filters in here, e.g.
