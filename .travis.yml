@@ -13,6 +13,7 @@ before_install:
   - "cd ChicagoBoss"
   - "make"
   - "cd ../moebelportal"
+  - "cp ../ChicagoBoss/skel/priv/rebar/boss_plugin.erl priv/rebar/boss_plugin.erl"
   
 before_script:
   - "rebar boss c=start_cmd"
