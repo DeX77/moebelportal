@@ -1,4 +1,4 @@
--module(moebelportal_erlang_incoming_mail_controller).
+-module(moebelportal_incoming_mail_controller).
 -compile(export_all).
 
 authorize_(User, DomainName, IPAddress) ->
