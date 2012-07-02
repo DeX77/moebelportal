@@ -12,6 +12,7 @@ before_install:
   - "git clone git://github.com/evanmiller/ChicagoBoss.git"
   - "cd ChicagoBoss"
   - "make"
+  - "cd ../moebelportal"
   
 before_script:
   - "rebar boss c=start_cmd"
