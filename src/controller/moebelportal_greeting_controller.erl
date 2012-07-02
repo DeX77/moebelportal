@@ -1,4 +1,4 @@
--module(moebelportal_erlang_greeting_controller, [Req]).
+-module(moebelportal_greeting_controller, [Req]).
 -compile(export_all).
 
 hello('GET', []) ->
