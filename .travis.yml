@@ -12,7 +12,7 @@ before_install:
   - "git clone git://github.com/evanmiller/ChicagoBoss.git"
   - "cd ChicagoBoss"
   - "make"
-  - "make app PROJECT=moebelportal"
+  - "make app PROJECT=moebelportal force=1"
   
 before_script:
   - "rebar boss c=start_cmd"
