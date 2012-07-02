@@ -14,7 +14,7 @@
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
 
--module(moebelportal_erlang_language_controller, [Req]).
+-module(moebelportal_language_controller, [Req]).
 -compile(export_all).
 
 type_locator() ->

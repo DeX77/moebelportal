@@ -13,7 +13,7 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(moebelportal_erlang_user_controller, [Req]).
+-module(moebelportal_user_controller, [Req]).
 -compile(export_all).
 
 type_locator() ->
