@@ -1,4 +1,4 @@
--module(moebelportal_erlang_01_news).
+-module(moebelportal_01_news).
 
 -export([init/0, stop/1]).
 
