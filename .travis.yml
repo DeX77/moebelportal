@@ -8,10 +8,13 @@ otp_release:
 
 
 before_install:
+  - "mkdir DeX77"
+  - "cd DeX77"
   - "git clone git://github.com/evanmiller/ChicagoBoss.git"
   - "cd ChicagoBoss"
   - "make"
-  - "cd .."
+  - "make app PROJECT=moebelportal"
+  - "cd"
   
 before_script:
   - "rebar boss c=start_cmd"
