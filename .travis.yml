@@ -19,10 +19,8 @@ before_install:
   - "cd ../moebelportal"
   - "cp ../ChicagoBoss/skel/priv/rebar/boss_plugin.erl priv/rebar/boss_plugin.erl"
 
-after_install:
-  - "bundle install"
-  
 before_script:
+  - "bundle install"
   - "rebar boss c=start_cmd"
   
 script: "cucumber"
