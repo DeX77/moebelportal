@@ -1,6 +1,5 @@
 source :gemcutter
 
-gem "rcov"
 gem "capybara"
 gem "gherkin"
 gem "cucumber"
