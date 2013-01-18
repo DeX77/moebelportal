@@ -9,3 +9,4 @@ coverage/**
 coverage.data
 log/**
 capybara-*.html
+*.beam
