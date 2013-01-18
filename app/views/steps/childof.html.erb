@@ -1,8 +1,0 @@
-<%=h get_label(@parent) %>
-<br />
-<%= form_tag :action => "create_childof" %>
-<%= hidden_field_tag(:id, @id) %>
-<%=h @association["-"].second.value %>: &nbsp;
-<%= select_tag(:step_id, options_for_select(@hash)) %>
-<br />
-<%= submit_tag "Speichern" %>
