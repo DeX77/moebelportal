@@ -10,3 +10,6 @@ coverage.data
 log/**
 capybara-*.html
 *.beam
+.idea
+deps/
+ebin/
