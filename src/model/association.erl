@@ -13,10 +13,11 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(association, [Id, TopicmapId, TopicId]).
+-module(association, [Id, TopicmapId, TypeId, ReifierId]).
 -compile(export_all).
 
 -belongs_to(topicmap).
--belongs_to(topic).
+-belongs_to_topic(type).
+-belongs_to_topic(reifier).
 
 -has({roles, many}).

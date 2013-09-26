@@ -18,6 +18,3 @@
 
 -belongs_to(topic).
 
-validation_tests() ->
-    [{fun() ->  boss_db:count(subject_locator, [value = value()]) < 1 end, 
-        "A subject_locator value must be unique"}].

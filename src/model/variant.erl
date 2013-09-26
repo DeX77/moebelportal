@@ -13,12 +13,8 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(name, [Id, ParentId, ReifierId, TypeId, Value]).
+-module(variant, [Id, ParentId, ReifierId, Value]).
 -compile(export_all).
 
 -belongs_to_topic(parent).
 -belongs_to_topic(reifier).
--belongs_to_topic(type).
-
--has({name_scopes, many}).
--has({variants, many}).

@@ -13,8 +13,20 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(topicmap, [Id]).
+-module(topicmap, [Id, ReifierId]).
 -compile(export_all).
+
+-belongs_to_topic(reifier). 
 
 -has({topics, many}).
 -has({associations, many}).
+-has({item_identifiers, many}).
+
+after_create() ->
+	case boss_db:count(item_identifier, [{value, equals, Id}]) > 0 of
+		true ->
+			ok;
+		false ->
+			II = item_identifier:new(id, Id, "", Id),
+			II:save()
+	end.
