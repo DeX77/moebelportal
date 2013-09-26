@@ -13,3 +13,4 @@ capybara-*.html
 .idea
 deps/
 ebin/
+*.iml
