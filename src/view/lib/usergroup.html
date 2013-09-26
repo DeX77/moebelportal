@@ -1,5 +1,14 @@
 &bull;
-<%= link_to h(get_label(usergroup)), usergroup_url(usergroup.id) %>&nbsp;
-<%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => usergroup.id%>&nbsp;
-<%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => usergroup.id%>&nbsp;
+<a href="{% url controller= "usergroup" action="show" %}">
+	% get_label locator_suffix="/types/usergroup" %}
+</a>
+&nbsp;
+<a href="{% url controller= "usergroup" action="edit" %}">
+	<img src="/static/images/edit.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "usergroup" action="delete" %}">
+	<img src="/static/images/remove.png", width="15", heigth="15"/>
+</a>
+&nbsp;
 <br />

@@ -1,5 +1,20 @@
+{% extends "lib/layout.html" %}
+
+{% block title %}List of steps{% endblock %}
+
+{% block body %}
+
 <h3>
-   <%=h get_label(@type) %>
-	<%= link_to image_tag("add.png", :size => "15x15"), :action => "new" %>&nbsp;
+   {% get_label locator_suffix="/types/step" %}
+   <a href="{% url controller= "step" action="create" %}">
+   	<img src="/static/images/add.png", width="15", heigth="15"/>
+   </a>
 </h3>
-<%= render :partial => "shared/step", :collection => @steps %>
+
+{% for step in steps %}
+    {% include "lib/step.html" with step=step %}
+{% empty %}
+    Sorry, no steps in this list!
+{% endfor %}
+
+{% endblock %}

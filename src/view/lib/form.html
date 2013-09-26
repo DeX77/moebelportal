@@ -1,28 +1,15 @@
-<%= label_tag "si", "ID" %>
-<br/>
-<%= text_field_tag "si", @nummer %>
-<br/>
-<%= label_tag "label", "Name" %>
-<br/>
-<% if @type.include?(@base_locator + "/types/step") %>
-  <input type="text" id="label" name="label" />
-  <script type="text/javascript">
-    $(function(){
-        setAutoComplete("label", "results", "../../materials/json/");
-    });
-  </script>
-<% else %>
-  <%= text_field_tag "label", get_label(@topic) %>
-<% end %>
-<br/>
-<br/>
-<%= label_tag "image_occ", "Image Link" %>
-<%= text_field_tag "image_occ", @image %>
-<br/>
-<br/>
-<%= label_tag "desc", "Description" %>
-<br/>
-<%= textile_editor("desc", @description) %>
-<br/>
-<br/>
-<%= submit_tag "Speichern" %>
+<form method="post">
+ID:<br />
+<input name="nummer" /><br /><br />
+
+Name:<br />
+<input name="label" /><br /><br />
+
+Image Link:<br />
+<input name="image_occ" /><br /><br />
+
+Description:<br />
+<input name="desc" /><br /><br />
+
+<input type="submit" value="Speichern" />
+</form>

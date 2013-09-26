@@ -9,3 +9,7 @@
 % {% reverse string="hello" %} => "olleh"
 %
 % Variables are the passed-in vars in your template
+
+get_label(Variables, Options) ->
+	string:concat(topicmap_engine:base_locator(),
+	binary_to_list(proplists:get_value(locator_suffix, Variables))).

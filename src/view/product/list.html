@@ -1,5 +1,20 @@
+{% extends "lib/layout.html" %}
+
+{% block title %}List of products{% endblock %}
+
+{% block body %}
+
 <h3>
-   <%=h get_label(@type) %>
-<%= link_to image_tag("add.png", :size => "15x15"), :action => "new" %>&nbsp;
+   {% get_label locator_suffix="/types/product" %}
+   <a href="{% url controller= "product" action="create" %}">
+   	<img src="/static/images/add.png", width="15", heigth="15"/>
+   </a>
 </h3>
-<%= render :partial => "shared/product", :collection => @products %>
+
+{% for product in products %}
+    {% include "lib/product.html" with product=product %}
+{% empty %}
+    Sorry, no products in this list!
+{% endfor %}
+
+{% endblock %}

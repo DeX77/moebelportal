@@ -1,6 +1,20 @@
-<h3>
-   <%=h get_label(@type) %>
-	<%= link_to image_tag("add.png", :size => "15x15"), :action => "new" %>&nbsp;
-</h3>
-<%= render :partial => "shared/tool", :collection => @tools %>
+{% extends "lib/layout.html" %}
 
+{% block title %}List of tools{% endblock %}
+
+{% block body %}
+
+<h3>
+   {% get_label locator_suffix="/types/tool" %}
+   <a href="{% url controller= "tool" action="create" %}">
+   	<img src="/static/images/add.png", width="15", heigth="15"/>
+   </a>
+</h3>
+
+{% for tool in tools %}
+    {% include "lib/tool.html" with tool=tool %}
+{% empty %}
+    Sorry, no tools in this list!
+{% endfor %}
+
+{% endblock %}

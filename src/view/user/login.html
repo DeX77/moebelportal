@@ -1,9 +1,19 @@
-<%= form_tag(validate_login_url)  %>
-<%= label_tag "login", "Login" %>
-<br/>
-<%= text_field_tag "login", "Login" %>
-<br/>
-<%= label_tag "pwd", "Password" %>
-<br/>
-<%= password_field "pwd", ""%> 
-<%= submit_tag "Login" %>
+{% extends "lib/layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<h1>Login</h1>
+
+<form method="post">
+Login:<br />
+<input name="login" /><br /><br />
+
+Password:<br />
+<input name="pwd_" type="password" /><br /><br />
+
+<input type="submit" value="Login" />
+</form>
+{% endblock %}
+

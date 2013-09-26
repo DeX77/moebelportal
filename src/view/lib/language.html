@@ -1,5 +1,10 @@
-&bull;
-<%= h(get_label(language))  %>&nbsp;
-<%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => language.id%>&nbsp;
-<%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => language.id%>&nbsp;
+&nbsp;
+<a href="{% url controller= "language" action="edit" %}">
+	<img src="/static/images/edit.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "language" action="delete" %}">
+	<img src="/static/images/remove.png", width="15", heigth="15"/>
+</a>
+&nbsp;
 <br />

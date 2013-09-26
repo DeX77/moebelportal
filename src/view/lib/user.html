@@ -1,5 +1,14 @@
 &bull;
-<%= link_to h(get_label(user)), user_url(user.id) %>&nbsp;
-<%= link_to image_tag("edit.png", :size => "15x15", :alt => "Edit "+ get_label(user)), :action => "edit", :id => user.id %>&nbsp;
-<%= link_to image_tag("remove.png", :size => "15x15", :alt => "Delete "+get_label(user)), :action => "destroy", :id => user.id %>&nbsp;
+<a href="{% url controller= "user" action="show" %}">
+	% get_label locator_suffix="/types/user" %}
+</a>
+&nbsp;
+<a href="{% url controller= "user" action="edit" %}">
+	<img src="/static/images/edit.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "user" action="delete" %}">
+	<img src="/static/images/remove.png", width="15", heigth="15"/>
+</a>
+&nbsp;
 <br />

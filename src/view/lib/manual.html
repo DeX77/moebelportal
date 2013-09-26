@@ -1,6 +1,18 @@
 &bull;
-<%= link_to h(get_label(manual)), manual_url(manual.id) %>&nbsp;
-<%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => manual.id%>&nbsp;
-<%= link_to image_tag("trans.png", :size => "15x15"), :action => "view_translate", :id => manual.id%>&nbsp;
-<%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => manual.id%>&nbsp;
+<a href="{% url controller= "manual" action="show" %}">
+	% get_label locator_suffix="/types/manual" %}
+</a>
+&nbsp;
+<a href="{% url controller= "manual" action="edit" %}">
+	<img src="/static/images/edit.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "manual" action="view_translate" %}">
+	<img src="/static/images/trans.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "manual" action="delete" %}">
+	<img src="/static/images/remove.png", width="15", heigth="15"/>
+</a>
+&nbsp;
 <br />

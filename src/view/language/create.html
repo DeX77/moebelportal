@@ -1,3 +1,11 @@
-<%= form_tag :action => "create" %>
-<%= textile_editor_initialize -%>
-<%= render :partial => "shared/form" %>
+{% extends "lib/layout.html" %}
+
+{% block title %}Create new langauges{% endblock %}
+
+{% block body %}
+
+{% include "lib/form.html" %}
+
+{% endblock %}
+
+

@@ -1,6 +1,18 @@
 &bull;
-<%= link_to h(get_label(tool)), tool_url(tool.id)%>&nbsp;
-<%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => tool.id%>&nbsp;
-<%= link_to image_tag("trans.png", :size => "15x15"), :action => "view_translate", :id => tool.id%>&nbsp;
-<%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => tool.id%>
+<a href="{% url controller= "tool" action="show" %}">
+	% get_label locator_suffix="/types/tool" %}
+</a>
+&nbsp;
+<a href="{% url controller= "tool" action="edit" %}">
+	<img src="/static/images/edit.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "tool" action="view_translate" %}">
+	<img src="/static/images/trans.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "tool" action="delete" %}">
+	<img src="/static/images/remove.png", width="15", heigth="15"/>
+</a>
+&nbsp;
 <br />

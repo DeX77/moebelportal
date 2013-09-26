@@ -1,6 +1,18 @@
 &bull;
-<%= link_to h(get_label(material)), material_url(material.id) %>&nbsp;
-<%= link_to image_tag("edit.png", :size => "15x15"), :action => "edit", :id => material.id%>&nbsp;
-<%= link_to image_tag("trans.png", :size => "15x15"), :action => "view_translate", :id => material.id%>&nbsp;
-<%= link_to image_tag("remove.png", :size => "15x15"), :action => "destroy", :id => material.id%>&nbsp;
+<a href="{% url controller= "material" action="show" %}">
+	% get_label locator_suffix="/types/material" %}
+</a>
+&nbsp;
+<a href="{% url controller= "material" action="edit" %}">
+	<img src="/static/images/edit.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "material" action="view_translate" %}">
+	<img src="/static/images/trans.png", width="15", heigth="15"/>
+</a>
+&nbsp;
+<a href="{% url controller= "material" action="delete" %}">
+	<img src="/static/images/remove.png", width="15", heigth="15"/>
+</a>
+&nbsp;
 <br />

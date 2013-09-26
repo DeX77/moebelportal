@@ -1,6 +1,20 @@
-<h3>
-   <%=h get_label(@type) %>   
-   <%= link_to image_tag("add.png", :size => "15x15"), :action => "new" %>&nbsp;
-</h3>
-<%= render :partial => "shared/user", :collection => @user %>
+{% extends "lib/layout.html" %}
 
+{% block title %}List of users{% endblock %}
+
+{% block body %}
+
+<h3>
+   {% get_label locator_suffix="/types/user" %}
+   <a href="{% url controller= "user" action="create" %}">
+   	<img src="/static/images/add.png", width="15", heigth="15"/>
+   </a>
+</h3>
+
+{% for user in users %}
+    {% include "lib/user.html" with user=user %}
+{% empty %}
+    Sorry, no users in this list!
+{% endfor %}
+
+{% endblock %}

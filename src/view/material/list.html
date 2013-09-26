@@ -1,5 +1,20 @@
+{% extends "lib/layout.html" %}
+
+{% block title %}List of materials{% endblock %}
+
+{% block body %}
+
 <h3>
-   <%=h get_label(@type) %>
-	<%= link_to image_tag("add.png", :size => "15x15"), :action => "new" %>&nbsp;   
+   {% get_label locator_suffix="/types/material" %}
+   <a href="{% url controller= "material" action="create" %}">
+   	<img src="/static/images/add.png", width="15", heigth="15"/>
+   </a>
 </h3>
-<%= render :partial => "shared/material", :collection => @materials %>
+
+{% for material in materials %}
+    {% include "lib/material.html" with material=material %}
+{% empty %}
+    Sorry, no materials in this list!
+{% endfor %}
+
+{% endblock %}
