@@ -13,7 +13,7 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(moebelportal_usergroup_controller, [Req]).
+-module(moebelportal_usergroup_controller, [Req, SessionID]).
 -compile(export_all).
 
 type_locator() ->
@@ -22,3 +22,21 @@ type_locator() ->
 list('GET', []) ->
     Usergroups = boss_db:find(topic, [locators, 'contains', type_locator]),
     {ok, [{usergroups, Usergroups}]}.
+
+before_(Action) ->
+	case Action of
+		"create" -> 
+			authentication:require_login(Req, SessionID);
+		_ -> ok
+		end.
+
+create('GET', []) ->
+    ok.
+
+show('GET', [UsergroupId]) ->
+	case boss_db:find(UsergroupId) of
+		undefined ->
+			{redirect, [{controller, "usergroup"}, {action, "list"}]};
+		Usergroup ->
+			{ok, [{usergroup, Usergroup}]}
+	end.

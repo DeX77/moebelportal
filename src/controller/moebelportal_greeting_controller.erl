@@ -10,6 +10,7 @@ list('GET', []) ->
 
 create('GET', []) ->
     ok;
+
 create('POST', []) ->
     GreetingText = Req:post_param("greeting_text"),
     NewGreeting = greeting:new(id, GreetingText),

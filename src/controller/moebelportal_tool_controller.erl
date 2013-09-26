@@ -13,7 +13,7 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(moebelportal_tool_controller, [Req]).
+-module(moebelportal_tool_controller, [Req, SessionID]).
 -compile(export_all).
 
 type_locator() ->
@@ -22,3 +22,21 @@ type_locator() ->
 list('GET', []) ->
     Tools = boss_db:find(topic, [locators, 'contains', type_locator]),
     {ok, [{tools, Tools}]}.
+
+before_(Action) ->
+	case Action of
+		"create" -> 
+			authentication:require_login(Req, SessionID);
+		_ -> ok
+		end.
+
+create('GET', []) ->
+    ok.
+
+show('GET', [ToolId]) ->
+	case boss_db:find(ToolId) of
+		undefined ->
+			{redirect, [{controller, "tool"}, {action, "list"}]};
+		Tool ->
+			{ok, [{tool, Tool}]}
+	end.

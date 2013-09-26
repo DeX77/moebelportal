@@ -13,7 +13,7 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(moebelportal_product_controller, [Req]).
+-module(moebelportal_product_controller, [Req, SessionID]).
 -compile(export_all).
 
 type_locator() ->
@@ -25,3 +25,21 @@ type_topic() ->
 list('GET', []) ->	
     Products = topicmap_engine:instances(type_topic()),
     {ok, [{products, Products}]}.
+
+before_(Action) ->
+	case Action of
+		"create" -> 
+			authentication:require_login(Req, SessionID);
+		_ -> ok
+		end.
+
+create('GET', []) ->
+    ok.
+
+show('GET', [ProductId]) ->
+	case boss_db:find(ProductId) of
+		undefined ->
+			{redirect, [{controller, "product"}, {action, "list"}]};
+		Product ->
+			{ok, [{product, Product}]}
+	end.

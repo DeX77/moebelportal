@@ -13,12 +13,30 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(moebelportal_manual_controller, [Req]).
+-module(moebelportal_manual_controller, [Req, SessionID]).
 -compile(export_all).
 
 type_locator() ->
 	string:concat(topicmap_engine:base_locator(), "/types/manual").
 
 list('GET', []) ->
-    Manuals = boss_db:find(topic, [locators, 'contains', type_locator]),
+    Manuals = boss_db:find(topic, [subject_identifiers, 'contains', type_locator]),
     {ok, [{manuals, Manuals}]}.
+
+before_(Action) ->
+	case Action of
+		"create" -> 
+			authentication:require_login(Req, SessionID);
+		_ -> ok
+		end.
+
+create('GET', []) ->
+    ok.
+
+show('GET', [ManualId]) ->
+	case boss_db:find(ManualId) of
+		undefined ->
+			{redirect, [{controller, "manual"}, {action, "list"}]};
+		Manual ->
+			{ok, [{manual, Manual}]}
+	end.

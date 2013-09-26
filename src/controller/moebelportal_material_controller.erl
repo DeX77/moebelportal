@@ -13,7 +13,7 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
--module(moebelportal_material_controller, [Req]).
+-module(moebelportal_material_controller, [Req, SessionID]).
 -compile(export_all).
 
 type_locator() ->
@@ -22,3 +22,21 @@ type_locator() ->
 list('GET', []) ->
     Materials = boss_db:find(topic, [locators, 'contains', type_locator]),
     {ok, [{materials, Materials}]}.
+
+before_(Action) ->
+	case Action of
+		"create" -> 
+			authentication:require_login(Req, SessionID);
+		_ -> ok
+		end.
+
+create('GET', []) ->
+    ok.
+
+show('GET', [MaterialId]) ->
+	case boss_db:find(MaterialId) of
+		undefined ->
+			{redirect, [{controller, "material"}, {action, "list"}]};
+		Material ->
+			{ok, [{material, Material}]}
+	end.

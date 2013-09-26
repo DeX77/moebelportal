@@ -13,33 +13,11 @@
 %%  this program; if not, write to the Free Software Foundation, Inc., 51 Franklin 
 %%  St, Fifth Floor, Boston, MA 02110, USA
 
-
--module(moebelportal_language_controller, [Req, SessionID]).
+-module(moebelportal_main_controller, [Req]).
 -compile(export_all).
 
-before_(Action) ->
-	case Action of
-		"create" -> 
-			authentication:require_login(Req, SessionID);
-		_ -> ok
-		end.
+lost('GET', []) ->
+	{ok, []}.
 
-type_locator() ->
-	string:concat(topicmap_engine:base_locator(), "/types/language").
-
-create('GET', []) ->
-    ok.
-
-list('GET', []) ->
-    Languages = boss_db:find(topic, [locators, 'contains', type_locator]),
-    {ok, [{languages, Languages}]}.
-
-show('GET', [LanguageId]) ->
-	Language = boss_db:find(LanguageId),
-	case Language /= undefined of
-		true ->
-			{ok, [{language, Language}]};
-		false ->
-			{redirect, [{controller, "language"}, {action, "list"}]}
-	end.
-	
+internal_error('GET', []) ->
+	{ok, []}.
