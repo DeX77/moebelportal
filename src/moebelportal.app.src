@@ -1,8 +1,8 @@
-{application, moebelporta, [
-        {description, "IKEA Moebelportal"},
-        {vsn, "0.2.0"},
+{application, moebelportal, [
+        {description, "IKEA Mobelportal"},
+        {vsn, "0.2.1"},
         {modules, []},
         {registered, []},
-        {applications, [kernel, stdlib, crypto, boss]},
+        {applications, [kernel, stdlib, crypto]},
         {env, []}
     ]}.
